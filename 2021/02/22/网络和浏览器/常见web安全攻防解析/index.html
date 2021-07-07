@@ -1,0 +1,707 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>React step 1 —— React初级使用 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="React step 1 —— React初级使用">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-22 19:38" pubdate>
+        February 22, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      54
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">React step 1 —— React初级使用</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一、XSS"><a href="#一、XSS" class="headerlink" title="一、XSS"></a>一、XSS</h2><p><code>XSS（Cross-site Scripting）</code>，跨站脚本攻击是指通过存在安全漏洞的web网站注册用户的浏览器内运行非法的HTML标签或JavaScript进行的一种攻击。<br>XSS的原理是恶意攻击者通过向Web页面插入恶意可执行的网页脚本代码，当用户浏览该页时，嵌入其Web里面的脚本代码会被执行，从而达到窃取用户信息或侵犯用户安全隐私的目的。</p>
+<p>XSS的攻击方式大致分为非持久型XSS（反射型XSS）和持久型XSS（存储型XSS）</p>
+<h3 id="1-反射型XSS-非持久型XSS"><a href="#1-反射型XSS-非持久型XSS" class="headerlink" title="(1) 反射型XSS (非持久型XSS)"></a>(1) 反射型XSS (非持久型XSS)</h3><p>反射型XSS 一般是通过给别人发送带有恶意脚本代码参数的URL，当URL地址被打开时，特有的恶意代码参数会被HTML解析并执行。</p>
+<pre><code class="hljs javascript">
+<span class="hljs-comment">// 攻击方式一： 通过执行URL上注入的脚本，盗取用户敏感信息：</span>
+<span class="hljs-comment">// 比如：通过UTL  `https://xxx.com/xxx?default=&lt;script&gt;alert(document.cookie)&lt;/script&gt;` </span>
+<span class="hljs-comment">// 注入可执行的脚本代码, 获取用户的cookie</span>
+
+
+<span class="hljs-comment">// 攻击方式二：通过用户请求 注入在URL上的链接，将攻击者提供的脚本将在用户的浏览器中执行：</span>
+
+<span class="hljs-comment">// 某网站具有搜索功能，该功能通过 URL 参数接收用户提供的搜索词：</span>
+<span class="hljs-comment">// https: //xxx.com/search?query=123</span>
+
+<span class="hljs-comment">// 服务器在对此 URL 的响应中回显提供的搜索词：</span>
+<span class="hljs-comment">// &lt;p&gt;您搜索的是: 123&lt;/p&gt;</span>
+
+<span class="hljs-comment">// 如果服务器不对数据进行转义等处理，则攻击者可以构造如下链接进行攻击：</span>
+<span class="hljs-comment">// https://xxx.com/search?query=&lt;img src=&quot;empty.png&quot; onerror =&quot;alert(&#x27;xss&#x27;)&quot;&gt;</span>
+
+<span class="hljs-comment">// 该 URL 将导致以下响应，并运行 alert(&#x27;xss&#x27;)：</span>
+<span class="hljs-comment">// &lt;p&gt;您搜索的是: &lt;img src=&quot;empty.png&quot; onerror =&quot;alert(&#x27;xss&#x27;)&quot;&gt;&lt;/p&gt;</span>
+
+<span class="hljs-comment">// 如果有用户请求攻击者的 URL ，则攻击者提供的脚本将在用户的浏览器中执行。</span></code></pre>
+
+<p>不过大部分的浏览器如Chrome内置了一些XSS过滤器，可以防止大部分的反射型XSS攻击。</p>
+<p>非持久性XSS有以下几个特征：</p>
+<ul>
+<li>XSS 脚本来自当前 HTTP 请求，不经过服务器存储，直接通过一次HTTP的请求完成攻击</li>
+<li>攻击者需要诱骗用户点击链接才能发起攻击</li>
+</ul>
+<h3 id="2-持久型XSS（存储型XSS）"><a href="#2-持久型XSS（存储型XSS）" class="headerlink" title="(2)持久型XSS（存储型XSS）"></a>(2)持久型XSS（存储型XSS）</h3><p>持久型XSS（存储型XSS）一般存在于form表单提交等交互功能，如文章留言、评论、提交文本信息等，攻击者将带有可执行的HTML代码或script代码通过表单内容经正常功能提交进入数据库持久保存，当前端页面通过后端从数据库读出注入的代码时，浏览器恰好将其渲染执行。<br>持久型XSS（存储型XSS）不需要诱骗点击，只需要在提交表单的地方完成注入即可，但是这种XSS攻击的成本相对还是很高。</p>
+<p>攻击成功需要满足以下几点：</p>
+<ul>
+<li>POST请求提交表单后端没有做转义直接入库</li>
+<li>后端从数据库取出数据后没做转义直接输出给前端</li>
+<li>前端拿到后端的数据没做转义直接渲染成 DOM</li>
+</ul>
+<h3 id="3-如何防御-XSS"><a href="#3-如何防御-XSS" class="headerlink" title="(3) 如何防御 XSS"></a>(3) 如何防御 XSS</h3><ul>
+<li><p>服务端防御措施：</p>
+<p>  1）CSP</p>
+<p>  CSP的本质上是建立白名单，开发者明确告诉浏览器哪些外部资源可以加载和执行。我们只需要配合规则，如何拦截是由浏览器自己实现的。</p>
+<p>  通常可以通过两种方式开启CSP：</p>
+<p>  1.设置 HTTP的Header中Content-Security-Policy<br>  2.设置meta标签的方式</p>
+<p>  比如设置HTTP Header：</p>
+  <pre><code class="hljs text">// 只允许加载本站资源
+Content-Security-Policy: default-src &#x27;self&#x27;
+// 只允许加载HTTPS协议图片
+Content-Security-Policy: img-src https://* 
+// 允许加载任何来源框架
+Content-Security-Policy: child-src &#x27;none&#x27;</code></pre>
+
+<p>  对于这种方式来说，只要开发者配置了正确的规则，那么即使网站存在漏洞，攻击者也不能执行他的攻击代码，并且CSP的兼容性也很好。</p>
+<p>  2）转义字符</p>
+<p>  用户的输入永远不可信任，最普遍的做法是转义输入输出内容，对引号、尖括号、斜杠进行转义。</p>
+  <pre><code class="hljs javascript">str.replace(<span class="hljs-regexp">/&gt;/g</span>, <span class="hljs-string">&#x27;&amp;gt;&#x27;</span>)
+str.replace(<span class="hljs-regexp">/&lt;/g</span>), <span class="hljs-string">&#x27;$lt;&#x27;</span>)
+<span class="hljs-comment">// 但是对于显示富文本来说，不能通过上面的方法转义所有字符，因为这样会把需要的格式也过滤掉。</span>
+<span class="hljs-comment">// 这是需要通过白名单过滤的方法（黑名单也可以，但是需要过滤的的标签和标签属性太多，推荐使用白名单）</span>
+
+<span class="hljs-comment">// 实例用js-xss来实现</span>
+<span class="hljs-keyword">const</span> jsXSs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;xss&#x27;</span>)
+<span class="hljs-keyword">let</span> html = jsXss(<span class="hljs-string">&#x27;&lt;h1 id=&#x27;</span>title<span class="hljs-string">&#x27;&gt;XSS Code&lt;/h1&gt;&lt;script&gt;alert(&#x27;</span>xss<span class="hljs-string">&#x27;)&lt;/script&gt;&#x27;</span>)</code></pre>
+
+<p>  3）httpOnly cookie<br>  这是预防xss攻击最有效的防御手段，可以避免网页的cookie被JavaScript代码恶意窃取。</p>
+</li>
+<li><p>非持久型XSS防御措施：</p>
+<ul>
+<li>Web 页面渲染的所有内容和和渲染的所有数据必须来自服务端</li>
+<li>尽量不要从URL、document.referrer（上一个页面的URL）、document.forms等这种DOM API中获取数据直接渲染</li>
+<li>尽量不要使用eval、new Function()、document.write()、innerHTML、window.setTimeout、document.createElement()等可执行字符串的方法</li>
+<li>如果做不到以上几点，也必须对涉及DOM渲染的方法传入的字符串参数做escape转义</li>
+<li>前端渲染的时候对任何的字段都需要做escape转义编码</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、CSRF"><a href="#二、CSRF" class="headerlink" title="二、CSRF"></a>二、CSRF</h2><p><code>CSRF（Cross Site Request Forgery）</code> 即跨站伪造请求，是一种常见的web攻击。它利用用户已登录的身份，在用户毫不知情的情况下，以用户的名义完成非法操作。</p>
+<p>完成CSRF需要满足三个条件：</p>
+<ul>
+<li>1)用户已经登录了站点A，并在本地记录了cookie</li>
+<li>2)用户在没有登出站点A的情况下（也就是Cookie生效的情况下），从该网站访问了恶意攻击者提供的引诱危险站点B（B站点要求访问站点A）</li>
+<li>3)站点A没有做任何CSRF攻击</li>
+</ul>
+<p>防范CSRF攻击可以遵循以下几种原则：</p>
+<ul>
+<li>Get请求不对数据进行修改</li>
+<li>不让第三方网站访问用户cookie</li>
+<li>阻止第三方网站请求接口</li>
+<li>请求时附带验证信息，比如验证码或者token</li>
+</ul>
+<p>如何防御：</p>
+<ul>
+<li><p>1）SameSite<br>可以对Cookie设置SameSite属性。该属性表示Cookie不能随着跨域请求发送，可以很大程度上减少CSRF攻击，但是该属性不是所有浏览器都兼容。</p>
+</li>
+<li><p>2）Referer Check<br>HTTP Referer 是header的一部分，当浏览器向web服务器发送请求时，一般会带上Referer信息告诉服务器是从哪个页面链接过来的，用来获取请求者的信息。<br>服务器可以通过检查请求者的来源来防御CSRF攻击。通过检查HTTP包中的头Referer的值是不是这个页面，来判断是不是CSRF攻击。<br>但是某些情况下，如从https跳转到http，浏览器处于安全考虑，不会发送referer，此时服务器就无法check了，因此不能完全依赖Referer Check作为防御CSRF的主要手段。</p>
+</li>
+<li><p>3）Anti CSRF Token<br>Token可以在用户登陆后产生并存在session或cookie中，然后每次    请求时，服务器验证token的有效性和真实性。由于token的存在，攻击者无法再构造出一个完整的 URL实施CSRF攻击。</p>
+</li>
+<li><p>4）验证码<br>应用程序与用户交互过程中，特别是账户交易这种核心步骤，强制用户输入验证码，才能完成请求。验证码可以很好的遏制CSRF攻击，但是验证码降低了用户体验，只能在关键业务点设置验证码。</p>
+</li>
+</ul>
+<h2 id="三、SQL注入"><a href="#三、SQL注入" class="headerlink" title="三、SQL注入"></a>三、SQL注入</h2><p>一次SQL注入包括以下几个过程：</p>
+<ul>
+<li>获取用户请求参数</li>
+<li>拼接到代码中</li>
+<li>SQL语句按照我们构造参数的语义执行成功</li>
+</ul>
+<p>SQL注入必备的条件：1、可以控制输入的数据；2、服务器要执行的代码拼接了控制的数据。<br>SQL注入的本质是：数据和代码未分离，即数据当作代码来执行。</p>
+<p>如何防御：</p>
+<ul>
+<li>1）严格限制Web应用的数据库的操作权限；</li>
+<li>2）后台代码检查输入的数据是否符合预期；</li>
+<li>3）对进入数据库的特殊字符（如*&lt;&gt;&amp;|等）进行转义处理，或编码转换；</li>
+<li>4）所有的检查语句建议使用数据库提供的参数化查询接口，即不要直接拼接SQL语句</li>
+</ul>
+<h2 id="四、OS命令注入攻击"><a href="#四、OS命令注入攻击" class="headerlink" title="四、OS命令注入攻击"></a>四、OS命令注入攻击</h2><p>OS命令注入与 SQL注入差不多，只不过OS命令注入是针对操作系统的。<br>OS命令注入攻击是指通过web应用，执行非法的操作系统命令达到攻击的目的，只要能调用shell函数的地方就存在被攻击的风险。<br>比如：黑客构造命令提交到web应用程序，web应用程序提取命令并且拼接到被执行的命令中，因黑客构造的命令打破了原有命令结构，导致web应用执行了黑客构造的命令。</p>
+<p>如何防御：</p>
+<ul>
+<li>1）后端对前端提交内容进行规则检查（比如正则表达式）</li>
+<li>2）在调用系统命令前对所有传入参数进行转义过滤</li>
+<li>3）不要直接拼接命令语句，借助一些工具做拼接、转义处理，例如NodeJS的 shell-escape npm包</li>
+</ul>
+<h2 id="五、点击劫持"><a href="#五、点击劫持" class="headerlink" title="五、点击劫持"></a>五、点击劫持</h2><p>点击劫持是一种视觉欺骗的攻击手段，攻击者将需要攻击的网站通过iframe嵌套的方式嵌入自己的网页中，并将iframe设置为透明，在页面中透出一个按钮诱惑用户点击。  </p>
+<p>特点：</p>
+<ul>
+<li>隐蔽性高，骗取用户操作</li>
+<li>UI-覆盖攻击</li>
+<li>利用iframe或其他标签的属性</li>
+</ul>
+<p>如何防御：</p>
+<ul>
+<li><p>1）X-Frame-Options<br>X-Frame-Options是一个Http相应头，这个相应头就是为了防御iframe嵌套的点击劫持攻击，在现在浏览器中有一个很好的支持。<br>X-Frame-Options有3个值可选：</p>
+<ul>
+<li>Deny：表示页面不允许通过iframe的方式展示</li>
+<li>SameOrion：表示页面允许通过相同的域名下通过iframe的方式展示</li>
+<li>AllowFrom：表示页面可以在指定来源的iframe中展示</li>
+</ul>
+</li>
+<li><p>2）JavaScript防御<br>对于不支持X-Frame-Options的远古浏览器来说，只能通过JS的方式来防御点击劫持了。</p>
+</li>
+</ul>
+<h2 id="六、URL跳转漏洞"><a href="#六、URL跳转漏洞" class="headerlink" title="六、URL跳转漏洞"></a>六、URL跳转漏洞</h2><p>借助未验证的URL跳转，将应用程序引导到不安全的第三方区域，从而导致安全问题。<br>其原理是黑客构造恶意链接（链接需要进行伪装，尽可能迷惑），发布到QQ群或者贴吧、论坛中，当用户点击后经过服务器或者浏览器解析后，跳转到恶意的网站中。<br>恶意链接一般是在熟悉的链接后面加上一个恶意的网站，这样才能迷惑用户。<br>一般通过Header头跳转、JavaScript跳转、META标签跳转等方式实现。</p>
+<p>例如：<br><code>http://www.baidu.com?act=go&amp;url=http://t.cn/RVTatrd</code><br><code>http://www.qq.com?flag=1&amp; jumpTo=http://t.cn/RVTatrd</code><br><code>http://www.taobao.com?jumpUrl= http://t.cn/RVTatrd</code></p>
+<p>如何防御：</p>
+<ul>
+<li><p>1）Referer限制<br>保证跳转来源地址的可靠性和有效性，避免恶意用户自己生成跳转链接</p>
+</li>
+<li><p>2）加入有效的token<br>通过在URL中加入用户不可控的token对生成的链接进行校验，从而避免恶意用户生成自己的链接而被利用。缺点：如果功能本身要求比较开放，可能导致有一定的限制。</p>
+</li>
+</ul>
+<h2 id="七、React-如何防止-XSS-攻击"><a href="#七、React-如何防止-XSS-攻击" class="headerlink" title="七、React 如何防止 XSS 攻击"></a>七、React 如何防止 XSS 攻击</h2><p>无论使用哪种攻击方式，其本质就是将恶意代码注入到应用中，浏览器去默认执行。<br>React 官方中提到了 React DOM 在渲染所有输入内容之前，默认会进行转义。<br>它可以确保在你的应用中，永远不会注入那些并非自己明确编写的内容。所有的内容在渲染之前都被转换成了字符串，因此恶意代码无法成功注入，从而有效地防止了 XSS 攻击。</p>
+<h3 id="1、React-的防止措施"><a href="#1、React-的防止措施" class="headerlink" title="1、React 的防止措施"></a>1、React 的防止措施</h3><h4 id="1-自动转义"><a href="#1-自动转义" class="headerlink" title="(1) 自动转义"></a>(1) 自动转义</h4><p>React 在渲染 HTML 内容和渲染 DOM 属性时都会将 “‘&amp;&lt;&gt; 这几个字符进行转义，转义部分源码如下：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">for</span> (index = match.index; index &lt; str.length; index++) &#123;
+  <span class="hljs-keyword">switch</span> (str.charCodeAt(index)) &#123;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">34</span>: <span class="hljs-comment">// &quot;</span>
+      <span class="hljs-built_in">escape</span> = <span class="hljs-string">&#x27;&amp;quot;&#x27;</span>;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">38</span>: <span class="hljs-comment">// &amp;</span>
+      <span class="hljs-built_in">escape</span> = <span class="hljs-string">&#x27;&amp;amp;&#x27;</span>;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">39</span>: <span class="hljs-comment">// &#x27;</span>
+      <span class="hljs-built_in">escape</span> = <span class="hljs-string">&#x27;&amp;#x27;&#x27;</span>;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">60</span>: <span class="hljs-comment">// &lt;</span>
+      <span class="hljs-built_in">escape</span> = <span class="hljs-string">&#x27;&amp;lt;&#x27;</span>;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">62</span>: <span class="hljs-comment">// &gt;</span>
+      <span class="hljs-built_in">escape</span> = <span class="hljs-string">&#x27;&amp;gt;&#x27;</span>;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">continue</span>;
+    &#125;
+  &#125;</code></pre>
+
+<p>这段代码是 React 在渲染到浏览器前进行的转义，可以看到对浏览器有特殊含义的字符都被转义了，恶意代码在渲染到 HTML 前都被转成了字符串，如下：</p>
+<pre><code class="hljs html">一段恶意代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;empty.png&quot;</span> <span class="hljs-attr">onerror</span> =<span class="hljs-string">&quot;alert(&#x27;xss&#x27;)&quot;</span>&gt;</span> 
+
+转义后输出到 html 中:
+<span class="hljs-symbol">&amp;lt;</span>img src=<span class="hljs-symbol">&amp;quot;</span>empty.png<span class="hljs-symbol">&amp;quot;</span> onerror =<span class="hljs-symbol">&amp;quot;</span>alert(<span class="hljs-symbol">&amp;#x27;</span>xss<span class="hljs-symbol">&amp;#x27;</span>)<span class="hljs-symbol">&amp;quot;</span><span class="hljs-symbol">&amp;gt;</span></code></pre>
+
+<p>这样就有效的防止了 XSS 攻击。</p>
+<h4 id="2-JSX-语法"><a href="#2-JSX-语法" class="headerlink" title="(2) JSX 语法"></a>(2) JSX 语法</h4><p><code>JSX</code> 实际上是一种语法糖，<code>Babel</code> 会把 <code>JSX</code> 编译成 <code>React.createElement()</code> 的函数调用，最终返回一个 <code>ReactElement</code>，以下为这几个步骤对应的代码：</p>
+<pre><code class="hljs javaScript"><span class="hljs-comment">// JSX</span>
+<span class="hljs-keyword">const</span> element = (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;greeting&quot;</span>&gt;</span></span>
+<span class="xml">    Hello, world!</span>
+<span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+);
+<span class="hljs-comment">// 通过 babel 编译后的代码</span>
+<span class="hljs-keyword">const</span> element = React.createElement(
+  <span class="hljs-string">&#x27;h1&#x27;</span>,
+  &#123;<span class="hljs-attr">className</span>: <span class="hljs-string">&#x27;greeting&#x27;</span>&#125;,
+  <span class="hljs-string">&#x27;Hello, world!&#x27;</span>
+);
+<span class="hljs-comment">// React.createElement() 方法返回的 ReactElement</span>
+<span class="hljs-keyword">const</span> element = &#123;
+  <span class="hljs-attr">$$typeof</span>: <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&#x27;react.element&#x27;</span>),
+  <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;h1&#x27;</span>,
+  <span class="hljs-attr">key</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-attr">children</span>: <span class="hljs-string">&#x27;Hello, world!&#x27;</span>,
+      <span class="hljs-attr">className</span>: <span class="hljs-string">&#x27;greeting&#x27;</span>   
+  &#125;
+  ...
+&#125;</code></pre>
+
+<p>我们可以看到，最终渲染的内容是在 Children 属性中，那了解了 JSX 的原理后，我们来试试能否通过构造特殊的 Children 进行 XSS 注入，来看下面一段代码：</p>
+<pre><code class="hljs javaScript"><span class="hljs-keyword">const</span> storedData = <span class="hljs-string">`&#123;</span>
+<span class="hljs-string">  &quot;ref&quot;:null,</span>
+<span class="hljs-string">  &quot;type&quot;:&quot;body&quot;,</span>
+<span class="hljs-string">  &quot;props&quot;:&#123;</span>
+<span class="hljs-string">  &quot;dangerouslySetInnerHTML&quot;:&#123;</span>
+<span class="hljs-string">  &quot;__html&quot;:&quot;&lt;img src=\&quot;empty.png\&quot; onerror =\&quot;alert(&#x27;xss&#x27;)\&quot;/&gt;&quot;</span>
+<span class="hljs-string">      &#125;</span>
+<span class="hljs-string">  &#125;</span>
+<span class="hljs-string">&#125;`</span>;
+<span class="hljs-comment">// 转成 JSON</span>
+<span class="hljs-keyword">const</span> parsedData = <span class="hljs-built_in">JSON</span>.parse(storedData);
+<span class="hljs-comment">// 将数据渲染到页面</span>
+render () &#123;
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span> &#123;parsedData&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>; 
+&#125;</code></pre>
+
+<p>这段代码中， 运行后会报以下错误，提示不是有效的 ReactChild</p>
+<pre><code class="hljs javaScript">Uncaught (<span class="hljs-keyword">in</span> promise) <span class="hljs-built_in">Error</span>: Objects are not valid <span class="hljs-keyword">as</span> a React child (found: object <span class="hljs-keyword">with</span> keys &#123;ref, type, props&#125;). 
+If you meant to render a collection <span class="hljs-keyword">of</span> children, use an array instead.</code></pre>
+
+<p>那究竟是哪里出问题了？我们看一下 ReactElement 的源码：</p>
+<pre><code class="hljs javaScript"><span class="hljs-keyword">const</span> symbolFor = <span class="hljs-built_in">Symbol</span>.for;
+REACT_ELEMENT_TYPE = symbolFor(<span class="hljs-string">&#x27;react.element&#x27;</span>);
+<span class="hljs-keyword">const</span> ReactElement = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">type, key, ref, self, source, owner, props</span>) </span>&#123;
+  <span class="hljs-keyword">const</span> element = &#123;
+    <span class="hljs-comment">// 这个 tag 唯一标识了此为 ReactElement</span>
+    <span class="hljs-attr">$$typeof</span>: REACT_ELEMENT_TYPE,
+    <span class="hljs-comment">// 元素的内置属性</span>
+    <span class="hljs-attr">type</span>: type,
+    <span class="hljs-attr">key</span>: key,
+    <span class="hljs-attr">ref</span>: ref,
+    <span class="hljs-attr">props</span>: props,
+    <span class="hljs-comment">// 记录创建此元素的组件</span>
+    <span class="hljs-attr">_owner</span>: owner,
+  &#125;;
+  ...
+  <span class="hljs-keyword">return</span> element;
+&#125;</code></pre>
+
+<p>注意到其中有个属性是 <code>$$typeof</code>，它是用来标记此对象是一个 <code>ReactElement</code>，<code>React</code> 在进行渲染前会通过此属性进行校验，校验不通过将会抛出上面的错误。<br><code>React</code> 利用这个属性来防止通过构造特殊的 <code>Children</code> 来进行的 <code>XSS</code> 攻击，原因是 <code>$$typeof</code> 是个 <code>Symbol</code> 类型，进行 <code>JSON</code> 转换后会 <code>Symbol</code> 值会丢失，无法在前后端进行传输。<br>如果用户提交了特殊的 <code>Children</code>，也无法进行渲染，利用此特性，可以防止存储型的 <code>XSS</code> 攻击。</p>
+<h3 id="2、React-中可能引起漏洞的一些写法"><a href="#2、React-中可能引起漏洞的一些写法" class="headerlink" title="2、React 中可能引起漏洞的一些写法"></a>2、React 中可能引起漏洞的一些写法</h3><h4 id="1-使用-dangerouslySetInnerHTML"><a href="#1-使用-dangerouslySetInnerHTML" class="headerlink" title="(1) 使用 dangerouslySetInnerHTML"></a>(1) 使用 dangerouslySetInnerHTML</h4><p>dangerouslySetInnerHTML 是 React 为浏览器 DOM 提供 innerHTML 的替换方案。通常来讲，使用代码直接设置 HTML 存在风险，因为很容易使用户暴露在 XSS 攻击下，因为当使用 dangerouslySetInnerHTML 时，React 将不会对输入进行任何处理并直接渲染到 HTML 中，如果攻击者在 dangerouslySetInnerHTML 传入了恶意代码，那么浏览器将会运行恶意代码。看下源码：</p>
+<pre><code class="hljs javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getNonChildrenInnerMarkup</span>(<span class="hljs-params">props</span>) </span>&#123;
+	<span class="hljs-comment">// 有dangerouslySetInnerHTML属性，会不经转义就渲染__html的内容</span>
+  <span class="hljs-keyword">const</span> innerHTML = props.dangerouslySetInnerHTML; 
+  <span class="hljs-keyword">if</span> (innerHTML != <span class="hljs-literal">null</span>) &#123;
+    <span class="hljs-keyword">if</span> (innerHTML.__html != <span class="hljs-literal">null</span>) &#123;
+      <span class="hljs-keyword">return</span> innerHTML.__html;
+    &#125;
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-keyword">const</span> content = props.children;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> content === <span class="hljs-string">&#x27;string&#x27;</span> || <span class="hljs-keyword">typeof</span> content === <span class="hljs-string">&#x27;number&#x27;</span>) &#123;
+      <span class="hljs-keyword">return</span> escapeTextForBrowser(content);
+    &#125;
+  &#125;
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+&#125;</code></pre>
+
+<p>所以平时开发时最好避免使用 dangerouslySetInnerHTML，如果不得不使用的话，前端或服务端必须对输入进行相关验证，例如对特殊输入进行过滤、转义等处理。<br>前端这边处理的话，推荐使用白名单过滤 <code>(https://jsxss.com/zh/index.html)</code>，通过白名单控制允许的 HTML 标签及各标签的属性。</p>
+<h4 id="2-通过用户提供的对象来创建-React-组件"><a href="#2-通过用户提供的对象来创建-React-组件" class="headerlink" title="(2) 通过用户提供的对象来创建 React 组件"></a>(2) 通过用户提供的对象来创建 React 组件</h4><p>举个例子：</p>
+<pre><code class="hljs javaScript"><span class="hljs-comment">// 用户的输入</span>
+<span class="hljs-keyword">const</span> userProvidePropsString = <span class="hljs-string">`&#123;&quot;dangerouslySetInnerHTML&quot;:&#123;&quot;__html&quot;:&quot;&lt;img onerror=&#x27;alert(\&quot;xss\&quot;);&#x27; src=&#x27;empty.png&#x27; /&gt;&quot;&#125;&#125;&quot;`</span>;
+<span class="hljs-comment">// 经过 JSON 转换</span>
+<span class="hljs-keyword">const</span> userProvideProps = <span class="hljs-built_in">JSON</span>.parse(userProvidePropsString);
+<span class="hljs-comment">// userProvideProps = &#123;</span>
+<span class="hljs-comment">//   dangerouslySetInnerHTML: &#123;</span>
+<span class="hljs-comment">//     &quot;__html&quot;: `&lt;img onerror=&#x27;alert(&quot;xss&quot;);&#x27; src=&#x27;empty.png&#x27; /&gt;`</span>
+<span class="hljs-comment">//      &#125;</span>
+<span class="hljs-comment">// &#125;;</span>
+<span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;
+     <span class="hljs-comment">// 出于某种原因解析用户提供的 JSON 并将对象作为 props 传递</span>
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> &#123;<span class="hljs-attr">...userProvideProps</span>&#125; /&gt;</span></span> 
+&#125;</code></pre>
+
+<p>这段代码将用户提供的数据进行 JSON 转换后直接当做 div 的属性，当用户构造了类似例子中的特殊字符串时，页面就会被注入恶意代码，所以要注意平时在开发中不要直接使用用户的输入作为属性。</p>
+<h4 id="3-使用用户输入的值来渲染-a-标签的-href-属性，或类似-img-标签的-src-属性等"><a href="#3-使用用户输入的值来渲染-a-标签的-href-属性，或类似-img-标签的-src-属性等" class="headerlink" title="(3) 使用用户输入的值来渲染 a 标签的 href 属性，或类似 img 标签的 src 属性等"></a>(3) 使用用户输入的值来渲染 a 标签的 href 属性，或类似 img 标签的 src 属性等</h4><pre><code class="hljs javaScript"><span class="hljs-keyword">const</span> userWebsite = <span class="hljs-string">&quot;javascript:alert(&#x27;xss&#x27;);&quot;</span>;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#123;userWebsite&#125;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></code></pre>
+
+<p>如果没有对该 URL 进行过滤以防止通过 javascript: 或 data: 来执行 JavaScript，则攻击者可以构造 XSS 攻击，此处会有潜在的安全问题。用户提供的 URL 需要在前端或者服务端在入库之前进行验证并过滤。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/ljianshu/Blog/issues/56">常见六大Web安全攻防解析</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/yf0jhXiCXw8oTbjoUI3tYw">浅谈 React 中的 XSS 攻击</a></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>
+                    
+                      <a class="hover-with-bg" href="/tags/web%E5%AE%89%E5%85%A8/">web安全</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/22/%E7%BD%91%E7%BB%9C%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8/nginx/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">nginx</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/22/%E7%BD%91%E7%BB%9C%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8EJS%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/">
+                        <span class="hidden-mobile">浏览器与JS运行机制</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

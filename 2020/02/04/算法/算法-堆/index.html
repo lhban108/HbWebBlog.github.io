@@ -1,0 +1,872 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>算法 - 堆 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="算法 - 堆">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-02-04 14:02" pubdate>
+        February 4, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      39
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">算法 - 堆</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一、堆是什么"><a href="#一、堆是什么" class="headerlink" title="一、堆是什么"></a>一、堆是什么</h2><ul>
+<li>堆是一种特殊的完全二叉树</li>
+<li>所有的节点都大于等于（最大堆）或者 小于等于（最小堆）它的子节点</li>
+</ul>
+<p>最大堆：<br><img src="https://i.loli.net/2021/01/03/U9g6mZKP7zpkSH5.png" srcset="/img/loading.gif" width="35%" height="35%"></p>
+<p>最小堆：<br><img src="https://i.loli.net/2021/01/03/q1PZ98B3iYEXUjw.png" srcset="/img/loading.gif" width="35%" height="35%"></p>
+<p>JS 中如何表示堆：</p>
+<ul>
+<li>JS 中通常用数组表示堆</li>
+<li>左侧子节点的位置: <code>2 * index + 1</code></li>
+<li>右侧子节点的位置: <code>2 * index + 2</code></li>
+<li>父节点的位置: <code>(index - 1) / 2</code></li>
+</ul>
+<img src="https://i.loli.net/2021/01/03/HUXBaTKo15dpO8M.png" srcset="/img/loading.gif" width="45%" height="45%">
+
+<p>堆的应用：</p>
+<ul>
+<li>堆能高效、快速的找出最大值和最小值——之间复杂度是 O(1)</li>
+<li>找出第 K 个最大（小）值<ul>
+<li>构建一个最小堆，并将元素一次插入堆中</li>
+<li>当堆的容量超过 K，就删除堆顶</li>
+<li>插入结束后，堆顶就是第 K 个最大元素</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、通过-JavaScript-实现堆"><a href="#二、通过-JavaScript-实现堆" class="headerlink" title="二、通过 JavaScript 实现堆"></a>二、通过 JavaScript 实现堆</h2><p>步骤：</p>
+<ol>
+<li>在类里，声明一个数组，用来装元素</li>
+<li>主要方法： 插入、删除堆顶、获取堆顶、获取堆顶大小</li>
+</ol>
+<ul>
+<li>插入：<ul>
+<li>将值插入堆的底部，即数组的尾部</li>
+<li>然后上移：将这个值和它的父节点进行交换，直到父节点小于等于这个插入的值</li>
+<li>大小为 K 的堆中插入元素的时间复杂度为O(logK)</li>
+</ul>
+</li>
+<li>删除堆顶<ul>
+<li>用数组尾部元素替换堆顶（直接删除堆顶会破坏堆结构）</li>
+<li>然后下移：将新堆顶和它的子节点进行交换，直到子节点大于等于这个新堆顶</li>
+<li>大小为 K 的堆中删除堆顶的时间复杂度为O(logK)</li>
+</ul>
+</li>
+<li>获取堆顶：返回数组的头部</li>
+<li>获取堆的大小：返回数组的长度</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MinHead</span> </span>&#123;
+	<span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-built_in">this</span>.heap = [];
+	&#125;
+	<span class="hljs-comment">// 插入方法</span>
+	<span class="hljs-function"><span class="hljs-title">insert</span>(<span class="hljs-params">value</span>)</span> &#123;
+		<span class="hljs-comment">// 插入到底部</span>
+		<span class="hljs-built_in">this</span>.heap.push(value);
+		<span class="hljs-comment">// 上移操作</span>
+		<span class="hljs-built_in">this</span>.shiftUp(<span class="hljs-built_in">this</span>.heap.length - <span class="hljs-number">1</span>);
+	&#125;
+	<span class="hljs-comment">// 删除堆顶</span>
+	<span class="hljs-function"><span class="hljs-title">pop</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-comment">// 把原来heap中最末尾的推出来, 并赋值给堆顶</span>
+		<span class="hljs-built_in">this</span>.heap[<span class="hljs-number">0</span>] = <span class="hljs-built_in">this</span>.heap.pop();
+		<span class="hljs-built_in">this</span>.shiftDown(<span class="hljs-number">0</span>); <span class="hljs-comment">// 下移操作</span>
+	&#125;
+	<span class="hljs-comment">// 获取堆顶</span>
+	<span class="hljs-function"><span class="hljs-title">peek</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.heap[<span class="hljs-number">0</span>];
+	&#125;
+	<span class="hljs-comment">// 获取堆的大小</span>
+	<span class="hljs-function"><span class="hljs-title">size</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.heap.length;
+	&#125;
+
+	<span class="hljs-comment">// 获取父节点</span>
+	<span class="hljs-function"><span class="hljs-title">getParentIndex</span>(<span class="hljs-params">i</span>)</span> &#123;
+		<span class="hljs-comment">// 二进制操作，把二进制的数字右移一位</span>
+		<span class="hljs-comment">// return Math.floor((i - 1) / 2);</span>
+		<span class="hljs-keyword">return</span> (i - <span class="hljs-number">1</span>) &gt;&gt; <span class="hljs-number">1</span>; 
+	&#125;
+	<span class="hljs-comment">// 获取左侧子节点</span>
+	<span class="hljs-function"><span class="hljs-title">getLeftIndex</span>(<span class="hljs-params">i</span>)</span> &#123;
+		<span class="hljs-keyword">return</span> i * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>;
+	&#125;
+	<span class="hljs-comment">// 获取右侧子节点</span>
+	<span class="hljs-function"><span class="hljs-title">getRightIndex</span>(<span class="hljs-params">i</span>)</span> &#123;
+		<span class="hljs-keyword">return</span> i * <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
+	&#125;
+	<span class="hljs-comment">// 将两个节点的位置进行交换</span>
+	<span class="hljs-function"><span class="hljs-title">swap</span>(<span class="hljs-params">i1, i2</span>)</span> &#123;
+		<span class="hljs-keyword">const</span> temp = <span class="hljs-built_in">this</span>.heap[i1];
+		<span class="hljs-built_in">this</span>.heap[i1] = <span class="hljs-built_in">this</span>.heap[i2];
+		<span class="hljs-built_in">this</span>.heap[i2] = temp;
+	&#125;
+	<span class="hljs-comment">// 上移</span>
+	<span class="hljs-function"><span class="hljs-title">shiftUp</span>(<span class="hljs-params">index</span>)</span> &#123;
+		<span class="hljs-comment">// 递归的终点: 到达堆顶</span>
+		<span class="hljs-keyword">if</span>(index == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;
+		<span class="hljs-keyword">const</span> parentIndex = <span class="hljs-built_in">this</span>.getParentIndex(index);
+		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">this</span>.heap[parentIndex] &gt; <span class="hljs-built_in">this</span>.heap[index]) &#123;
+			<span class="hljs-comment">// 实现交换的方法</span>
+			<span class="hljs-built_in">this</span>.swap(parentIndex, index);
+			<span class="hljs-comment">// 如果还是需要上移，则递归</span>
+			<span class="hljs-built_in">this</span>.shiftUp(parentIndex);
+		&#125;
+	&#125;
+	<span class="hljs-comment">// 下移</span>
+	<span class="hljs-function"><span class="hljs-title">shiftDown</span>(<span class="hljs-params">index</span>)</span> &#123;
+		<span class="hljs-keyword">const</span> leftIndex = <span class="hljs-built_in">this</span>.getLeftIndex(index);
+		<span class="hljs-keyword">const</span> rightIndex = <span class="hljs-built_in">this</span>.getRightIndex(index);
+		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.heap[leftIndex] &lt; <span class="hljs-built_in">this</span>.heap[index]) &#123;
+			<span class="hljs-built_in">this</span>.swap(leftIndex, index);
+			<span class="hljs-built_in">this</span>.shiftDown(leftIndex);
+		&#125;
+		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.heap[rightIndex] &lt; <span class="hljs-built_in">this</span>.heap[index]) &#123;
+			<span class="hljs-built_in">this</span>.swap(rightIndex, index);
+			<span class="hljs-built_in">this</span>.shiftDown(rightIndex);
+		&#125;
+	&#125;
+&#125;</code></pre>
+
+<h2 id="三、练习题"><a href="#三、练习题" class="headerlink" title="三、练习题"></a>三、练习题</h2><h3 id="1、数组中的第K个最大元素"><a href="#1、数组中的第K个最大元素" class="headerlink" title="1、数组中的第K个最大元素"></a>1、数组中的第K个最大元素</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/">leetcode-215数组中的第K个最大元素【中等】</a></p>
+<p>在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。</p>
+<p>示例 1:</p>
+<pre><code class="hljs text">输入: [3,2,1,5,6,4] 和 k = 2
+输出: 5</code></pre>
+
+<p>示例 2:</p>
+<pre><code class="hljs text">输入: [3,2,3,1,2,4,5,5,6] 和 k = 4
+输出: 4</code></pre>
+
+<p>说明:<br>你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number&#125;</span> <span class="hljs-variable">k</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> findKthLargest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, k</span>) </span>&#123;
+
+&#125;;</code></pre>
+
+<p>解题思路：<br>1、构建一个最小堆，并依次把数组的值插入堆中<br>2、当堆的容量超过K， 就删除堆顶<br>3、插入结束后，堆顶就是第K个最大元素</p>
+<pre><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MinHead</span> </span>&#123;
+	<span class="hljs-comment">// 实现一个最小堆...</span>
+	<span class="hljs-comment">// 代码前面已经写过，这里不再重复</span>
+&#125;
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number&#125;</span> <span class="hljs-variable">k</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> * 时间复杂度： O(n * log(k))</span>
+<span class="hljs-comment"> * 空间复杂度： O(k)</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> findKthLargest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, k</span>) </span>&#123;
+    <span class="hljs-keyword">const</span> h1 = <span class="hljs-keyword">new</span> MinHead();
+    nums.forEach(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> &#123;
+        h1.insert(n);
+        <span class="hljs-keyword">if</span>(h1.size() &gt; k) &#123;
+            h1.pop();
+        &#125;
+    &#125;)
+    <span class="hljs-keyword">return</span> h1.peek();
+&#125;;</code></pre>
+
+<h3 id="2、前-K-个高频元素"><a href="#2、前-K-个高频元素" class="headerlink" title="2、前 K 个高频元素"></a>2、前 K 个高频元素</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/top-k-frequent-elements/">leetcode-347前 K 个高频元素【中等】</a></p>
+<p>给定一个非空的整数数组，返回其中出现频率前 k 高的元素。</p>
+<p>示例 1:</p>
+<pre><code class="hljs text">输入: nums = [1,1,1,2,2,3], k = 2
+输出: [1,2]</code></pre>
+
+<p>示例 2:</p>
+<pre><code class="hljs text">输入: nums = [1], k = 1
+输出: [1]</code></pre>
+
+<p>提示：</p>
+<ul>
+<li>你可以假设给定的 k 总是合理的，且 1 ≤ k ≤ 数组中不相同的元素的个数。</li>
+<li>你的算法的时间复杂度必须优于 O(n log n) , n 是数组的大小。</li>
+<li>题目数据保证答案唯一，换句话说，数组中前 k 个高频元素的集合是唯一的。</li>
+<li>你可以按任意顺序返回答案。</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number&#125;</span> <span class="hljs-variable">k</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number[]&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> topKFrequent = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, k</span>) </span>&#123;
+
+&#125;;</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number&#125;</span> <span class="hljs-variable">k</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number[]&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> topKFrequent = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, k</span>) </span>&#123;
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">    解法一：</span>
+<span class="hljs-comment">        1、将输入的数组进行统计，得到每个元素出现次数的二维数组（二维数组的第一项是元素，第二项是元素出现的次数）</span>
+<span class="hljs-comment">        2、再将元素按照统计次数进行降序排列，数组的前K个就是所需要的结果</span>
+<span class="hljs-comment">        3、但是这个解法 不符合 题目时间复杂度的要求</span>
+<span class="hljs-comment"></span>
+<span class="hljs-comment">    时间复杂度： </span>
+<span class="hljs-comment">        1、nums.forEach =&gt; O(n)</span>
+<span class="hljs-comment">        2、Array.sort =&gt; O(n log n)</span>
+<span class="hljs-comment">        所以结合起来， 时间复杂度 就是 O(n log n) ，不符合题目要求的 时间复杂度必须由于 O(n log n)</span>
+<span class="hljs-comment">    */</span>
+   <span class="hljs-comment">//  const map = new Map();</span>
+   <span class="hljs-comment">//  nums.forEach(n =&gt; &#123;</span>
+   <span class="hljs-comment">//      map.set(n, map.has(n) ? map.get(n) + 1 : 1);</span>
+   <span class="hljs-comment">//  &#125;);</span>
+   <span class="hljs-comment">//  const arr = Array.from(map).sort((a, b) =&gt; b[1] - a[1]);</span>
+   <span class="hljs-comment">//  return arr.slice(0, k).map(n =&gt; n[0]);</span>
+
+	<span class="hljs-comment">/**</span>
+<span class="hljs-comment">    解法二：</span>
+<span class="hljs-comment">        1、建立最小堆</span>
+<span class="hljs-comment">		  2、当堆的容量超过K， 就删除堆顶</span>
+<span class="hljs-comment">		  3、插入结束后，堆顶就是第K个最大元素</span>
+<span class="hljs-comment"></span>
+<span class="hljs-comment">    时间复杂度： </span>
+<span class="hljs-comment">        1、nums.forEach =&gt; O(n)</span>
+<span class="hljs-comment">        2、map.forEach =&gt; O(n) 而 嵌套的 insert 和 pop 都是 logK, 结合起来就是 O(n log k)</span>
+<span class="hljs-comment">        所以结合起来， 时间复杂度 就是 O(n log K) ，由于 k &lt; n 所有符合题目要求的</span>
+<span class="hljs-comment">   */</span>
+	<span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+	nums.forEach(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> &#123;
+		map.set(n, map.has(n) ? map.get(n) + <span class="hljs-number">1</span> : <span class="hljs-number">1</span>);
+	&#125;);
+	<span class="hljs-keyword">const</span> h = <span class="hljs-keyword">new</span> MinHead();
+	map.forEach(<span class="hljs-function">(<span class="hljs-params">value, key</span>) =&gt;</span> &#123;
+		h.insert(&#123;value, key&#125;);
+		<span class="hljs-keyword">if</span> (h.size() &gt; k) &#123;
+			h.pop();
+		&#125;
+	&#125;)
+	<span class="hljs-keyword">return</span> h.heap.map(<span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> a.key)
+    
+&#125;;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MinHead</span> </span>&#123;
+	<span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-built_in">this</span>.heap = [];
+	&#125;
+	<span class="hljs-comment">// 插入方法</span>
+	<span class="hljs-function"><span class="hljs-title">insert</span>(<span class="hljs-params">value</span>)</span> &#123;
+		<span class="hljs-built_in">this</span>.heap.push(value); <span class="hljs-comment">// 插入到底部</span>
+		<span class="hljs-built_in">this</span>.shiftUp(<span class="hljs-built_in">this</span>.heap.length - <span class="hljs-number">1</span>); <span class="hljs-comment">// 上移操作</span>
+	&#125;
+	<span class="hljs-comment">// 删除堆顶</span>
+	<span class="hljs-function"><span class="hljs-title">pop</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-built_in">this</span>.heap[<span class="hljs-number">0</span>] = <span class="hljs-built_in">this</span>.heap.pop(); <span class="hljs-comment">// 把原来heap中最末尾的推出来, 并赋值给堆顶</span>
+		<span class="hljs-built_in">this</span>.shiftDown(<span class="hljs-number">0</span>); <span class="hljs-comment">// 下移操作</span>
+	&#125;
+	<span class="hljs-comment">// 获取堆顶</span>
+	<span class="hljs-function"><span class="hljs-title">peek</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.heap[<span class="hljs-number">0</span>];
+	&#125;
+	<span class="hljs-comment">// 获取堆的大小</span>
+	<span class="hljs-function"><span class="hljs-title">size</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.heap.length;
+	&#125;
+
+	<span class="hljs-comment">// 获取父节点</span>
+	<span class="hljs-function"><span class="hljs-title">getParentIndex</span>(<span class="hljs-params">i</span>)</span> &#123;
+		<span class="hljs-comment">// return Math.floor((i - 1) / 2);</span>
+		<span class="hljs-keyword">return</span> (i - <span class="hljs-number">1</span>) &gt;&gt; <span class="hljs-number">1</span>; <span class="hljs-comment">// 二进制操作，把二进制的数字右移一位</span>
+	&#125;
+	<span class="hljs-comment">// 获取左侧子节点</span>
+	<span class="hljs-function"><span class="hljs-title">getLeftIndex</span>(<span class="hljs-params">i</span>)</span> &#123;
+		<span class="hljs-keyword">return</span> i * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>;
+	&#125;
+	<span class="hljs-comment">// 获取右侧子节点</span>
+	<span class="hljs-function"><span class="hljs-title">getRightIndex</span>(<span class="hljs-params">i</span>)</span> &#123;
+		<span class="hljs-keyword">return</span> i * <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
+	&#125;
+	<span class="hljs-comment">// 将两个节点的位置进行交换</span>
+	<span class="hljs-function"><span class="hljs-title">swap</span>(<span class="hljs-params">i1, i2</span>)</span> &#123;
+		<span class="hljs-keyword">const</span> temp = <span class="hljs-built_in">this</span>.heap[i1];
+		<span class="hljs-built_in">this</span>.heap[i1] = <span class="hljs-built_in">this</span>.heap[i2];
+		<span class="hljs-built_in">this</span>.heap[i2] = temp;
+	&#125;
+	<span class="hljs-comment">// 上移</span>
+	<span class="hljs-function"><span class="hljs-title">shiftUp</span>(<span class="hljs-params">index</span>)</span> &#123;
+		<span class="hljs-comment">// 递归的终点: 到达堆顶</span>
+		<span class="hljs-keyword">if</span>(index == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;
+		<span class="hljs-keyword">const</span> parentIndex = <span class="hljs-built_in">this</span>.getParentIndex(index);
+		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">this</span>.heap[parentIndex] &amp;&amp; <span class="hljs-built_in">this</span>.heap[parentIndex].value &gt; <span class="hljs-built_in">this</span>.heap[index].value) &#123;
+			<span class="hljs-built_in">this</span>.swap(parentIndex, index); <span class="hljs-comment">// 实现交换的方法</span>
+			<span class="hljs-built_in">this</span>.shiftUp(parentIndex); <span class="hljs-comment">// 如果还是需要上移，则递归</span>
+		&#125;
+	&#125;
+	<span class="hljs-comment">// 下移</span>
+	<span class="hljs-function"><span class="hljs-title">shiftDown</span>(<span class="hljs-params">index</span>)</span> &#123;
+		<span class="hljs-keyword">const</span> leftIndex = <span class="hljs-built_in">this</span>.getLeftIndex(index);
+		<span class="hljs-keyword">const</span> rightIndex = <span class="hljs-built_in">this</span>.getRightIndex(index);
+		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.heap[leftIndex] &amp;&amp; <span class="hljs-built_in">this</span>.heap[leftIndex].value &lt; <span class="hljs-built_in">this</span>.heap[index].value) &#123;
+			<span class="hljs-built_in">this</span>.swap(leftIndex, index);
+			<span class="hljs-built_in">this</span>.shiftDown(leftIndex);
+		&#125;
+		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.heap[rightIndex] &amp;&amp; <span class="hljs-built_in">this</span>.heap[rightIndex].value &lt; <span class="hljs-built_in">this</span>.heap[index].value) &#123;
+			<span class="hljs-built_in">this</span>.swap(rightIndex, index);
+			<span class="hljs-built_in">this</span>.shiftDown(rightIndex);
+		&#125;
+	&#125;
+&#125;</code></pre>
+
+<h3 id="3、合并K个升序链表"><a href="#3、合并K个升序链表" class="headerlink" title="3、合并K个升序链表"></a>3、合并K个升序链表</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-k-sorted-lists/">leetcode-23合并K个升序链表【困难】</a></p>
+<p>给你一个链表数组，每个链表都已经按升序排列。</p>
+<p>请你将所有链表合并到一个升序链表中，返回合并后的链表。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入：lists = [[1,4,5],[1,3,4],[2,6]]
+输出：[1,1,2,3,4,4,5,6]
+解释：链表数组如下：
+[
+  1-&gt;4-&gt;5,
+  1-&gt;3-&gt;4,
+  2-&gt;6
+]
+将它们合并到一个有序链表中得到。
+1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入：lists = []
+输出：[]</code></pre>
+
+<p>示例 3：</p>
+<pre><code class="hljs text">输入：lists = [[]]
+输出：[]</code></pre>
+
+<p>提示：</p>
+<ul>
+<li>k == lists.length</li>
+<li>0 &lt;= k &lt;= 10^4</li>
+<li>0 &lt;= lists[i].length &lt;= 500</li>
+<li>-10^4 &lt;= lists[i][j] &lt;= 10^4</li>
+<li>lists[i] 按 升序 排列</li>
+<li>lists[i].length 的总和不超过 10^4</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for singly-linked list.</span>
+<span class="hljs-comment"> * function ListNode(val, next) &#123;</span>
+<span class="hljs-comment"> *     this.val = (val===undefined ? 0 : val)</span>
+<span class="hljs-comment"> *     this.next = (next===undefined ? null : next)</span>
+<span class="hljs-comment"> * &#125;</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode[]&#125;</span> <span class="hljs-variable">lists</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> mergeKLists = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">lists</span>) </span>&#123;
+    
+&#125;;</code></pre>
+
+<p>解题思路：<br>1、构建一个最小堆，并依次把链表头插入到堆中<br>2、弹出堆顶到输出链表，并将堆顶所在的链表的新链表头插入堆中<br>3、等堆元素全部弹出，合并工作就完成了</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * 时间复杂度： O(n) * logK // n是所有链表树的和，k是链表的数</span>
+<span class="hljs-comment"> * 空间复杂度： O(k) // 中间遍历是 堆，堆的大小是K，k是链表的数</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for singly-linked list.</span>
+<span class="hljs-comment"> * function ListNode(val, next) &#123;</span>
+<span class="hljs-comment"> *     this.val = (val===undefined ? 0 : val)</span>
+<span class="hljs-comment"> *     this.next = (next===undefined ? null : next)</span>
+<span class="hljs-comment"> * &#125;</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode[]&#125;</span> <span class="hljs-variable">lists</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+ 
+<span class="hljs-keyword">var</span> mergeKLists = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">lists</span>) </span>&#123;
+	<span class="hljs-keyword">const</span> res = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);
+	<span class="hljs-keyword">let</span> p = res;
+	<span class="hljs-keyword">const</span> h = <span class="hljs-keyword">new</span> MinHead();
+	lists.forEach(<span class="hljs-function"><span class="hljs-params">l</span> =&gt;</span> &#123;
+		<span class="hljs-keyword">if</span>(l) h.insert(l);
+	&#125;)
+	<span class="hljs-keyword">while</span>(h.size()) &#123;
+		<span class="hljs-keyword">const</span> n = h.pop(); <span class="hljs-comment">// 弹出堆顶（即lists中最小的那个链表节点）</span>
+		p.next = n;
+		p = p.next;
+		<span class="hljs-keyword">if</span>(n.next) h.insert(n.next); <span class="hljs-comment">// 再把最小节点的下一个节点加到堆中</span>
+	&#125;
+	<span class="hljs-keyword">return</span> res.next;
+    
+&#125;;
+<span class="hljs-comment">// 构建一个最小堆（堆中的元素时 链表的节点）</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MinHead</span> </span>&#123;
+	<span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-built_in">this</span>.heap = [];
+	&#125;
+	<span class="hljs-comment">// 插入方法</span>
+	<span class="hljs-function"><span class="hljs-title">insert</span>(<span class="hljs-params">value</span>)</span> &#123;
+		<span class="hljs-built_in">this</span>.heap.push(value); <span class="hljs-comment">// 插入到底部</span>
+		<span class="hljs-built_in">this</span>.shiftUp(<span class="hljs-built_in">this</span>.heap.length - <span class="hljs-number">1</span>); <span class="hljs-comment">// 上移操作</span>
+	&#125;
+	<span class="hljs-comment">// 删除堆顶</span>
+	<span class="hljs-function"><span class="hljs-title">pop</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-comment">// 与原生的最小堆相比，需要做修改。 需要记住 top 的元素，并返回</span>
+		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">this</span>.size() === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.heap.shift();
+		<span class="hljs-keyword">const</span> top = <span class="hljs-built_in">this</span>.heap[<span class="hljs-number">0</span>]; 
+		<span class="hljs-built_in">this</span>.heap[<span class="hljs-number">0</span>] = <span class="hljs-built_in">this</span>.heap.pop(); <span class="hljs-comment">// 把原来heap中最末尾的推出来, 并赋值给堆顶</span>
+		<span class="hljs-built_in">this</span>.shiftDown(<span class="hljs-number">0</span>); <span class="hljs-comment">// 下移操作</span>
+		<span class="hljs-keyword">return</span> top;
+	&#125;
+	<span class="hljs-comment">// 获取堆顶</span>
+	<span class="hljs-function"><span class="hljs-title">peek</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.heap[<span class="hljs-number">0</span>];
+	&#125;
+	<span class="hljs-comment">// 获取堆的大小</span>
+	<span class="hljs-function"><span class="hljs-title">size</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.heap.length;
+	&#125;
+
+	<span class="hljs-comment">// 获取父节点</span>
+	<span class="hljs-function"><span class="hljs-title">getParentIndex</span>(<span class="hljs-params">i</span>)</span> &#123;
+		<span class="hljs-comment">// return Math.floor((i - 1) / 2);</span>
+		<span class="hljs-keyword">return</span> (i - <span class="hljs-number">1</span>) &gt;&gt; <span class="hljs-number">1</span>; <span class="hljs-comment">// 二进制操作，把二进制的数字右移一位</span>
+	&#125;
+	<span class="hljs-comment">// 获取左侧子节点</span>
+	<span class="hljs-function"><span class="hljs-title">getLeftIndex</span>(<span class="hljs-params">i</span>)</span> &#123;
+		<span class="hljs-keyword">return</span> i * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>;
+	&#125;
+	<span class="hljs-comment">// 获取右侧子节点</span>
+	<span class="hljs-function"><span class="hljs-title">getRightIndex</span>(<span class="hljs-params">i</span>)</span> &#123;
+		<span class="hljs-keyword">return</span> i * <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;
+	&#125;
+	<span class="hljs-comment">// 将两个节点的位置进行交换</span>
+	<span class="hljs-function"><span class="hljs-title">swap</span>(<span class="hljs-params">i1, i2</span>)</span> &#123;
+		<span class="hljs-keyword">const</span> temp = <span class="hljs-built_in">this</span>.heap[i1];
+		<span class="hljs-built_in">this</span>.heap[i1] = <span class="hljs-built_in">this</span>.heap[i2];
+		<span class="hljs-built_in">this</span>.heap[i2] = temp;
+	&#125;
+	<span class="hljs-comment">// 上移</span>
+	<span class="hljs-function"><span class="hljs-title">shiftUp</span>(<span class="hljs-params">index</span>)</span> &#123;
+		<span class="hljs-comment">// 递归的终点: 到达堆顶</span>
+		<span class="hljs-keyword">if</span>(index == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;
+		<span class="hljs-keyword">const</span> parentIndex = <span class="hljs-built_in">this</span>.getParentIndex(index);
+		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">this</span>.heap[parentIndex] &amp;&amp; <span class="hljs-built_in">this</span>.heap[parentIndex].val &gt; <span class="hljs-built_in">this</span>.heap[index].val) &#123;
+			<span class="hljs-built_in">this</span>.swap(parentIndex, index); <span class="hljs-comment">// 实现交换的方法</span>
+			<span class="hljs-built_in">this</span>.shiftUp(parentIndex); <span class="hljs-comment">// 如果还是需要上移，则递归</span>
+		&#125;
+	&#125;
+	<span class="hljs-comment">// 下移</span>
+	<span class="hljs-function"><span class="hljs-title">shiftDown</span>(<span class="hljs-params">index</span>)</span> &#123;
+		<span class="hljs-keyword">const</span> leftIndex = <span class="hljs-built_in">this</span>.getLeftIndex(index);
+		<span class="hljs-keyword">const</span> rightIndex = <span class="hljs-built_in">this</span>.getRightIndex(index);
+		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.heap[leftIndex] &amp;&amp; <span class="hljs-built_in">this</span>.heap[leftIndex].val &lt; <span class="hljs-built_in">this</span>.heap[index].val) &#123;
+			<span class="hljs-built_in">this</span>.swap(leftIndex, index);
+			<span class="hljs-built_in">this</span>.shiftDown(leftIndex);
+		&#125;
+		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.heap[rightIndex] &amp;&amp; <span class="hljs-built_in">this</span>.heap[rightIndex].val &lt; <span class="hljs-built_in">this</span>.heap[index].val) &#123;
+			<span class="hljs-built_in">this</span>.swap(rightIndex, index);
+			<span class="hljs-built_in">this</span>.shiftDown(rightIndex);
+		&#125;
+	&#125;
+&#125;</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/12/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95-%E9%93%BE%E8%A1%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数据结构-链表</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/12/19/interview/%E6%89%8B%E5%86%99%E7%BA%A2%E8%B7%AF%E7%81%AF/">
+                        <span class="hidden-mobile">js-手写红绿灯</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

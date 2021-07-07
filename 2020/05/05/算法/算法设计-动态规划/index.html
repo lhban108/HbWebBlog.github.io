@@ -1,0 +1,659 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>算法设计 - 动态规划 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="算法设计 - 动态规划">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-05 22:46" pubdate>
+        May 5, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">算法设计 - 动态规划</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><ul>
+<li>动态规划是<strong>算法设计</strong>中的一种常见方法</li>
+<li>动态规划是将一个问题分解为<strong>相互重叠</strong>的子问题，通过反复求解子问题，来解决原来的问题。</li>
+</ul>
+<p><strong>动态规划</strong> 与 <strong>分而治之</strong> 的区别：</p>
+<ul>
+<li>动态规划: 它们的子问题是<strong>相互重叠</strong>的</li>
+<li>分而治之: 它们的子问题是<strong>完全独立</strong>的</li>
+</ul>
+<img src="https://i.loli.net/2021/01/09/HW6oDIpLO7vT8JA.png" srcset="/img/loading.gif" >
+
+<h2 id="二、练习题"><a href="#二、练习题" class="headerlink" title="二、练习题"></a>二、练习题</h2><h3 id="1、爬楼梯"><a href="#1、爬楼梯" class="headerlink" title="1、爬楼梯"></a>1、爬楼梯</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/climbing-stairs/">leetcode-70 爬楼梯</a></p>
+<p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p>注意：给定 n 是一个正整数。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入： 2
+输出： 2
+解释： 有两种方法可以爬到楼顶。
+1.  1 阶 + 1 阶
+2.  2 阶</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入： 3
+输出： 3
+解释： 有三种方法可以爬到楼顶。
+1.  1 阶 + 1 阶 + 1 阶
+2.  1 阶 + 2 阶
+3.  2 阶 + 1 阶</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number&#125;</span> <span class="hljs-variable">n</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> climbStairs = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;
+	<span class="hljs-comment">// 动态规划一： 时间复杂度 O(n) 空间复杂度：O(n)</span>
+	<span class="hljs-comment">// if (n &lt; 2) &#123;</span>
+	<span class="hljs-comment">//     return 1;</span>
+	<span class="hljs-comment">// &#125;</span>
+
+	<span class="hljs-comment">// const dp = [1, 1];</span>
+
+	<span class="hljs-comment">// for(let i = 2; i &lt;= n; i++) &#123;</span>
+	<span class="hljs-comment">// // 斐波那契数列 f(n) = f(n-1) + f(n-2)</span>
+	<span class="hljs-comment">//     dp[i] = dp[i - 1] + dp[i - 2];</span>
+	<span class="hljs-comment">// &#125;</span>
+	<span class="hljs-comment">// return dp[n];</span>
+
+	<span class="hljs-comment">// 动态规划二： 时间复杂度 O(n) 空间复杂度 O(1)</span>
+	<span class="hljs-keyword">if</span> (n &lt; <span class="hljs-number">2</span>) &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+	&#125;
+
+	<span class="hljs-keyword">let</span> dp1 = <span class="hljs-number">1</span>; <span class="hljs-comment">// 记录 n-2 的值</span>
+	<span class="hljs-keyword">let</span> dp2 = <span class="hljs-number">1</span>; <span class="hljs-comment">// 记录 n-1 的值</span>
+
+	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;
+		<span class="hljs-comment">// 将 n-1 的值赋值给 n-2</span>
+		<span class="hljs-comment">// 将 n-1 和 n-2 的和, 赋值给 n-1</span>
+		<span class="hljs-comment">// 即 完成了 f(n) = f(n-1) + f(n-2)</span>
+		<span class="hljs-keyword">const</span> tem = dp1;
+		dp1 = dp2;
+		dp2 = tem + dp1;
+	&#125;
+	<span class="hljs-keyword">return</span> dp2;
+&#125;;</code></pre>
+
+<h3 id="2、打家劫舍"><a href="#2、打家劫舍" class="headerlink" title="2、打家劫舍"></a>2、打家劫舍</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber/">leetcode-198打家劫舍</a></p>
+<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入：[1,2,3,1]
+输出：4
+解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。
+     偷窃到的最高金额 = 1 + 3 = 4 。</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入：[2,7,9,3,1]
+输出：12
+解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。
+     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> rob = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>&#123;
+    <span class="hljs-comment">// 动态规划算法</span>
+    <span class="hljs-comment">// 解题步骤：</span>
+    <span class="hljs-comment">// 1. 用 fn1(k) 代表 前k个房屋中能偷窃到的最大金额</span>
+    <span class="hljs-comment">// 2. 用 fn2(k) 代表 第k个房屋中的金额</span>
+    <span class="hljs-comment">// 3. fn1(k) = Math.max(fn1(k-2) + fn2(k), fn1(k-1))</span>
+
+    <span class="hljs-comment">// 动态规划解法一：</span>
+    <span class="hljs-comment">// 时间复杂度: O(n)</span>
+    <span class="hljs-comment">// 空间复杂度: O(n)</span>
+    <span class="hljs-comment">// if (nums.length === 0) &#123;</span>
+    <span class="hljs-comment">//     return 0;</span>
+    <span class="hljs-comment">// &#125;</span>
+    <span class="hljs-comment">// if (nums.length === 1) &#123;</span>
+    <span class="hljs-comment">//     return nums[0];</span>
+    <span class="hljs-comment">// &#125;</span>
+    <span class="hljs-comment">// const dp = [0, nums[0]]; // dp[0]代表第0个房屋的金额, dp[1]代表第1个房屋的金额</span>
+    <span class="hljs-comment">// for(let i = 2; i &lt;= nums.length; i++) &#123;</span>
+    <span class="hljs-comment">//     dp[i] = Math.max(dp[i - 2] + nums[i - 1], dp[i - 1]);</span>
+    <span class="hljs-comment">// &#125;</span>
+    <span class="hljs-comment">// return dp[dp.length - 1];</span>
+
+    <span class="hljs-comment">// 动态规划解法二：</span>
+    <span class="hljs-comment">// 时间复杂度: O(n)</span>
+    <span class="hljs-comment">// 空间复杂度: O(1) </span>
+    <span class="hljs-keyword">if</span> (nums.length === <span class="hljs-number">0</span>) &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    &#125;
+    <span class="hljs-keyword">if</span> (nums.length === <span class="hljs-number">1</span>) &#123;
+        <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];
+    &#125;
+    <span class="hljs-keyword">let</span> dp0 = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> dp1 = nums[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>; i &lt;= nums.length; i++) &#123;
+        <span class="hljs-keyword">const</span> tem = <span class="hljs-built_in">Math</span>.max(dp0 + nums[i - <span class="hljs-number">1</span>], dp1);
+        dp0 = dp1;
+        dp1 = tem;
+    &#125;
+    <span class="hljs-keyword">return</span> dp1;
+&#125;;</code></pre>
+
+<h3 id="3、连续子数组的最大和"><a href="#3、连续子数组的最大和" class="headerlink" title="3、连续子数组的最大和"></a>3、连续子数组的最大和</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-subarray/">leetcode-53最大子序和</a></p>
+<p>给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
+输出：6
+解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入：nums = [1]
+输出：1</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> maxSubArray = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>&#123;
+    <span class="hljs-keyword">let</span> ans = nums[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> num <span class="hljs-keyword">of</span> nums) &#123;
+        <span class="hljs-comment">// if(sum &gt; 0) &#123; 可以写成这样</span>
+        <span class="hljs-keyword">if</span>(sum + num &gt; num )&#123;
+            sum = sum + num;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            sum = num;
+        &#125;
+        ans = <span class="hljs-built_in">Math</span>.max(ans, sum);
+    &#125;;
+    <span class="hljs-keyword">return</span> ans;
+&#125;;</code></pre>
+
+<h3 id="4、最长回文子串"><a href="#4、最长回文子串" class="headerlink" title="4、最长回文子串"></a>4、最长回文子串</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring/">leetcode-5最长回文子串</a></p>
+<p>给你一个字符串 s，找到 s 中最长的回文子串。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入：s = &quot;babad&quot;
+输出：&quot;bab&quot;
+解释：&quot;aba&quot; 同样是符合题意的答案。</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入：s = &quot;cbbd&quot;
+输出：&quot;bb&quot;</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">s</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;string&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> longestPalindrome = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>&#123;
+	<span class="hljs-keyword">let</span> len = s.length;
+	<span class="hljs-keyword">let</span> res = <span class="hljs-string">&#x27;&#x27;</span>;
+	<span class="hljs-comment">// 创建二维数组</span>
+	<span class="hljs-keyword">let</span> dp = <span class="hljs-built_in">Array</span>.from(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len),<span class="hljs-function">()=&gt;</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len).fill(<span class="hljs-number">0</span>)));
+	<span class="hljs-comment">// 从字符串首部开始</span>
+	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;
+		<span class="hljs-comment">// 从字符串i前开始依次向前查找</span>
+		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = i; j &gt;= <span class="hljs-number">0</span>; j--) &#123;
+			dp[j][i] = s[i] == s[j] &amp;&amp; (i - j &lt; <span class="hljs-number">2</span> || dp[j + <span class="hljs-number">1</span>][i - <span class="hljs-number">1</span>]);
+			<span class="hljs-keyword">if</span>(dp[j][i] &amp;&amp; i - j + <span class="hljs-number">1</span> &gt; res.length) &#123;
+					res = s.substring(j, i + <span class="hljs-number">1</span>);
+			&#125;
+		&#125;
+	&#125;
+	<span class="hljs-comment">// console.log(dp)</span>
+	<span class="hljs-keyword">return</span> res
+&#125;;</code></pre>
+
+<h3 id="5、编辑距离"><a href="#5、编辑距离" class="headerlink" title="5、编辑距离"></a>5、编辑距离</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/edit-distance/">leetcode-72编辑距离</a></p>
+<p>给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。</p>
+<p>你可以对一个单词进行如下三种操作：</p>
+<p>插入一个字符<br>删除一个字符<br>替换一个字符</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入：word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
+输出：3
+解释：
+horse -&gt; rorse (将 &#x27;h&#x27; 替换为 &#x27;r&#x27;)
+rorse -&gt; rose (删除 &#x27;r&#x27;)
+rose -&gt; ros (删除 &#x27;e&#x27;)</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入：word1 = &quot;intention&quot;, word2 = &quot;execution&quot;
+输出：5
+解释：
+intention -&gt; inention (删除 &#x27;t&#x27;)
+inention -&gt; enention (将 &#x27;i&#x27; 替换为 &#x27;e&#x27;)
+enention -&gt; exention (将 &#x27;n&#x27; 替换为 &#x27;x&#x27;)
+exention -&gt; exection (将 &#x27;n&#x27; 替换为 &#x27;c&#x27;)
+exection -&gt; execution (插入 &#x27;u&#x27;)</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">word1</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">word2</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> minDistance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">word1, word2</span>) </span>&#123;
+    <span class="hljs-keyword">let</span> m = word1.length + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">let</span> n = word2.length + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">let</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(m);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> k = <span class="hljs-number">0</span>; k &lt; m; k++) &#123;
+        dp[k] = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(n);
+    &#125;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; m; i++ ) &#123;
+        dp[i][<span class="hljs-number">0</span>] =  i;
+    &#125;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; n; j++ ) &#123;
+        dp[<span class="hljs-number">0</span>][j] =  j;
+    &#125;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; m; i++ ) &#123;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>; j &lt; n; j++ ) &#123;
+            <span class="hljs-keyword">if</span>(word1[i-<span class="hljs-number">1</span>] == word2[j-<span class="hljs-number">1</span>]) &#123;
+                dp[i][j] = dp[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>]
+            &#125;
+            <span class="hljs-keyword">else</span> &#123;
+                dp[i][j] = <span class="hljs-number">1</span> + <span class="hljs-built_in">Math</span>.min(dp[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>], dp[i-<span class="hljs-number">1</span>][j], dp[i][j-<span class="hljs-number">1</span>])
+            &#125;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> dp[m-<span class="hljs-number">1</span>][n-<span class="hljs-number">1</span>]
+&#125;;</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/15/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法设计 - 贪心算法</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/02/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1-%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B/">
+                        <span class="hidden-mobile">算法设计 - 分而治之</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

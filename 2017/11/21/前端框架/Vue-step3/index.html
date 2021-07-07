@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>Vue step 3 —— Vue面试题 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Vue step 3 —— Vue面试题">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2017-11-21 17:52" pubdate>
+        November 21, 2017 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      693 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Vue step 3 —— Vue面试题</h1>
+            
+            <div class="markdown-body">
+              <p>v-if 和 v-show 的区别<br>key 的作用，为什么不能用index 和 random<br>父子组件的生命周期</p>
+<h2 id="1-组件的通讯过程"><a href="#1-组件的通讯过程" class="headerlink" title="1. 组件的通讯过程"></a>1. 组件的通讯过程</h2><h2 id="2-双向数据绑定-v-model-的实现原理"><a href="#2-双向数据绑定-v-model-的实现原理" class="headerlink" title="2. 双向数据绑定 v-model 的实现原理"></a>2. 双向数据绑定 v-model 的实现原理</h2><ul>
+<li>input 元素的 value = this.name</li>
+<li>绑定 input 事件的 this.name = $event.target.value</li>
+<li>data 更新触发 re-render</li>
+</ul>
+<h2 id="3-computed-有何特点"><a href="#3-computed-有何特点" class="headerlink" title="3. computed 有何特点"></a>3. computed 有何特点</h2><ul>
+<li>缓存， data 不变不会重新计算</li>
+<li>提高性能</li>
+</ul>
+<h2 id="4-为何组件-data-必须是一个函数"><a href="#4-为何组件-data-必须是一个函数" class="headerlink" title="4. 为何组件 data 必须是一个函数"></a>4. 为何组件 data 必须是一个函数</h2><p>因为每个组件实际是一个 class, 每次使用组件都是对 class 的一个实例化, 因此每个组件都有自己实例单独持有的 data 数据</p>
+<h2 id="5-ajax-请求应该放在哪个生命周期"><a href="#5-ajax-请求应该放在哪个生命周期" class="headerlink" title="5. ajax 请求应该放在哪个生命周期"></a>5. ajax 请求应该放在哪个生命周期</h2><p>mounted， JS 是单线程的， ajax 异步获取数据，放在 mounted 之前没有太多的用处，只会让逻辑更加混乱</p>
+<h2 id="6-如何将组件所有-props-传递给子组件？"><a href="#6-如何将组件所有-props-传递给子组件？" class="headerlink" title="6. 如何将组件所有 props 传递给子组件？"></a>6. 如何将组件所有 props 传递给子组件？</h2><ul>
+<li>通过<code>$props</code></li>
+<li><code>&lt;User v-bind=&quot;$props&quot; /&gt;</code></li>
+</ul>
+<h2 id="7-如何自己实现-v-model"><a href="#7-如何自己实现-v-model" class="headerlink" title="7. 如何自己实现 v-model"></a>7. 如何自己实现 v-model</h2><img src="https://i.loli.net/2021/01/23/lPKnNQ5JAoaHbw3.png" srcset="/img/loading.gif" >
+
+<h2 id="8-多个组件有相同的逻辑，如何抽离"><a href="#8-多个组件有相同的逻辑，如何抽离" class="headerlink" title="8. 多个组件有相同的逻辑，如何抽离"></a>8. 多个组件有相同的逻辑，如何抽离</h2><ul>
+<li><code>mixin</code></li>
+<li><code>mixin</code> 有一些缺点：</li>
+</ul>
+<h2 id="9-何时要使用异步组件"><a href="#9-何时要使用异步组件" class="headerlink" title="9. 何时要使用异步组件"></a>9. 何时要使用异步组件</h2><ul>
+<li>加载大组件</li>
+<li>路由异步加载</li>
+</ul>
+<h2 id="10-何时使用-keep-alive"><a href="#10-何时使用-keep-alive" class="headerlink" title="10. 何时使用 keep-alive"></a>10. 何时使用 <code>keep-alive</code></h2><ul>
+<li>缓存组件，不需要重复渲染</li>
+<li>如多个静态 tab 页的雀环</li>
+<li>优化性能</li>
+</ul>
+<h2 id="11-何时需要使用-beforeDestroy"><a href="#11-何时需要使用-beforeDestroy" class="headerlink" title="11. 何时需要使用 beforeDestroy"></a>11. 何时需要使用 beforeDestroy</h2><ul>
+<li>解绑自定义事件 event.$off</li>
+<li>清除定时器</li>
+<li>解绑自定义的 DOM 事件，如 window scroll 等</li>
+</ul>
+<h2 id="12-Vuex-中-action-和-mutation-有何区别"><a href="#12-Vuex-中-action-和-mutation-有何区别" class="headerlink" title="12. Vuex 中 action 和 mutation 有何区别"></a>12. Vuex 中 action 和 mutation 有何区别</h2><ul>
+<li>action 中处理异步(经常用来请求接口，并在请求结果后调用mutation去修改state的值), mutation不可以(经常用来更新state的值)</li>
+<li>mutation 做原子操作</li>
+<li>action 可以整合多个 mutation</li>
+</ul>
+<h2 id="13-请用-vnode-描述一个DOM结构"><a href="#13-请用-vnode-描述一个DOM结构" class="headerlink" title="13. 请用 vnode 描述一个DOM结构"></a>13. 请用 vnode 描述一个DOM结构</h2><img src="https://i.loli.net/2021/01/23/9FYLJP6jOlERS7I.png" srcset="/img/loading.gif" >
+
+<h2 id="14-Vue-如何监听数据变化"><a href="#14-Vue-如何监听数据变化" class="headerlink" title="14. Vue 如何监听数据变化"></a>14. Vue 如何监听数据变化</h2><ul>
+<li>Object.defineProperty 不能监听数据变化</li>
+<li>重新定义原型，重写 push pop 等方法，实现监听</li>
+<li>Proxy 可以原生支持监听数据变化</li>
+</ul>
+<h2 id="14-diff-算法的时间复杂度"><a href="#14-diff-算法的时间复杂度" class="headerlink" title="14. diff 算法的时间复杂度"></a>14. diff 算法的时间复杂度</h2><ul>
+<li><code>O(n)</code></li>
+<li>在 <code>O(n^3)</code> 基础上做的一些调整</li>
+</ul>
+<h2 id="15-简述-diff-算法过程"><a href="#15-简述-diff-算法过程" class="headerlink" title="15. 简述 diff 算法过程"></a>15. 简述 diff 算法过程</h2><ul>
+<li>patch(elem, vnode) 和 patch(vnode, newVnode)</li>
+<li>patchVnode 和 addVnodes 和 removeVnodes</li>
+<li>updateChildren(key的重要性)</li>
+</ul>
+<h2 id="16-Vue-为何是异步渲染，-nextTick-的作用"><a href="#16-Vue-为何是异步渲染，-nextTick-的作用" class="headerlink" title="16. Vue 为何是异步渲染，$nextTick 的作用"></a>16. Vue 为何是异步渲染，$nextTick 的作用</h2><ul>
+<li>异步渲染（以及合并 data 修改），以提高渲染性能</li>
+<li>$nextTick 在DOM 更新完之后，可以拿到更新后的DOM</li>
+</ul>
+<h2 id="17-Vue-常见性能优化"><a href="#17-Vue-常见性能优化" class="headerlink" title="17. Vue 常见性能优化"></a>17. Vue 常见性能优化</h2><ul>
+<li>合理使用 v-show 和 v-if</li>
+<li>合理使用 computed</li>
+<li>v-for 时使用正确的key，以及避免和 v-if 同时使用(v-for 比 v-if 具有更高的优先级)</li>
+<li>自定义事件、DOM 事件及时销毁</li>
+<li>合理使用异步组件</li>
+<li>合理使用 keep-alive</li>
+<li>data 层级不要太深，尽量扁平一些</li>
+<li>使用 vue-loader 在开发环境做模板编译（预编译）</li>
+<li>使用 SSR</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/02/27/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法 - 排序和搜索</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/11/15/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/Vue-step2/">
+                        <span class="hidden-mobile">Vue step 2 —— Vue高级特性</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

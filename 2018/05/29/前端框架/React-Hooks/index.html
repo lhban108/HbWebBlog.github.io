@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>React Hooks - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="React Hooks">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-05-29 22:48" pubdate>
+        May 29, 2018 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">React Hooks</h1>
+            
+            <div class="markdown-body">
+              <h3 id="1-useState-在-组件初始化（Mount）阶段"><a href="#1-useState-在-组件初始化（Mount）阶段" class="headerlink" title="1. useState 在 组件初始化（Mount）阶段"></a>1. useState 在 组件初始化（Mount）阶段</h3><ul>
+<li>1.获取当前 Hook 节点，同时将当前 Hook 添加到 Hook 链表中</li>
+<li>2.初始化 Hook 的状态，即读取初始 state 值</li>
+<li>3.创建一个新的链表作为更新队列，用来存放更新操作（setXxx()）</li>
+<li>4.创建一个 dispatch 方法（即 useState 返回的数组的第二个参数：setXxx()），该方法的用途是用来修改 state，并将此更新操作添加到更新队列中，另外还会将该更新和当前正在渲染的 fiber 绑定起来</li>
+<li>5.返回当前 state 和 修改 state 的方法（dispatch）</li>
+</ul>
+<h3 id="2-Hook-数据结构"><a href="#2-Hook-数据结构" class="headerlink" title="2. Hook 数据结构"></a>2. Hook 数据结构</h3><p>一个函数组件中的所有 Hook 是以 链表 的形式存储的。链表中的每个节点就是一个 HooK</p>
+<pre><code class="hljs JavaScript">type Hook = &#123;
+	<span class="hljs-attr">memoizedState</span>: any, <span class="hljs-comment">// Hook 自身维护的状态</span>
+	<span class="hljs-attr">baseState</span>: any,
+	<span class="hljs-attr">baseUpdate</span>: Update&lt;any, any&gt; | <span class="hljs-literal">null</span>,
+	<span class="hljs-attr">queue</span>: UpdateQueue&lt;any, any&gt; | <span class="hljs-literal">null</span>, <span class="hljs-comment">// Hook 自身维护的更新队列</span>
+	<span class="hljs-attr">next</span>: Hook | <span class="hljs-literal">null</span>, <span class="hljs-comment">// next 指向下一个 Hook</span>
+&#125;;</code></pre>
+
+<p>链表保存在哪里：假如原来还没有 Hook 链表，那么就会将新建的 Hook 节点作为 Hook 链表的头结点，然后把 Hook 链表的头结点保存在 currentlyRenderingFiber.memoizedState 中，也就是当前 FiberNode 的 memoizedState 属性</p>
+<h3 id="3-useState-如何处理-state-更新"><a href="#3-useState-如何处理-state-更新" class="headerlink" title="3. useState 如何处理 state 更新"></a>3. useState 如何处理 state 更新</h3><p>当我们调用跟新 state 的方法（setXxx）的时候，即时调用了 dispatchAction()，这个函数的工作是：新建一个新的 update 对象，添加到更新队列中（queue 链表）上，而且这实际是一个 循环链表。</p>
+<p>何时触发组件更新（重新渲染）使组件到达Update 阶段？</p>
+<p>在将 update 对象添加到 Hook 的更新队列链表后，dispatchAction() 还会去判断当前调用 setXxx(action) 传入的值（action）和上一次渲染的 state（此时正显示在屏幕上的 state）作对比，看看有没有变化，如果有变化，则调用 scheduleWork() 安排 fiberNode 的更新工作（组件重新渲染），如果没变化，则直接跳过，不安排更新（组件重新渲染）</p>
+<p>Hook 当 Update 阶段：</p>
+<ul>
+<li>1.获取正在执行的处于更新阶段 Hook 节点；</li>
+<li>2.获取该 Hook 节点的更新队列链表；</li>
+<li>3.从该更新队列的最早的 update 对象节点开始遍历，一直遍历到最近添加的（最新的）update 对象节点，遍历到每个节点的时候执行该节点的更新操作，将该次更新的 state 值存到 newState 中；</li>
+<li>4.当遍历完最近的一个 update 对象节点后，此时 newState 里存放的就是最新的 state 值，最后返回 newState，于是用户就拿到了最新的 state；</li>
+</ul>
+<h3 id="4-useState-运行流程"><a href="#4-useState-运行流程" class="headerlink" title="4. useState 运行流程"></a>4. useState 运行流程</h3><p>当第一次执行 useState，也就是 mount 阶段，所以执行的是 mountState。</p>
+<ul>
+<li>1 在 Hook 链表上添加该 useState 的 Hook 节点</li>
+<li>2 初始化 state 的值</li>
+<li>3 返回此次渲染的 state 和 修改 state 的方法</li>
+</ul>
+<p>当调用 setXxx/dispatchAction 时</p>
+<ul>
+<li>1 创建 update 对象，并将 update 对象添加到该 Hook 节点的更新队列链表；</li>
+<li>2 判断传入的值（action）和当前正在屏幕上渲染的 state 值是否相同，若相同则略过；若不相同，则调用 scheduleWork 安排组件的重新渲染；</li>
+<li>3 当前所有 setXxx 都逐一执行完后，假如其中能满足（2）的条件，即有调用 scheduleWork 的话，则触发更新（组件重新渲染），进入 Update 阶段；</li>
+</ul>
+<p>组件重新渲染（更新）时 ，进入 Update 阶段，即第 2 、第 3 、… n 次执行 useState：</p>
+<ul>
+<li>1 获取该 useState Hook 的更新队列链表；</li>
+<li>2 遍历这个更新队列链表，从最早的那一个 update 对象进行遍历，直至遍历到最近的添加那一个 update 对象，最后得到最新的 state 并返回，作为组件此次渲染的 state；</li>
+<li>3 返回此次渲染的 state 和 修改 state 的方法</li>
+</ul>
+<h3 id="5-useEffect-运行流程"><a href="#5-useEffect-运行流程" class="headerlink" title="5. useEffect 运行流程"></a>5. useEffect 运行流程</h3><p>一个使用 useEffect Hook 的函数组件，在运行的时候的运行流程如下：<br>组件初次渲染（挂载）：</p>
+<ul>
+<li>1 执行 useEffect 时，将 useEffect Hook 添加到 Hook 链表中，然后创建 fiberNode 的 updateQueue，并把本次 effect 添加到 updateQueue 中；</li>
+<li>2 渲染组件的 UI；</li>
+<li>3 完成 UI 渲染后，执行本次 effect；</li>
+</ul>
+<p>组件重新渲染（更新）：</p>
+<ul>
+<li><p>1 执行 useEffect 时，将 useEffect Hook 添加到 Hook 链表中，判断依赖：</p>
+<ul>
+<li>（1）假如没有传入依赖（useEffect 没有传入第二个参数），那么直接给这个 effect 打上 “需要执行” 的 tag（HookHasEffect）；</li>
+<li>（2）假如有传入依赖 deps 并且当前依赖和上次渲染时的依赖对比有发生改变，那么就给这个 effect 打上 “需要执行” 的 tag（HookHasEffect）；</li>
+<li>（3）假如有传入依赖 deps，但是依赖没有发生改变，则 不会 给这个 effect “需要执行” 的 tag；</li>
+<li>（4）假如有传入依赖 deps，但是传入的是一个空数组 []，那么也 不会 给这个 effect “需要执行” 的 tag；</li>
+</ul>
+</li>
+<li><p>2 渲染组件的 UI；</p>
+</li>
+<li><p>3 假如有清除函数（effect 中的 return 内容），则执行上一次渲染的清除函数；如果依赖是 []，则先不用执行清除函数，而是等到组件销毁时才执行；</p>
+</li>
+<li><p>4 判断本次 effect 是否有“需要执行” 的 tag（HookHasEffect），如果有，就执行本次 effect；如果没有，就直接跳过，不执行 本次 effect；</p>
+</li>
+</ul>
+<p>组件销毁时：</p>
+<p>在组件销毁之前，先执行完组件上次渲染时的清除函数</p>
+<h3 id="7-useEffect-和-useMemo-、-useCallBack-的区别"><a href="#7-useEffect-和-useMemo-、-useCallBack-的区别" class="headerlink" title="7. useEffect 和 useMemo 、 useCallBack 的区别"></a>7. useEffect 和 useMemo 、 useCallBack 的区别</h3><p>React.memo 为高阶组件，默认对 props 做一次浅比较，如果 props 没有变化，则子组件不会重新执行。<br>它与 React.PureComponent 非常相似，但它适用于函数组件，但不适用于 class 组件。</p>
+<h3 id="6-Hooks-闭包"><a href="#6-Hooks-闭包" class="headerlink" title="6. Hooks 闭包"></a>6. Hooks 闭包</h3><p>一个 Fiber节点就对应的是一个组件，Fiber 对象上有一个 memoizedState 用于存放组件的 state。<br>hooks 所针对的 FunctionComponnet ，一个对象都只能有一个 state 属性或者 memoizedState 属性。<br>那么怎么满足 一个 FunctionComponnet 可以存放多个 state 的需求呢？<br>所以，react用了链表这种数据结构来存储 FunctionComponent 里面的 hooks。<br>memoizedState属性就是用来存储组件上一次更新后的 state,next毫无疑问是指向下一个hook对象，<br>在组件更新的过程中，hooks函数执行的顺序是不变的，就可以根据这个链表拿到当前hooks对应的Hook对象，函数式组件就是这样拥有了state的能力。</p>
+<p><code>useEffect</code> 会捕获 <code>props</code> 和 <code>state</code>，形成闭包。所以即便在回调函数里，你拿到的还是初始的 <code>props</code> 和 <code>state</code>。<br>如果想得到“最新”的值，可以使用 <code>ref</code>（<code>useRef</code>）。</p>
+<p>在组件每一次渲染的过程中。 比如 ref = useRef() 所返回的都是同一个对象，每次组件更新所生成的ref指向的都是<strong>同一片内存空间</strong>， 那么当然能够每次都拿到最新鲜的值了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/React/">React</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/12/08/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">React 生命周期</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/05/29/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/React-diff/">
+                        <span class="hidden-mobile">React Diff</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

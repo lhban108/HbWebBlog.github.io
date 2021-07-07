@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>nginx - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="nginx">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-22 19:38" pubdate>
+        February 22, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">nginx</h1>
+            
+            <div class="markdown-body">
+              <p><img src="https://i.loli.net/2020/12/01/HMLZ7bmBI23PkxD.png" srcset="/img/loading.gif" alt="nginx.png"></p>
+<h2 id="1-负载均衡"><a href="#1-负载均衡" class="headerlink" title="1 负载均衡"></a>1 负载均衡</h2><p>当用户访问web的时候，首先访问到的是负载均衡器，再通过负载均衡器将请求转发给后台服务器。<br>负载均衡的几种常用方式：</p>
+<ul>
+<li>轮询（默认）</li>
+</ul>
+<pre><code class="hljs javacript">// nginx.config
+upstream backserver &#123;
+  server 192.168.0.1;
+  server 192.168.0.2;
+&#125;</code></pre>
+
+<ul>
+<li>权重（weight）—指定不同ip的权重，权重越高，访问越大，适用于不同性能的服务器</li>
+</ul>
+<pre><code class="hljs javacript">// nginx.config
+upstream backserver &#123;  
+  server 192.168.0.1 weight=2;
+  server 192.168.0.2 weight=8;
+&#125;
+</code></pre>
+
+<ul>
+<li>相应时间来分配—公平竞争，谁快谁处理， 不过需要依赖第三方插件nginx-upstream-fair</li>
+</ul>
+<pre><code class="hljs javacript">// nginx.config
+upstream backserver &#123;
+  server 192.168.0.1;
+  server 192.168.0.2;
+  fair;
+&#125;
+server &#123;
+  listen 80;
+  server_name localhost;
+  location &#123;
+    proxy_pass  http://backserver;  
+  &#125;
+&#125;
+</code></pre>
+
+<p>nginx自带健康检查模块<code>（ngx_upstream_module）</code>，本质上是服务器心跳的检查，通过定时轮询向集群里的服务器健康检查请求，用来检查服务器是否处于异常状态。<br>健康检查涉及到两个配置属性：</p>
+<ul>
+<li>fail_timeout：设定服务器认为不可用的时间段以及统计失败尝试次数的时间段，默认为10S</li>
+<li>max_fails：设定Nginx与服务器通信尝试失败的次数，默认为1次</li>
+</ul>
+<pre><code class="hljs javacript">upstream backserver&#123;
+  server 192.168.0.1 max_fails=1 fail_timeout=40s;
+  server 192.168.0.2  max_fails=1 fail_timeout=40s;
+&#125;</code></pre>
+
+<h2 id="2-反向代理"><a href="#2-反向代理" class="headerlink" title="2 反向代理"></a>2 反向代理</h2><p>nginx代理服务器承担着中间人的角色，起到分配和沟通的作用。</p>
+<ul>
+<li>反向代理的作用：<ul>
+<li>防火墙作用：让用户无法通过请求直接访问真正的服务器，通过nginx过滤掉没有权限或者非法请求，来保障内部服务器的安全。</li>
+<li>负载均衡</li>
+</ul>
+</li>
+<li>如何使用反向代理：通过location功能匹配指定的URI，然后把接收的符合匹配URI的请求通过proxy_pass转移给之前定义好的upstream节点池。</li>
+</ul>
+<pre><code class="hljs javacript">// nginx.config
+server&#123;
+    listen 80;
+    server_name localhost;
+    location&#123;
+        proxy_pass http://127.0.0.1:8000;（upstream）  
+    &#125;
+&#125;
+</code></pre>
+
+<h2 id="3-Https设置"><a href="#3-Https设置" class="headerlink" title="3 Https设置"></a>3 Https设置</h2><p>Nginx常用来配置Https认证，主要有两个步骤：签署第三方可信任的SSL证书 和 配置Https</p>
+<ul>
+<li><p>签署第三方可信任的SSL：<br>配置Https要用到私钥example.key文件和example.crt证书文件，而申请证书文件的时候要用到example.csr文件。</p>
+</li>
+<li><p>Nginx配置Https：<br>要开启Https服务，在配置文件信息块（server）必须使用监听命令listen的ssl参数和定义服务器证书文件和私钥文件：</p>
+</li>
+</ul>
+<pre><code class="hljs javacript">// nginx.config
+server&#123;
+  #ssl参数
+  listen   443 ssl;
+  //监听443端口，因为443端口是https的默认端口。80为http的默认端口  server_name  example.com;
+  #证书文件
+  ssl_certificate    example.com.crt;
+  #私钥文件
+  ssl_certificate_key    example.com.key;
+&#125;
+</code></pre>
+
+<ul>
+<li>ssl_certificate：证书的绝对路径</li>
+<li>ssl_certificate_key：密钥的绝对路径;</li>
+</ul>
+<h2 id="4-其他常用设置"><a href="#4-其他常用设置" class="headerlink" title="4 其他常用设置"></a>4 其他常用设置</h2><h3 id="（1）IP白名单"><a href="#（1）IP白名单" class="headerlink" title="（1）IP白名单"></a>（1）IP白名单</h3><p>通过配置nginx白名单，规定哪些IP可以访问你的服务器，防爬虫必备</p>
+<h3 id="（2）适配PC与移动环境"><a href="#（2）适配PC与移动环境" class="headerlink" title="（2）适配PC与移动环境"></a>（2）适配PC与移动环境</h3><p>获取请求客户端的userAgent，从而知道当前用户终端是PC端还是移动端，并重定向到PC站和H5站</p>
+<h3 id="（3）配置gzip"><a href="#（3）配置gzip" class="headerlink" title="（3）配置gzip"></a>（3）配置gzip</h3><p>开启nginx gzip压缩，静态资源的大小会大大减少，从而节省带宽，提高传输效率。</p>
+<h3 id="（4）配置跨域请求"><a href="#（4）配置跨域请求" class="headerlink" title="（4）配置跨域请求"></a>（4）配置跨域请求</h3><p>当出现403跨域错误或其他跨域错误时，给nginx服务器配置相应的header参数</p>
+<h2 id="5-如何使用nginx"><a href="#5-如何使用nginx" class="headerlink" title="5 如何使用nginx"></a>5 如何使用nginx</h2><p>本地nginx的基本使用：</p>
+<ul>
+<li>启动——<code>sudo nginx</code></li>
+<li>修改<code>nginx.conf</code>配置——<code>vim /usr/local/etc/nginx/nginx.conf</code></li>
+<li>检查语法是否正常——<code>sudo nginx –t</code></li>
+<li>重启<code>nginx</code>——<code>sudo nginx –s reload</code></li>
+<li>创建软连接——便于管理多个<code>nginx</code></li>
+</ul>
+<p>当我们需要管理多个网站的<code>nginx</code>，<code>nginx</code>文件放在一起是最好的管理方式。<br>我们把配置文件丢在<code>/nginx/conf.d/</code>文件夹下，假如我们程序文件夹下有一个<code>nginx</code>配置文件：<code>/home/app.nginx.conf</code>，只需要给这个文件创建一个软连接到<code>/nginx/conf.d/</code>下即可：<br><code>ln -s /home/app/app.example.com.nginx.conf /etc/nginx/conf.d/app.nginx.conf</code><br>这样操作之后，我们修改配置文件后，<code>/nginx/conf.d/</code>下与之对应的配置文件也会被修改，修改后重启<code>nginx</code>即可使用新的配置属性。</p>
+<h2 id="6-停止Nginx服务的四种方法"><a href="#6-停止Nginx服务的四种方法" class="headerlink" title="6 停止Nginx服务的四种方法"></a>6 停止Nginx服务的四种方法</h2><ul>
+<li>从容停止服务<br>这种方法较stop相比就比较温和一些了，需要进程完成当前工作后再停止。</li>
+</ul>
+<pre><code class="hljs cos">nginx -<span class="hljs-keyword">s</span> <span class="hljs-keyword">quit</span></code></pre>
+
+<ul>
+<li>立即停止服务<br>这种方法比较强硬，无论进程是否在工作，都直接停止进程。</li>
+</ul>
+<pre><code class="hljs arduino">nginx -s stop</code></pre>
+
+<ul>
+<li>systemctl 停止<br>systemctl属于Linux命令</li>
+</ul>
+<pre><code class="hljs arduino">systemctl stop nginx.service</code></pre>
+
+<ul>
+<li>killall 方法杀死进程<br>直接杀死进程，在上面无效的情况下使用，态度强硬，简单粗暴！</li>
+</ul>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">killall nginx</span></code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>
+                    
+                      <a class="hover-with-bg" href="/tags/nginx/">nginx</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/03/hello-world/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">hexo help</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/22/%E7%BD%91%E7%BB%9C%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%B8%B8%E8%A7%81web%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E8%A7%A3%E6%9E%90/">
+                        <span class="hidden-mobile">React step 1 —— React初级使用</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

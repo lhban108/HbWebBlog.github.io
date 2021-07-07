@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>飞书一次面经 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="飞书一次面经">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-06 14:35" pubdate>
+        July 6, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">飞书一次面经</h1>
+            
+            <div class="markdown-body">
+              <h2 id="飞书一面"><a href="#飞书一面" class="headerlink" title="飞书一面"></a>飞书一面</h2><h3 id="1、微前端拆分过程中遇到哪些问题"><a href="#1、微前端拆分过程中遇到哪些问题" class="headerlink" title="1、微前端拆分过程中遇到哪些问题"></a>1、微前端拆分过程中遇到哪些问题</h3><pre><code>问题：将一个应用拆分为多个子应用后， 项目的构建、打包、发布等如何做统一化管理        
+答案：我封装了一个 webpack 的npm包，在这个npm包中做统一处理，子应用只需要引入这个包即可
+</code></pre>
+<h3 id="2、微前端shared文件夹-如何处理-不同子应用之间的冲突关系"><a href="#2、微前端shared文件夹-如何处理-不同子应用之间的冲突关系" class="headerlink" title="2、微前端shared文件夹 如何处理 不同子应用之间的冲突关系"></a>2、微前端shared文件夹 如何处理 不同子应用之间的冲突关系</h3><pre><code>答：shared文件夹使用的是subgit，多个子应用之间只维护shared文件夹中对应的模块，如果修改了公共的模块，要做降级处理
+</code></pre>
+<h3 id="3、沙箱模式有哪几种实现方式"><a href="#3、沙箱模式有哪几种实现方式" class="headerlink" title="3、沙箱模式有哪几种实现方式"></a>3、沙箱模式有哪几种实现方式</h3><pre><code>答：
+（1）H5的一个对iframe新特性&lt;iframe sandbox src= ’.....’&gt; ，不过有些缺点需要手动抹平
+（2）用同一构造器（Constructor）生成彼此独立且互不干扰（self-contained）的实例对象，而从避免污染全局对象
+（3）NodeJS提供了原生的VM模块，也可以快速创建沙箱，同时指定上下文
+</code></pre>
+<h3 id="4、性能监控过程，如何拿到首屏渲染时间，如何衡量每个页面的渲染时间是否符合预期-答：首屏渲染时间，可以通过-performance-API中-loadEventStart-fetchStart-的时间"><a href="#4、性能监控过程，如何拿到首屏渲染时间，如何衡量每个页面的渲染时间是否符合预期-答：首屏渲染时间，可以通过-performance-API中-loadEventStart-fetchStart-的时间" class="headerlink" title="4、性能监控过程，如何拿到首屏渲染时间，如何衡量每个页面的渲染时间是否符合预期    答：首屏渲染时间，可以通过 performance API中 loadEventStart - fetchStart 的时间"></a>4、性能监控过程，如何拿到首屏渲染时间，如何衡量每个页面的渲染时间是否符合预期    答：首屏渲染时间，可以通过 performance API中 loadEventStart - fetchStart 的时间</h3><pre><code>页面是否符合预期，需要根据不同页面的具体情况，在可视化图表中判断实际渲染时间与预期时间的对比
+</code></pre>
+<h3 id="5、算法题一"><a href="#5、算法题一" class="headerlink" title="5、算法题一"></a>5、算法题一</h3><pre><code>买卖股票的最佳时机：
+给定一个整数数组 prices ，它的第 i 个元素 prices[i] 是一支给定的股票在第 i 天的价格。
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 1 笔交易。
+例如 prices = [1,5,11,2,4,3,0,9]
+答案：这个题相对比较简单，大概5分钟左右写出来，面试官觉得没有问题
+</code></pre>
+<h3 id="6、手写一个promiseAll"><a href="#6、手写一个promiseAll" class="headerlink" title="6、手写一个promiseAll"></a>6、手写一个promiseAll</h3><pre><code>答案：比较常见的题，大概几分钟就写出来了
+</code></pre>
+<h3 id="7、cookie了解多少"><a href="#7、cookie了解多少" class="headerlink" title="7、cookie了解多少"></a>7、cookie了解多少</h3><p>cookie有哪些特性<br>是否可以跨域进行设置cookie<br>cookie是通过什么与域名进行绑定的，哪个字段<br>后端是怎样把cookie给到前端的<br>    答：回答的话述比较多，面试官也没有过于为难</p>
+<h3 id="8、事件流是什么"><a href="#8、事件流是什么" class="headerlink" title="8、事件流是什么"></a>8、事件流是什么</h3><p>如果一个事件没有冒泡，可能有哪几个原因造成的？<br>如果一个元素的事件是可以冒泡的，但是没有冒泡到最外层元素，请问有什么办法去找到是哪个父元素阻止了冒泡？<br>答：事件流：捕捉（从Document-&gt;HTML标签-&gt;Body-&gt;目标） =&gt; 到达目标元素 =&gt; 冒泡<br>没有冒泡的原因：可能是addEventListener时设置了第二个属性为true，也可能是目标元素阻止了冒泡，也可能是某个父元素阻止了冒泡。如何判断是哪个父元素阻止了冒泡：可以在几个有可能阻止冒泡的父元素中去捕获，依次排查。也可以 重写 addEventListener 方法，加入获取阻止冒泡的代码逻辑（这个方法没有实践过，不太确定）</p>
+<h3 id="9、跨域是什么，怎么处理跨域"><a href="#9、跨域是什么，怎么处理跨域" class="headerlink" title="9、跨域是什么，怎么处理跨域"></a>9、跨域是什么，怎么处理跨域</h3><p>CORS跨域 前端的请求头上需要怎么去设置，具体说明一下<br>    答：JSONP、Hash、H5 PostMessage、CORS、Nginx代理、Node层处理<br>    Access-Control-Allow-Origin: *<br>    Access-Control-Allow-Credentials: true<br>    Content-Type: text/html; charset=utf-8</p>
+<h3 id="10、CSRF是什么，token为什么可以防止CSRF"><a href="#10、CSRF是什么，token为什么可以防止CSRF" class="headerlink" title="10、CSRF是什么，token为什么可以防止CSRF"></a>10、CSRF是什么，token为什么可以防止CSRF</h3><pre><code>答：回答了CSRF攻击的原理，防止方法：SameSite、Refer Check、Anti CSRF Token
+    Token可以防止CSRF的原因是 Token没有放在cookie中，不会自动携带。
+</code></pre>
+<h3 id="11、打印结果：包含-Promise、SetTimeout、Promise中又产生一个Promise、RequestAnimationFrame"><a href="#11、打印结果：包含-Promise、SetTimeout、Promise中又产生一个Promise、RequestAnimationFrame" class="headerlink" title="11、打印结果：包含 Promise、SetTimeout、Promise中又产生一个Promise、RequestAnimationFrame"></a>11、打印结果：包含 Promise、SetTimeout、Promise中又产生一个Promise、RequestAnimationFrame</h3><pre><code><pre><code class="hljs javaScript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;1&#x27;</span>)
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async1</span>(<span class="hljs-params"></span>) </span>&#123;
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;2&#x27;</span>);
+ <span class="hljs-keyword">await</span> async2()
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;3&#x27;</span>);
+&#125;
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async2</span>(<span class="hljs-params"></span>) </span>&#123;
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;4&#x27;</span>);
+&#125;
+async1()
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;5 - setTimeOut&#x27;</span>)
+&#125;, <span class="hljs-number">0</span>)
+
+requestAnimationFrame(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;10&#x27;</span>));
+requestIdleCallback(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;11&#x27;</span>));
+
+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> &#123;
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;6&#x27;</span>)
+ resolve()
+&#125;).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;7&#x27;</span>)
+&#125;)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;8&#x27;</span>)
+&#125;)
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;12&#x27;</span>)
+ <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;13&#x27;</span>)
+ &#125;, <span class="hljs-number">0</span>)
+ <span class="hljs-built_in">Promise</span>.resolve().then(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;14&#x27;</span>))
+&#125;, <span class="hljs-number">0</span>)
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;9&#x27;</span>)</code></pre>
+</code></pre>
+<h2 id="飞书二面"><a href="#飞书二面" class="headerlink" title="飞书二面"></a>飞书二面</h2><h3 id="1、项目遇到哪些问题-分别是怎么解决的"><a href="#1、项目遇到哪些问题-分别是怎么解决的" class="headerlink" title="1、项目遇到哪些问题 分别是怎么解决的"></a>1、项目遇到哪些问题 分别是怎么解决的</h3><pre><code>答：问题一：业务中比较复杂的一个项目，需要用到贪心算法和动态规划，对数据做了几层处理
+问题二：项目中发现 Number.prototype.toFixed 精度缺少，通过 MDN、262.ecma-international.org 等找到了详细的原因，并给出了较好的解决方案
+</code></pre>
+<h3 id="2、微前端怎么实现的，迁移遇到什么问题-怎么解决的"><a href="#2、微前端怎么实现的，迁移遇到什么问题-怎么解决的" class="headerlink" title="2、微前端怎么实现的，迁移遇到什么问题 怎么解决的"></a>2、微前端怎么实现的，迁移遇到什么问题 怎么解决的</h3><pre><code>答：跟一面的答案比较类似
+</code></pre>
+<h3 id="3、说一下React-fiber"><a href="#3、说一下React-fiber" class="headerlink" title="3、说一下React fiber"></a>3、说一下React fiber</h3><pre><code>答：（1）通过fiberNode 将任务切片，在fiberNode 中包含 虚拟DOM、上下文信息、链表信息、更新相关、调度相关的信息等
+（2） 通过相关的调度过程，对fiber Node 实现优先级、回溯等调度
+</code></pre>
+<h3 id="4、react-diff-和-vue-diff"><a href="#4、react-diff-和-vue-diff" class="headerlink" title="4、react diff 和 vue diff"></a>4、react diff 和 vue diff</h3><pre><code>答：描述了 React diff 的结论，Vue 2 和 Vue 3 的区别
+</code></pre>
+<h3 id="5、笔试题一：实现两个树的diff算法。分别打印出新增、删除、修改的节点"><a href="#5、笔试题一：实现两个树的diff算法。分别打印出新增、删除、修改的节点" class="headerlink" title="5、笔试题一：实现两个树的diff算法。分别打印出新增、删除、修改的节点"></a>5、笔试题一：实现两个树的diff算法。分别打印出新增、删除、修改的节点</h3><pre><code>答：写的也没有什么问题，面试官比较满意
+</code></pre>
+<h3 id="6、你的技术栈有哪些"><a href="#6、你的技术栈有哪些" class="headerlink" title="6、你的技术栈有哪些"></a>6、你的技术栈有哪些</h3><h3 id="7、说一下你所了解的性能优化"><a href="#7、说一下你所了解的性能优化" class="headerlink" title="7、说一下你所了解的性能优化"></a>7、说一下你所了解的性能优化</h3><pre><code>从调试工具（DOMContentLoaded、waterfall、webpack-bundle-analyze、performance API）入手，讲了一下 优化请求数量、减少请求文件体积、提高DOM解析速度、减少重排重绘次数、骨架屏、缓存策略、预加载/懒加载、SSR等
+</code></pre>
+<h3 id="8、笔试题二：实现一个promise并发调度，-每次最多请求两个"><a href="#8、笔试题二：实现一个promise并发调度，-每次最多请求两个" class="headerlink" title="8、笔试题二：实现一个promise并发调度， 每次最多请求两个"></a>8、笔试题二：实现一个promise并发调度， 每次最多请求两个</h3><pre><code><pre><code class="hljs javaScript"><span class="hljs-comment">// 实现一个并发请求的函数</span>
+<span class="hljs-keyword">var</span> jsonArr = [<span class="hljs-string">&#x27;api1.json&#x27;</span>, <span class="hljs-string">&#x27;api2.json&#x27;</span>, <span class="hljs-string">&#x27;api3.json&#x27;</span>, <span class="hljs-string">&#x27;api4.json&#x27;</span>, <span class="hljs-string">&#x27;api5.json&#x27;</span>, <span class="hljs-string">&#x27;api6.json&#x27;</span>]
+
+<span class="hljs-comment">// 答：</span>
+
+<span class="hljs-comment">// 其中 jsonArr 为包含需要请求接口名的数组，limit 为最大并发请求数</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchAll</span>(<span class="hljs-params">jsonArr, limit=<span class="hljs-number">2</span></span>) </span>&#123;
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> &#123;
+		<span class="hljs-comment">// 结果</span>
+		<span class="hljs-keyword">let</span> resList = [];
+		<span class="hljs-comment">// 当前正在执行的并发任务队列</span>
+		<span class="hljs-keyword">const</span> currPList = [];
+
+		<span class="hljs-keyword">let</span> i = jsonArr.length - <span class="hljs-number">1</span>;
+		<span class="hljs-comment">// 调度任务队列</span>
+		<span class="hljs-keyword">const</span> fetcher = <span class="hljs-keyword">async</span> () =&gt; &#123;
+			<span class="hljs-keyword">while</span>(jsonArr.length &gt; <span class="hljs-number">0</span>) &#123;
+				<span class="hljs-keyword">let</span> j = i = i - <span class="hljs-number">1</span>;
+				resList[j] = <span class="hljs-keyword">await</span> fetch(jsonArr.shift());
+			&#125;
+		&#125;
+		<span class="hljs-comment">// 线程池</span>
+		<span class="hljs-keyword">while</span>(limit) &#123;
+			--limit;
+			<span class="hljs-comment">// 控制当前并发调度队列只有2个</span>
+			currPList.push(fetcher());
+		&#125;
+	
+		<span class="hljs-comment">// 让2个并发队列同时执行</span>
+		<span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all(currPList);
+		resolve(resList);
+	&#125;);
+&#125;</code></pre>
+</code></pre>
+<h3 id="9、给你一个网站，你有哪些办法判断该网站是否有内存泄漏"><a href="#9、给你一个网站，你有哪些办法判断该网站是否有内存泄漏" class="headerlink" title="9、给你一个网站，你有哪些办法判断该网站是否有内存泄漏"></a>9、给你一个网站，你有哪些办法判断该网站是否有内存泄漏</h3><pre><code>答：
+（1）使用 Chrome 任务管理器实时监视内存使用
+（2）利用chrome 的Performance 中时间轴记录可视化内存泄漏
+（3）利用Chrome的Memory （Heap Snapshot）录制一段过程，根据结果进行分析
+</code></pre>
+<h3 id="10、笔试题三：给了一段代码，判断哪里可能会造成内存泄漏，在不修改源代码的基础上，如何优化，避免内存泄漏"><a href="#10、笔试题三：给了一段代码，判断哪里可能会造成内存泄漏，在不修改源代码的基础上，如何优化，避免内存泄漏" class="headerlink" title="10、笔试题三：给了一段代码，判断哪里可能会造成内存泄漏，在不修改源代码的基础上，如何优化，避免内存泄漏"></a>10、笔试题三：给了一段代码，判断哪里可能会造成内存泄漏，在不修改源代码的基础上，如何优化，避免内存泄漏</h3><pre><code><pre><code class="hljs javaScript">
+<span class="hljs-keyword">var</span> timee = <span class="hljs-literal">null</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn1</span>(<span class="hljs-params"></span>) </span>&#123;
+	<span class="hljs-keyword">var</span> originTimee = timee;
+	<span class="hljs-keyword">var</span> unused = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+		<span class="hljs-keyword">if</span>(originTimee) <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;111&#x27;</span>);
+	&#125;
+	timee = &#123;
+		<span class="hljs-attr">arr</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">10000000</span>).fill(<span class="hljs-number">1</span>),
+		<span class="hljs-attr">str</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">10000000</span>).fill(<span class="hljs-number">1</span>).splice(<span class="hljs-string">&#x27;&#x27;</span>),
+	&#125;
+&#125;
+<span class="hljs-built_in">setInterval</span>(fn1, <span class="hljs-number">10</span>);</code></pre>
+</code></pre>
+<p>答：在fn1方法中 originTimee 变量会造成内存泄漏，解决方法：在fn1的最后一行，originTimee = null 即可</p>
+<h3 id="11、笔试题四：js手写动画的优化方式"><a href="#11、笔试题四：js手写动画的优化方式" class="headerlink" title="11、笔试题四：js手写动画的优化方式"></a>11、笔试题四：js手写动画的优化方式</h3><pre><code>答：把获取DOM的一些代码进行提取封装，不需要每次重复获取、赋值 等
+</code></pre>
+<h3 id="12、如何看待自驱力，你认为你的自驱力怎么样，如何保持自驱力"><a href="#12、如何看待自驱力，你认为你的自驱力怎么样，如何保持自驱力" class="headerlink" title="12、如何看待自驱力，你认为你的自驱力怎么样，如何保持自驱力"></a>12、如何看待自驱力，你认为你的自驱力怎么样，如何保持自驱力</h3><h3 id="13、有哪些管理方法、管理工具"><a href="#13、有哪些管理方法、管理工具" class="headerlink" title="13、有哪些管理方法、管理工具"></a>13、有哪些管理方法、管理工具</h3><h3 id="14、个人成长计划"><a href="#14、个人成长计划" class="headerlink" title="14、个人成长计划"></a>14、个人成长计划</h3><h2 id="飞书三面"><a href="#飞书三面" class="headerlink" title="飞书三面"></a>飞书三面</h2><h3 id="1、详细描述一下-React-DIff的过程"><a href="#1、详细描述一下-React-DIff的过程" class="headerlink" title="1、详细描述一下 React DIff的过程"></a>1、详细描述一下 React DIff的过程</h3><pre><code>答：我回答了diff 的结果，但是面试官 说要React源码中diff的具体实现流程，不要回答别人总结的结果，
+    又说 比如 A/B/C/D变成 D/C/B/A，React Diff是怎么做到的。我没有看过源码，回答的让面试官不满意
+</code></pre>
+<h3 id="2、HTTPS中SSL握手的过程，对称加密和非对称加密的过程，如果CA证书被中间代理商劫持了怎么处理"><a href="#2、HTTPS中SSL握手的过程，对称加密和非对称加密的过程，如果CA证书被中间代理商劫持了怎么处理" class="headerlink" title="2、HTTPS中SSL握手的过程，对称加密和非对称加密的过程，如果CA证书被中间代理商劫持了怎么处理"></a>2、HTTPS中SSL握手的过程，对称加密和非对称加密的过程，如果CA证书被中间代理商劫持了怎么处理</h3><pre><code>答：SSL和非对称加密、对称加密 回答的比较流畅、没有问题。但是CA证书被中间商劫持的问题没有回答上来
+</code></pre>
+<h3 id="3、个人发展计划，职业规划"><a href="#3、个人发展计划，职业规划" class="headerlink" title="3、个人发展计划，职业规划"></a>3、个人发展计划，职业规划</h3><h3 id="4、算法题：让字符串成为回文串的最少插入次数。给任意一个字符串，每次操作只能在任意位置进行插入字符，让字符串成为回文字符串"><a href="#4、算法题：让字符串成为回文串的最少插入次数。给任意一个字符串，每次操作只能在任意位置进行插入字符，让字符串成为回文字符串" class="headerlink" title="4、算法题：让字符串成为回文串的最少插入次数。给任意一个字符串，每次操作只能在任意位置进行插入字符，让字符串成为回文字符串"></a>4、算法题：让字符串成为回文串的最少插入次数。给任意一个字符串，每次操作只能在任意位置进行插入字符，让字符串成为回文字符串</h3><pre><code>答：我的解法是，首先找到最大回文子串，以此为基础找到目标的回文串，再获取从原串变成目标串的最少操作次数。
+但是面试官说我的方法只能解决部分问题（有些字符串是没有最大回文子串的），不能解决全部问题
+</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/01/interview/js-Code/">
+                        <span class="hidden-mobile">js-手写代码</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

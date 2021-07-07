@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>前面模块化 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="前面模块化">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2016-08-25 23:08" pubdate>
+        August 25, 2016 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">前面模块化</h1>
+            
+            <div class="markdown-body">
+              <p>如今的前端工作中，模块化开发成为主流，无论是前端还是后端，由于模块化开发为我们带来巨大的收益，因此开发者都在使用它。模块化开发部分的面试题主要考察应试者对几种模块化开发规范的了解，应试者要明白它们之间的异同点，以及所适用的场合。</p>
+<h3 id="1、说说你对前端模块化开发的认识"><a href="#1、说说你对前端模块化开发的认识" class="headerlink" title="1、说说你对前端模块化开发的认识"></a>1、说说你对前端模块化开发的认识</h3><p>相关认识如下。<br>（1）异步模块定义（AMD）规范是 require. js推广的、对模块定义的规范。<br>（2）通用模块定义（CMD）规范是 SeaJS推广的、对模块定义的规范。<br>（3）AMD提前执行，CMD延迟执行<br>（4）AMD推荐的风格是通过 module transport规范暴露接口，即通过返回一个对象暴露模块接口；CommonJs的风格是通过对 module.exports或exports的属性赋值来达到暴露模块接口的目的。</p>
+<h3 id="2、说说你对-CommonJS和AMD的理解"><a href="#2、说说你对-CommonJS和AMD的理解" class="headerlink" title="2、说说你对 CommonJS和AMD的理解"></a>2、说说你对 CommonJS和AMD的理解</h3><p>CommonJS是服务器端模抉的规范， Node. js采用了这个规范。CommonJS规范同步加载模块，也就是说，只有加载完成，才能执行后面的操作。AMD规范则非同步加载模块，允许指定回调函数。<br>AMD推荐的风格是通过 module transport规范暴露接口，即通过返回一个对象来暴露模块接口， CommonJS的风格是通过对module.exports或exports的属性赋值来达到暴露模块对象的目的。</p>
+<h3 id="3、模块化开发的好处是什么"><a href="#3、模块化开发的好处是什么" class="headerlink" title="3、模块化开发的好处是什么"></a>3、模块化开发的好处是什么</h3><p>在Web开发中，通常将项目的实现划分成许多模块。模块化开发其实就是将功能相关的代码封装在一起，方便维护和重用。另外，模块之间通过API进行通信</p>
+<h3 id="4、require-js解决了什么问题"><a href="#4、require-js解决了什么问题" class="headerlink" title="4、require.js解决了什么问题"></a>4、require.js解决了什么问题</h3><p>解决了以下问题。<br>（1）实现了 JavaScript文件的异步加载。<br>（2）有助于管理模块之间的依赖性。<br>（3）便于代码的编写和维护。</p>
+<h3 id="5、前端模块化解决了哪些问题"><a href="#5、前端模块化解决了哪些问题" class="headerlink" title="5、前端模块化解决了哪些问题"></a>5、前端模块化解决了哪些问题</h3><p>解决了以下问题。<br>（1）各个模块的命名空间独立，A模块的变量x不会覆盖B模块的变量x。<br>（2）模块的依赖关系，通过模块管理工具（如 webpack、 require.js等）进行管理。</p>
+<h3 id="6、如何实现前端模块化开发"><a href="#6、如何实现前端模块化开发" class="headerlink" title="6、如何实现前端模块化开发"></a>6、如何实现前端模块化开发</h3><p>require. js、 SeaJS都是适用于web浏览器端的模块加载器，使用它们可以更好地组织 Javascript代码。</p>
+<h3 id="7、模块化的-JavaScript开发的优势是什么"><a href="#7、模块化的-JavaScript开发的优势是什么" class="headerlink" title="7、模块化的 JavaScript开发的优势是什么"></a>7、模块化的 JavaScript开发的优势是什么</h3><p>优势如下。<br>（1）将功能分离出来<br>（2）具有更好的代码组织方式<br>（3）可以按需加载。<br>（4）避免了命名冲突。<br>（5）解决了依赖管理问题</p>
+<h3 id="8、你了解-CommonJS规范吗"><a href="#8、你了解-CommonJS规范吗" class="headerlink" title="8、你了解 CommonJS规范吗"></a>8、你了解 CommonJS规范吗</h3><p>定义模块，即一个单独的文件就是一个模块，文件中的作用域独立，文件中定义的变量是无法被其他文件引用的。如果需要使用这些变量，需要将其定义为全局变量（不建议）。<br>输出模块指模块只有一个接口对象，即使用 module. exports对象可以将需要输出的内容放入到该对象中。<br>加载模块指通过 require加载，例如 var module= require（’/ moduleFile. js），该 module的值对应文件内部的 module exports对象，然后就可以通过 module名称引用模块中暴露的接口变量或接口函数了。</p>
+<h3 id="9、谈谈你对CMD（-Common-module-Definition，通用模块定义）规范的理解"><a href="#9、谈谈你对CMD（-Common-module-Definition，通用模块定义）规范的理解" class="headerlink" title="9、谈谈你对CMD（ Common module Definition，通用模块定义）规范的理解"></a>9、谈谈你对CMD（ Common module Definition，通用模块定义）规范的理解</h3><p>就近依赖，需要时再进行加载，所以执行顺序和书写顺序一致；这一点与AMD不同，AMD是在使用模块之前将依赖模块全部加载完成，但由于网络等其他因素可能导致依赖模块下载的先后顺序不一致，这就造成执行顺序可能与书写顺序不一致。</p>
+<h3 id="10、你了解-EMAScript-6模块规范吗"><a href="#10、你了解-EMAScript-6模块规范吗" class="headerlink" title="10、你了解 EMAScript 6模块规范吗"></a>10、你了解 EMAScript 6模块规范吗</h3><p>相关了解如下。<br>（1）类似于 Commonjs，语法更简洁<br>（2）类似于AMD，直接支持异步加载和配置模块加载<br>（3）对于结构可以做静态分析、静态检测。<br>（4）比 CommonJS更妤地支持循环依赖。</p>
+<h3 id="11、为什么要通过mojk开发"><a href="#11、为什么要通过mojk开发" class="headerlink" title="11、为什么要通过mojk开发"></a>11、为什么要通过mojk开发</h3><p>原因如下。<br>（1）高内聚低耦合，有利于团队开发。当项目很复杂时，将项目划分为子模块并分给不同的人开发，最后再组合在一起，这样可以降低模块与模块之间的依赖关系，实现<br>低耦合，模块中又有特定功能体现高内聚特点。<br>（2）可重用，方便维护。模块的特点就是有特定功能，当两个项目都需要某种功能时，定义一个特定的模块来实现该功能，这样只需要在两个项目中都引入这个模块就能够实现该功能，不需要书写重复性的代码。<br>另外，当需要变更该功能时，直接修改该模块，这样就能够修改所有项目的功能，维护起来很方便。</p>
+<h3 id="12、AMD与CMD的区别是什么"><a href="#12、AMD与CMD的区别是什么" class="headerlink" title="12、AMD与CMD的区别是什么"></a>12、AMD与CMD的区别是什么</h3><p>区别如下<br>（1）对于依赖的模块，AMD提前执行，CMD延迟执行，不过 require.JS从2.0版本开始，也改成可以延迟执行（根据写法不同，处理方式不同）。<br>（2）CMD推崇依赖就近，AMD推崇依赖前置。</p>
+<h3 id="13、为什么需要前端模块化"><a href="#13、为什么需要前端模块化" class="headerlink" title="13、为什么需要前端模块化"></a>13、为什么需要前端模块化</h3><p>JavaScript以前只用于实现网页的特效、表单的验证等简单的功能，只需要少量的代码就可以完成这些功能。但随着技术的发展，需要使用 JavaScript处理越来越多的事情，以前许多本来由后台处理的内容都转移到前端来处理，这使代码量急剧膨胀。<br>如果还是像以前一样书写代码，那么对于后期的维护将非常困难。同时在开发中，我们难免会需要一些“轮子”，如果没有模块（ Model）这个概念，我们将很难简便地使用别人制造的“轮子”。<br>所以，我们需要前端模块化。</p>
+<h3 id="14、前端模块化是否等同于-JavaScript模块化"><a href="#14、前端模块化是否等同于-JavaScript模块化" class="headerlink" title="14、前端模块化是否等同于 JavaScript模块化"></a>14、前端模块化是否等同于 JavaScript模块化</h3><p>前端开发相对其他语言来说比较特殊，因为我们实现一个页面功能总是需要JavaScript、CSS和HTML三者相互交织。<br>如果一个功能只有 JavaScript实现了模块化， CSS和 Template还处于原始状态，那么调用这个功能的时候并不能完全通过模块化的方式，这样的模块化方案并不是完整的。<br>所以我们真正需要的是一种可以将 JavaScript 、CSS和HTML同时都考虑进去的模块化方案，而非只使用 JavaScript模块化方案。综上所述，前端模块化并不等同于 JavaScript模块化。</p>
+<h3 id="15、JavaScript模块化是否等同于异步模块化"><a href="#15、JavaScript模块化是否等同于异步模块化" class="headerlink" title="15、JavaScript模块化是否等同于异步模块化"></a>15、JavaScript模块化是否等同于异步模块化</h3><p>主流的 JavaScript模块化方案都使用“异步模块定义”的方式，这种方式给开发带来了极大的不便，所有的同步代码都需要修改为异步方式。<br>当在前端开发中使用“ CommonJs”模块化开发规范时，开发者可以使用自然、容易理解的模块定义和调用方式，不需要关注模块是否异步，不需要改变开发者的开发行为。因此 JavaScript模块化并不等同于异步模块化。</p>
+<h3 id="16、require-JS与-SeaJS的异同是什么"><a href="#16、require-JS与-SeaJS的异同是什么" class="headerlink" title="16、require.JS与 SeaJS的异同是什么"></a>16、require.JS与 SeaJS的异同是什么</h3><p>相同之处如下。<br>require.JS和 SeaiJS都是模块加载器，倡导的是一种模块化开发理念，核心价值是让JavaScript的模块化开发变得更简单自然。<br>不同之处如下。<br>（1）定位有差异。require.JS想成为浏览器端的模块加载器，同时也想成为 rhino/node等环境的模块加载器。SeaJS则专注于Web浏览器端，同时通过node扩展的方式可以很方便地运行在Node服务器端<br>（2）遵循的规范不同。require.JS遵循的是AMD规范， SeaJS遵循的是CMD规范。规范的不同，导致了两者API的不同。SeaJS更简洁优雅，更贴近 CommonJS Modules/1.1和 Node Modules规范。<br>（3） require.JS尝试让第三方类库修改自身来支持 require.JS。SeaJS不强推，采用自主封装的方式来“海纳百川”。</p>
+<h3 id="17、系统在设计上遵循几个原则"><a href="#17、系统在设计上遵循几个原则" class="headerlink" title="17、系统在设计上遵循几个原则"></a>17、系统在设计上遵循几个原则</h3><p>遵循以下原则<br>（1）在编译时纳入所有依赖。<br>（2）去中心化，实现分布式<br>（3）内置命名和封装。</p>
+<h3 id="18、什么是模块化规范"><a href="#18、什么是模块化规范" class="headerlink" title="18、什么是模块化规范"></a>18、什么是模块化规范</h3><p>服务器端规范主要是 CommonJS, Node.js用的就是 CommonJS规范客户端规范主要有推崇依赖前置的AMD和推崇依赖就近的CMD。AMD规范的实现主要有 require.js。<br>CMD规范的主要实现有 SeaJS。但是 SeaJS已经停止维护了，因为在 EMAScript 6 中提供了 EMAScript Module模块化规范，随着 EMAScript 6的普及，第三方的模块化规范的实现将会慢慢地被淘汰。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/08/25/text/test/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">参考链接</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2016/04/08/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/React-step1/">
+                        <span class="hidden-mobile">React step 1 —— React初级使用</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

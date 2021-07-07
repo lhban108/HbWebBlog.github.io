@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>React step 3 —— React面试题 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="React step 3 —— React面试题">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-05-16 15:55" pubdate>
+        May 16, 2019 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      817 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">React step 3 —— React面试题</h1>
+            
+            <div class="markdown-body">
+              <h3 id="1、组件之间如何通讯"><a href="#1、组件之间如何通讯" class="headerlink" title="1、组件之间如何通讯"></a>1、组件之间如何通讯</h3><ul>
+<li>父子组件 props</li>
+<li>自定义事件</li>
+<li>Redux 和 Context</li>
+</ul>
+<h3 id="2、JSX本质是什么"><a href="#2、JSX本质是什么" class="headerlink" title="2、JSX本质是什么"></a>2、JSX本质是什么</h3><ul>
+<li>JSX解析出来后是一个 createElement 函数</li>
+<li>函数执行后会返回 vnode</li>
+<li>vnode 通过 patch 渲染到页面</li>
+</ul>
+<h3 id="3、Context-是什么，如何使用"><a href="#3、Context-是什么，如何使用" class="headerlink" title="3、Context 是什么，如何使用"></a>3、Context 是什么，如何使用</h3><ul>
+<li>父组件 向其下所有子孙组件传递信息</li>
+<li>比如一些简单的公共信息：如 主题色、语言等</li>
+<li>复杂的公共信息 请用 Redux</li>
+</ul>
+<h3 id="4、shouldComponentUpdate-用途"><a href="#4、shouldComponentUpdate-用途" class="headerlink" title="4、shouldComponentUpdate 用途"></a>4、shouldComponentUpdate 用途</h3><ul>
+<li>性能优化</li>
+<li>配合state的”不可变值“ 一起使用，否则会出错</li>
+</ul>
+<h3 id="5、Redux-单项数据流"><a href="#5、Redux-单项数据流" class="headerlink" title="5、Redux 单项数据流"></a>5、Redux 单项数据流</h3><img src="https://i.loli.net/2020/12/30/1XfzRaJ8dYcnT6x.png" srcset="/img/loading.gif" >
+  
+<img src="https://i.loli.net/2020/12/30/luqEbTaCHQL3Iwf.png" srcset="/img/loading.gif" >
+
+<h3 id="5、setState-场景题"><a href="#5、setState-场景题" class="headerlink" title="5、setState 场景题"></a>5、setState 场景题</h3><img src="https://i.loli.net/2021/01/01/pHPVRyw5iodLrJD.png" srcset="/img/loading.gif" >
+
+<h3 id="6、什么是纯函数"><a href="#6、什么是纯函数" class="headerlink" title="6、什么是纯函数"></a>6、什么是纯函数</h3><p>纯函数： 执行函数后 返回一个新值, 没有副作用（不会修改函数以外的值）</p>
+<h3 id="7、React组件生命周期"><a href="#7、React组件生命周期" class="headerlink" title="7、React组件生命周期"></a>7、React组件生命周期</h3><ul>
+<li>单个组件生命周期</li>
+<li>父子组件生命周期、调用顺序（创建、更新、销毁）</li>
+<li>shouldComponentUpdate 函数的作用</li>
+</ul>
+<h3 id="8、React发起ajax应该在哪个生命周期"><a href="#8、React发起ajax应该在哪个生命周期" class="headerlink" title="8、React发起ajax应该在哪个生命周期"></a>8、React发起ajax应该在哪个生命周期</h3><ul>
+<li><p>同Vue（mounted）</p>
+</li>
+<li><p>componentDidMount</p>
+<h3 id="9、渲染列表，为什么使用key"><a href="#9、渲染列表，为什么使用key" class="headerlink" title="9、渲染列表，为什么使用key"></a>9、渲染列表，为什么使用key</h3></li>
+<li><p>同Vue。必须使用key， 且不能是 index 和 random</p>
+</li>
+<li><p>diff算法中通过 tag 和 key 来判断 是否是 sameNode</p>
+</li>
+<li><p>目的是 减少渲染次数，提升渲染性能</p>
+</li>
+</ul>
+<h3 id="10、函数组件和-class-组件的区别"><a href="#10、函数组件和-class-组件的区别" class="headerlink" title="10、函数组件和 class 组件的区别"></a>10、函数组件和 class 组件的区别</h3><ul>
+<li>纯函数， 输入 props， 输出JSX</li>
+<li>没有实例，没有生命周期，没有state</li>
+<li>不能扩展其他方法</li>
+</ul>
+<h3 id="11、-什么是受控组件-和-非受控组件"><a href="#11、-什么是受控组件-和-非受控组件" class="headerlink" title="11、 什么是受控组件 和 非受控组件"></a>11、 什么是受控组件 和 非受控组件</h3><p>受控组件：</p>
+<ul>
+<li><p>表单的值 受 state 控制</p>
+</li>
+<li><p>需要自行监听 onChange， 更新 state</p>
+<p>非受控组件：表单的值 不受 state 控制</p>
+</li>
+</ul>
+<p>非受控组件使用场景：</p>
+<ul>
+<li>必须手动操作DOM元素，setState实现不了</li>
+<li>比如： 文件上传 <code>&lt;input type=file&gt;</code></li>
+<li>某些富文本编辑器，需要传入DOM元素</li>
+</ul>
+<h3 id="12、-何时使用异步组件"><a href="#12、-何时使用异步组件" class="headerlink" title="12、 何时使用异步组件"></a>12、 何时使用异步组件</h3><ul>
+<li>同vue</li>
+<li>加载大组件</li>
+<li>路由懒加载</li>
+</ul>
+<p>API：</p>
+<ul>
+<li>import()</li>
+<li>React.lazy</li>
+<li>React.Suspense</li>
+</ul>
+<h3 id="13、-多个组件有公共逻辑，如何抽离"><a href="#13、-多个组件有公共逻辑，如何抽离" class="headerlink" title="13、 多个组件有公共逻辑，如何抽离"></a>13、 多个组件有公共逻辑，如何抽离</h3><ul>
+<li>高阶组件 HOC</li>
+<li>Render Props</li>
+</ul>
+<h3 id="14、-Redux-如何进行异步请求"><a href="#14、-Redux-如何进行异步请求" class="headerlink" title="14、 Redux 如何进行异步请求"></a>14、 Redux 如何进行异步请求</h3><ul>
+<li>使用异步 action</li>
+<li>如 redux-thunk</li>
+</ul>
+<h3 id="15、-react-router-如何配置路由懒加载"><a href="#15、-react-router-如何配置路由懒加载" class="headerlink" title="15、 react-router 如何配置路由懒加载"></a>15、 react-router 如何配置路由懒加载</h3><img src="https://i.loli.net/2021/01/01/dq1AOPsMivhaHRe.png" srcset="/img/loading.gif" >
+
+<h3 id="16、-component-和-PureComponent-有何区别"><a href="#16、-component-和-PureComponent-有何区别" class="headerlink" title="16、 component 和 PureComponent 有何区别"></a>16、 component 和 PureComponent 有何区别</h3><ul>
+<li>PureComponent 实现了浅比较的 shouldComponentUpdate （diff了state第一层的值）</li>
+<li>优化性能</li>
+<li>但是要配合 state 的不可变值使用</li>
+</ul>
+<h3 id="17、-React-事件-和-DOM-事件的区别"><a href="#17、-React-事件-和-DOM-事件的区别" class="headerlink" title="17、 React 事件 和 DOM 事件的区别"></a>17、 React 事件 和 DOM 事件的区别</h3><ul>
+<li>所有事件挂在到 document 上</li>
+<li>event 不是原生的，是 SyntheticEvent 合成事件对象</li>
+<li>引用了 dispatchEvent 机制 (派发事件)</li>
+</ul>
+<h3 id="18、-React-性能优化"><a href="#18、-React-性能优化" class="headerlink" title="18、 React 性能优化"></a>18、 React 性能优化</h3><ol>
+<li>渲染事件是增加合适的key</li>
+<li>自定义事件、DOM 事件 及时销毁</li>
+<li>合理使用异步组件 ——异步加载大组件</li>
+<li>减少函数 bind this 的次数</li>
+<li>合理使用 shouldComponentUpdate PureComponent 和 memo</li>
+<li>合理使用 Immutable.js ——是否彻底拥抱不可变值</li>
+<li>webpack 层面的优化</li>
+<li>前端通用的性能优化，如图片懒加载</li>
+<li>使用 SSR</li>
+</ol>
+<h3 id="19、-React-和-Vue-的区别"><a href="#19、-React-和-Vue-的区别" class="headerlink" title="19、 React 和 Vue 的区别"></a>19、 React 和 Vue 的区别</h3><p>相同点：</p>
+<ol>
+<li>都支持组件化</li>
+<li>都支持数据驱动视图</li>
+<li>都是用 vdom 操作 DOM</li>
+</ol>
+<p>区别：</p>
+<ol>
+<li>React 使用 JSX 拥抱 JS， Vue 使用模板拥抱 HTML</li>
+<li>React 函数式编程（setState传入一个state，返回一个JSX或者视图）， Vue 声明时编程（声明state的值）</li>
+<li>React 需要更多的自力更生（比如shouldComponentUpdate，没有watch，没有computed，自己通过js实现）， Vue 把想要的都给你</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/React/">React</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/07/30/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95-%E6%A0%91/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法-树</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/05/16/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/Webpack/">
+                        <span class="hidden-mobile">webpack 详解</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

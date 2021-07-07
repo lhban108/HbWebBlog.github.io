@@ -1,0 +1,837 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>Set Map - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Set Map">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-11-30 14:46" pubdate>
+        November 30, 2019 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      40
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Set Map</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一、集合-Set-是什么"><a href="#一、集合-Set-是什么" class="headerlink" title="一、集合(Set)是什么"></a>一、集合(Set)是什么</h2><ul>
+<li><p>一种<strong>无序且唯一</strong>的数据结构</p>
+</li>
+<li><p>ES6中有集合，名为Set</p>
+</li>
+<li><p>集合的常用操作：去重、判断某元素是否在集合中、求交集…</p>
+<p>(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set">MDN-Set</a>)</p>
+</li>
+</ul>
+<p><code>Set</code>对象是值的集合，你可以按照插入的顺序迭代它的元素。 Set中的元素只会<strong>出现一次</strong>，即 <code>Set</code> 中的元素是唯一的。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 创建一个set集合</span>
+<span class="hljs-keyword">let</span> mySet = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>, &#123;<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>&#125;, <span class="hljs-number">3</span>]); <span class="hljs-comment">// return undefined =&gt; [1, &#123;a: 1&#125;, 3]</span>
+<span class="hljs-keyword">let</span> mySet2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(); <span class="hljs-comment">// return undefined =&gt; []</span>
+
+<span class="hljs-comment">// 增加元素</span>
+mySet.add(<span class="hljs-number">1</span>); <span class="hljs-comment">// return [1, &#123;a: 1&#125;, 3]</span>
+mySet.add(<span class="hljs-number">4</span>); <span class="hljs-comment">// return [1, &#123;a: 1&#125;, 3, 4]</span>
+
+<span class="hljs-comment">// 删除某个元素</span>
+mySet.delete(<span class="hljs-number">3</span>); <span class="hljs-comment">// true  =&gt; [1, &#123;a: 1&#125;, 4]</span>
+
+<span class="hljs-comment">// 清空</span>
+mySet2.clear(); <span class="hljs-comment">// return undefined =&gt; []</span>
+
+<span class="hljs-comment">// 判断存在与否</span>
+mySet.has(<span class="hljs-number">4</span>); <span class="hljs-comment">// reruen true</span>
+
+<span class="hljs-comment">// 获取长度 (长度为实例属性，不是方法)</span>
+mySet.size; <span class="hljs-comment">// 3</span>
+
+<span class="hljs-comment">// 迭代</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> mySet) <span class="hljs-built_in">console</span>.log(item); <span class="hljs-comment">// 1 &#123;a: 1&#125; 3</span>
+
+mySet.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123; <span class="hljs-built_in">console</span>.log(item) &#125;); <span class="hljs-comment">// 1 &#123;a: 1&#125; 3</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> mySet.keys()) <span class="hljs-built_in">console</span>.log(item); <span class="hljs-comment">// 1 &#123;a: 1&#125; 3</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> mySet.values()) <span class="hljs-built_in">console</span>.log(item); <span class="hljs-comment">// 1 &#123;a: 1&#125; 3</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> [key, value] <span class="hljs-keyword">of</span> mySet.entries()) <span class="hljs-built_in">console</span>.log(key, value); <span class="hljs-comment">// 1 1  &#123;a: 1&#125; &#123;a: 1&#125; 3 3</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> [key, value] <span class="hljs-keyword">of</span> mySet.entries()) <span class="hljs-built_in">console</span>.log(key === value); <span class="hljs-comment">// true true true</span>
+
+<span class="hljs-comment">// 与数组相关</span>
+<span class="hljs-keyword">let</span> arr1 = <span class="hljs-built_in">Array</span>.from(mySet);
+<span class="hljs-keyword">let</span> arr2 = [...mySet]
+
+<span class="hljs-keyword">let</span> mySet3 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(arr1);</code></pre>
+
+<h2 id="二、字典-Map-是什么"><a href="#二、字典-Map-是什么" class="headerlink" title="二、字典(Map)是什么"></a>二、字典(Map)是什么</h2><ul>
+<li>与集合类似，字典也是一种存储唯一值的数据结构，但是它以<strong>键值对</strong>的形式来存储</li>
+<li>ES6中有字典，名为Map</li>
+<li>字典的常用操作：键值对的增删改查</li>
+</ul>
+<p>(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/map">MDN-Map</a>)</p>
+<p><code>Map</code> 对象保存键值对，并且能够记住键的原始插入顺序。任何值(对象或者原始值) 都可以作为一个键或一个值。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 创建一个map</span>
+<span class="hljs-keyword">let</span> myMap = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+
+<span class="hljs-keyword">let</span> keyString = <span class="hljs-string">&#x27;a string&#x27;</span>;
+<span class="hljs-keyword">let</span> keyObj = &#123;&#125;;
+<span class="hljs-keyword">let</span> keyFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;&#125;;
+
+<span class="hljs-comment">// 添加</span>
+myMap.set(keyString, <span class="hljs-string">&#x27;和键&quot;a string&quot;关联的值&#x27;</span>);
+myMap.set(keyObj, <span class="hljs-string">&quot;和键keyObj关联的值&quot;</span>);
+myMap.set(keyFunc, <span class="hljs-string">&quot;和键keyFunc关联的值&quot;</span>);
+myMap.set(<span class="hljs-literal">NaN</span>, <span class="hljs-string">&quot;not a number&quot;</span>);
+
+<span class="hljs-comment">// 获取长度 (长度为实例属性，不是方法)</span>
+myMap.size;
+
+<span class="hljs-comment">// 读取值</span>
+myMap.get(keyString);    <span class="hljs-comment">// &quot;和键&#x27;a string&#x27;关联的值&quot;</span>
+myMap.get(keyObj);       <span class="hljs-comment">// &quot;和键keyObj关联的值&quot;</span>
+myMap.get(keyFunc);      <span class="hljs-comment">// &quot;和键keyFunc关联的值&quot;</span>
+myMap.get(<span class="hljs-literal">NaN</span>); <span class="hljs-comment">// &quot;not a number&quot;</span>
+
+myMap.get(<span class="hljs-string">&#x27;a string&#x27;</span>);   <span class="hljs-comment">// &quot;和键&#x27;a string&#x27;关联的值&quot;</span>
+                         <span class="hljs-comment">// 因为keyString === &#x27;a string&#x27;</span>
+myMap.get(&#123;&#125;);           <span class="hljs-comment">// undefined, 因为keyObj !== &#123;&#125;</span>
+myMap.get(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;&#125;); <span class="hljs-comment">// undefined, 因为keyFunc !== function () &#123;&#125;</span>
+
+<span class="hljs-comment">// 遍历</span>
+myMap.forEach(<span class="hljs-function">(<span class="hljs-params">value, key</span>) =&gt;</span>&#123;
+  <span class="hljs-built_in">console</span>.log(key + <span class="hljs-string">&quot; = &quot;</span> + value);
+&#125;)
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> [key, value] <span class="hljs-keyword">of</span> myMap) &#123;
+  <span class="hljs-built_in">console</span>.log(key + <span class="hljs-string">&quot; = &quot;</span> + value);
+&#125;
+
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> a <span class="hljs-keyword">of</span> myMap.keys()) <span class="hljs-built_in">console</span>.log(a);
+
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> a <span class="hljs-keyword">of</span> myMap.values()) <span class="hljs-built_in">console</span>.log(a)
+
+<span class="hljs-comment">// map与数组的关系</span>
+<span class="hljs-keyword">let</span> arr1 = [[<span class="hljs-string">&quot;key1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>], [<span class="hljs-string">&quot;key2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>]];
+<span class="hljs-keyword">let</span> myMap2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>(arr1); <span class="hljs-comment">// 数组 转 map</span>
+<span class="hljs-keyword">let</span> arr2 = arr1.from(myMap2); <span class="hljs-comment">// map 转 数组</span>
+<span class="hljs-keyword">let</span> arr3 = [...myMap2]; <span class="hljs-comment">// map 转 数组</span>
+
+<span class="hljs-comment">// 发现一个问题</span>
+<span class="hljs-keyword">let</span> otherNaN1 = <span class="hljs-built_in">Number</span>(<span class="hljs-string">&quot;foo1&quot;</span>);
+<span class="hljs-keyword">let</span> otherNaN2 = <span class="hljs-built_in">Number</span>(<span class="hljs-string">&quot;foo2&quot;</span>);
+
+myMap.get(otherNaN1); <span class="hljs-comment">// &quot;not a number&quot;</span>
+myMap.get(otherNaN2); <span class="hljs-comment">// &quot;not a number&quot;</span>
+
+
+otherNaN1 == otherNaN2; <span class="hljs-comment">// false</span>
+otherNaN1 === otherNaN2; <span class="hljs-comment">// false</span>
+myMap.get(otherNaN1) === myMap.get(otherNaN2); <span class="hljs-comment">// true</span>
+<span class="hljs-comment">// why ??</span></code></pre>
+
+<h2 id="三、练习题"><a href="#三、练习题" class="headerlink" title="三、练习题"></a>三、练习题</h2><h3 id="1、两个数组的交集-1"><a href="#1、两个数组的交集-1" class="headerlink" title="1、两个数组的交集-1"></a>1、两个数组的交集-1</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-arrays/">leecode-349</a>)</p>
+</blockquote>
+<p>题目描述：给定两个数组，编写一个函数来计算它们的交集。</p>
+<p>示例1：</p>
+<pre><code class="hljs text">输入：nums1 = [1,2,2,1], nums2 = [2,2]
+输出：[2]</code></pre>
+
+<p>示例2：</p>
+<pre><code class="hljs text">输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+输出：[9,4]</code></pre>
+
+<pre><code class="hljs text">说明：
+- 输出结果中的每个元素一定是唯一的。
+- 我们可以不考虑输出结果的顺序。</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums1</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums2</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number[]&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> intersection = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums1, nums2</span>) </span>&#123;
+    <span class="hljs-comment">// 解法一: Set</span>
+    <span class="hljs-keyword">return</span> [...new <span class="hljs-built_in">Set</span>(nums1)].filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> nums2.includes(item));
+
+    <span class="hljs-comment">// 解法二: Map</span>
+    <span class="hljs-comment">// const map = new Map();</span>
+    <span class="hljs-comment">// nums1.forEach(item =&gt; &#123;</span>
+    <span class="hljs-comment">//     map.set(item, true);</span>
+    <span class="hljs-comment">// &#125;)</span>
+    <span class="hljs-comment">// const res = [];</span>
+    <span class="hljs-comment">// nums2.forEach(item =&gt; &#123;</span>
+    <span class="hljs-comment">//     if (map.get(item)) &#123;</span>
+    <span class="hljs-comment">//         res.push(item);</span>
+    <span class="hljs-comment">//         map.delete(item)</span>
+    <span class="hljs-comment">//     &#125;</span>
+    <span class="hljs-comment">// &#125;)</span>
+    <span class="hljs-comment">// return res;</span>
+&#125;;
+<span class="hljs-comment">/* Set</span>
+<span class="hljs-comment">时间复杂度： O(n²)  （首先num1的filter遍历，所以复杂度为O(n)；num2的includes也遍历，所以时间复杂度为O(n)，嵌套循环后就是 n*n，即 O(n²)</span>
+<span class="hljs-comment">     更严谨的说，时间复杂度为  O(m*n), 其中m为num1去重后的长度，n为num2的长度</span>
+<span class="hljs-comment">空间复杂度： 除了num1和num2数组内部的元素，没有新增变量，所以空间复杂度为 O(m), 其中m是去重后num1 的长度</span>
+<span class="hljs-comment">*/</span>
+<span class="hljs-comment">/*Map</span>
+<span class="hljs-comment">时间复杂度： O(m+n); 其中m是nums1的长度，n是num2的长度</span>
+<span class="hljs-comment">空间复杂度： O(m); 其中m是nums1的长度</span>
+<span class="hljs-comment">*/</span></code></pre>
+
+<h3 id="2、两个数组的交集-2"><a href="#2、两个数组的交集-2" class="headerlink" title="2、两个数组的交集-2"></a>2、两个数组的交集-2</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/">leecode-350</a>)</p>
+</blockquote>
+<p>题目描述：给定两个数组，编写一个函数来计算它们的交集。</p>
+<p>示例1：</p>
+<pre><code class="hljs text">输入：nums1 = [1,2,2,1], nums2 = [2,2]
+输出：[2,2]</code></pre>
+
+<p>示例2：</p>
+<pre><code class="hljs text">输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+输出：[4,9]</code></pre>
+
+<pre><code class="hljs text">说明：
+- 输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。
+- 我们可以不考虑输出结果的顺序。</code></pre>
+
+<pre><code class="hljs text">进阶：
+- 如果给定的数组已经排好序呢？你将如何优化你的算法？
+- 如果 nums1 的大小比 nums2 小很多，哪种方法更优？
+- 如果 nums2 的元素存储在磁盘上，内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums1</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums2</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number[]&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> intersection = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums1, nums2</span>) </span>&#123;
+    <span class="hljs-comment">// 解法一: Set</span>
+    <span class="hljs-keyword">return</span> [...new <span class="hljs-built_in">Set</span>(nums1)].filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> nums2.includes(item));
+
+    <span class="hljs-comment">// 解法二: Map</span>
+    <span class="hljs-comment">// const map = new Map();</span>
+    <span class="hljs-comment">// nums1.forEach(item =&gt; &#123;</span>
+    <span class="hljs-comment">//     map.set(item, true);</span>
+    <span class="hljs-comment">// &#125;)</span>
+    <span class="hljs-comment">// const res = [];</span>
+    <span class="hljs-comment">// nums2.forEach(item =&gt; &#123;</span>
+    <span class="hljs-comment">//     if (map.get(item)) &#123;</span>
+    <span class="hljs-comment">//         res.push(item);</span>
+    <span class="hljs-comment">//         map.delete(item)</span>
+    <span class="hljs-comment">//     &#125;</span>
+    <span class="hljs-comment">// &#125;)</span>
+    <span class="hljs-comment">// return res;</span>
+&#125;;
+<span class="hljs-comment">/* Set</span>
+<span class="hljs-comment">时间复杂度： O(n²)  （首先num1的filter遍历，所以复杂度为O(n)；num2的includes也遍历，所以时间复杂度为O(n)，嵌套循环后就是 n*n，即 O(n²)</span>
+<span class="hljs-comment">     更严谨的说，时间复杂度为  O(m*n), 其中m为num1去重后的长度，n为num2的长度</span>
+<span class="hljs-comment">空间复杂度： 除了num1和num2数组内部的元素，没有新增变量，所以空间复杂度为 O(m), 其中m是去重后num1 的长度</span>
+<span class="hljs-comment">*/</span>
+<span class="hljs-comment">/*Map</span>
+<span class="hljs-comment">时间复杂度： O(m+n); 其中m是nums1的长度，n是num2的长度</span>
+<span class="hljs-comment">空间复杂度： O(m); 其中m是nums1的长度</span>
+<span class="hljs-comment">*/</span></code></pre>
+
+<h3 id="2、有效的括号"><a href="#2、有效的括号" class="headerlink" title="2、有效的括号"></a>2、有效的括号</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses/">leecode-20</a>)</p>
+</blockquote>
+<p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。  </p>
+<p>示例 1:</p>
+<pre><code class="hljs text">输入: &quot;()&quot;
+输出: true</code></pre>
+
+<p>示例 2:</p>
+<pre><code class="hljs text">输入: &quot;()[]&#123;&#125;&quot;
+输出: true</code></pre>
+
+<p>示例 3:</p>
+<pre><code class="hljs text">输入: &quot;(]&quot;
+输出: false</code></pre>
+
+<p>示例 4:</p>
+<pre><code class="hljs text">输入: &quot;([)]&quot;
+输出: false</code></pre>
+
+<p>示例 5:</p>
+<pre><code class="hljs text">输入: &quot;&#123;[]&#125;&quot;
+输出: true</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">s</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;boolean&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * 时间复杂度:  O(n)</span>
+<span class="hljs-comment"> * 空间复杂度:  O(1)</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> isValid = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>&#123;
+    <span class="hljs-keyword">if</span> (!s) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">if</span> (s.length &amp; <span class="hljs-number">2</span> === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; 
+    <span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+    map.set(<span class="hljs-string">&#x27;(&#x27;</span>, <span class="hljs-string">&#x27;)&#x27;</span>);
+    map.set(<span class="hljs-string">&#x27;[&#x27;</span>, <span class="hljs-string">&#x27;]&#x27;</span>);
+    map.set(<span class="hljs-string">&#x27;&#123;&#x27;</span>, <span class="hljs-string">&#x27;&#125;&#x27;</span>);
+    <span class="hljs-keyword">const</span> stack = [];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; s.length; i++) &#123;
+        <span class="hljs-keyword">if</span> (map.has(s[i])) &#123;
+            stack.push(s[i]);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (map.get(stack.pop()) !== s[i]) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> stack.length === <span class="hljs-number">0</span>;
+&#125;;
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * 时间复杂度: O(n) n为s的长度</span>
+<span class="hljs-comment"> * 空间复杂度: O(n) 因为map一个常量级的O(1)的空间复杂度</span>
+<span class="hljs-comment"> * /</span></code></pre>
+
+<h3 id="3、两数之和"><a href="#3、两数之和" class="headerlink" title="3、两数之和"></a>3、两数之和</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/">leecode-1</a>)</p>
+</blockquote>
+<p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
+<p>示例:</p>
+<pre><code class="hljs text">给定 nums = [2, 7, 11, 15], target = 9
+
+因为 nums[0] + nums[1] = 2 + 7 = 9
+所以返回 [0, 1]</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">nums</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number&#125;</span> <span class="hljs-variable">target</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number[]&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> twoSum = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>&#123;
+    <span class="hljs-comment">// 解法一： map 时间复杂度: O(n) 空间复杂度: O(n);</span>
+    <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) &#123;
+        <span class="hljs-keyword">const</span> n1 = nums[i];
+        <span class="hljs-keyword">const</span> n2 = target - n1;
+        <span class="hljs-keyword">if</span> (map.has(n2)) &#123;
+            <span class="hljs-keyword">return</span>[map.get(n2), i];
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            map.set(n1, i);
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">// 解法二：  时间复杂度: O(n) 空间复杂度: O(1);</span>
+    <span class="hljs-comment">// for(let i = 0; i &lt; nums.length; i++) &#123;</span>
+    <span class="hljs-comment">//   if (nums.indexOf(target - nums[i]) &gt; -1 &amp;&amp; nums.indexOf(target - nums[i]) !== i) &#123;</span>
+    <span class="hljs-comment">//     return [i, nums.indexOf(target - nums[i])]</span>
+    <span class="hljs-comment">//   &#125;</span>
+    <span class="hljs-comment">// &#125;</span>
+&#125;;</code></pre>
+
+<h3 id="4、无重复字符的最长子串"><a href="#4、无重复字符的最长子串" class="headerlink" title="4、无重复字符的最长子串"></a>4、无重复字符的最长子串</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">leecode-3</a>)</p>
+</blockquote>
+<p>给定一个字符串，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<p>示例1:</p>
+<pre><code class="hljs text">输入: s = &quot;abcabcbb&quot;
+输出: 3 
+解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</code></pre>
+
+<p>示例2:</p>
+<pre><code class="hljs text">输入: s = &quot;bbbbb&quot;
+输出: 1
+解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</code></pre>
+
+<p>示例3:</p>
+<pre><code class="hljs text">输入: s = &quot;pwwkew&quot;
+输出: 3
+解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。
+     请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</code></pre>
+
+<p>示例4:</p>
+<pre><code class="hljs text">输入: s = &quot;&quot;
+输出: 0</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">s</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> * 解题思路：</span>
+<span class="hljs-comment"> * 1、用双指针维护一个滑动窗口，从来剪切子串</span>
+<span class="hljs-comment"> * 2、不断移动右指针，遇到重复字符串，就把左指针移动到重复字符串的下一位</span>
+<span class="hljs-comment"> * 3、移动右指针的过程中，记录所有窗口的长度，并返回最大值</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> lengthOfLongestSubstring = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>&#123;
+    <span class="hljs-keyword">let</span> l = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> r = <span class="hljs-number">0</span>; r &lt; s.length; r++) &#123;
+        <span class="hljs-keyword">if</span> (map.has(s[r]) &amp;&amp; map.get(s[r]) &gt;= l) &#123;
+            l = map.get(s[r]) + <span class="hljs-number">1</span>;
+        &#125;
+        map.set(s[r], r);
+        res = <span class="hljs-built_in">Math</span>.max(res, r - l + <span class="hljs-number">1</span>);
+    &#125;
+    <span class="hljs-keyword">return</span> res;
+&#125;;
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * 时间复杂度： O(n)</span>
+<span class="hljs-comment"> * 空间复杂度： O(m)  m是字符串s不重复字符的个数</span>
+<span class="hljs-comment"> */</span></code></pre>
+
+<h3 id="5、最小覆盖子串"><a href="#5、最小覆盖子串" class="headerlink" title="5、最小覆盖子串"></a>5、最小覆盖子串</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-window-substring/">leecode-76</a>)</p>
+</blockquote>
+<p>给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 “” 。</p>
+<p><strong>注意：如果 s 中存在这样的子串，我们保证它是唯一的答案。</strong></p>
+<p>示例1:</p>
+<pre><code class="hljs text">输入：s = &quot;ADOBECODEBANC&quot;, t = &quot;ABC&quot;
+输出：&quot;BANC&quot;</code></pre>
+
+<p>示例2:</p>
+<pre><code class="hljs text">输入：s = &quot;a&quot;, t = &quot;a&quot;
+输出：&quot;a&quot;</code></pre>
+
+<p>提示：</p>
+<ul>
+<li>1 &lt;= s.length, t.length &lt;= 105</li>
+<li>s 和 t 由英文字母组成</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">s</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">t</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;string&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * 用双指针维护一个滑动窗口</span>
+<span class="hljs-comment"> * 移动右指针，直到找到包含t的所有子串，此时再移动左指针，尽量减少包含t的子串的长度。</span>
+<span class="hljs-comment"> * 时间复杂度:  O(m + n) ,m是t的长度,n是s的长度</span>
+<span class="hljs-comment"> * 空间复杂度:  O(m) ,m是t中不同字符的个数</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> minWindow = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, t</span>) </span>&#123;
+    <span class="hljs-keyword">let</span> l = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> r = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> need = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> c <span class="hljs-keyword">of</span> t) &#123;
+        need.set(c, need.get(c) ? need.get(c) + <span class="hljs-number">1</span> : <span class="hljs-number">1</span>);
+    &#125;
+    <span class="hljs-keyword">let</span> needType = need.size;
+    <span class="hljs-keyword">let</span> resStr = <span class="hljs-string">&#x27;&#x27;</span>;
+    <span class="hljs-keyword">while</span>(r &lt; s.length) &#123;
+        <span class="hljs-keyword">const</span> c1 = s[r];
+        <span class="hljs-keyword">if</span> (need.has(c1)) &#123;
+            need.set(c1, need.get(c1) - <span class="hljs-number">1</span>);
+            <span class="hljs-keyword">if</span> (need.get(c1) === <span class="hljs-number">0</span>) needType -= <span class="hljs-number">1</span>;
+        &#125;
+        <span class="hljs-comment">// 当needType=0时，表示右指针已经移动到可以包含t的位置，此时需要移动左指针</span>
+        <span class="hljs-keyword">while</span>(needType === <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">if</span> (!resStr || resStr.length &gt; s.substring(l, r + <span class="hljs-number">1</span>).length) &#123;
+                resStr = s.substring(l, r + <span class="hljs-number">1</span>);
+            &#125;
+            <span class="hljs-keyword">const</span> c2 = s[l];
+            <span class="hljs-keyword">if</span> (need.has(c2)) &#123;
+                need.set(c2, need.get(c2) + <span class="hljs-number">1</span>);
+                <span class="hljs-keyword">if</span> (need.get(c2) === <span class="hljs-number">1</span>) needType += <span class="hljs-number">1</span>;
+            &#125;
+            l += <span class="hljs-number">1</span>;
+        &#125;
+        r += <span class="hljs-number">1</span>;
+    &#125;
+    <span class="hljs-keyword">return</span> resStr;
+&#125;;</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/12/19/interview/%E6%89%8B%E5%86%99%E7%BA%A2%E8%B7%AF%E7%81%AF/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">js-手写红绿灯</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/11/01/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95-%E5%9B%BE/">
+                        <span class="hidden-mobile">算法 - 图</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

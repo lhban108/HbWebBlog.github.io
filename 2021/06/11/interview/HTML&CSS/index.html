@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>HTMLCSS - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="HTMLCSS">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-11 13:48" pubdate>
+        June 11, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      42
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">HTMLCSS</h1>
+            
+            <div class="markdown-body">
+              <p>1.手写图片瀑布流效果<br>2.使用CSS绘制几何图形（圆形、三角形、扇形、菱形等）<br>3.使用纯CSS实现曲线运动（贝塞尔曲线）<br>4.实现常用布局（三栏、圣杯、双飞翼、吸顶），可是说出多种方式并理解其优缺点</p>
+<h3 id="1-三栏布局"><a href="#1-三栏布局" class="headerlink" title="1 三栏布局"></a>1 三栏布局</h3><pre><code class="hljs HTML"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;ltr&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>test1<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;screen&quot;</span>&gt;</span><span class="css"></span>
+<span class="css">      <span class="hljs-selector-class">.left</span> &#123;</span>
+<span class="css">        <span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;</span>
+<span class="css">        <span class="hljs-attribute">background-color</span>: blue;</span>
+<span class="css">        <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span>
+<span class="css">        <span class="hljs-attribute">text-align</span>: center;</span>
+<span class="css">      &#125;</span>
+<span class="css">      <span class="hljs-selector-class">.center</span> &#123;</span>
+<span class="css">        <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ccc</span>;</span>
+<span class="css">        <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span>
+<span class="css">        <span class="hljs-attribute">text-align</span>: center;</span>
+<span class="css">      &#125;</span>
+<span class="css">      <span class="hljs-selector-class">.right</span> &#123;</span>
+<span class="css">        <span class="hljs-attribute">text-align</span>: center;</span>
+<span class="css">        <span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;</span>
+<span class="css">        <span class="hljs-attribute">background-color</span>: red;</span>
+<span class="css">        <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span>
+<span class="css">      &#125;</span>
+<span class="css">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 浮动 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sec1&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;screen&quot;</span>&gt;</span><span class="css"></span>
+<span class="css">        <span class="hljs-selector-class">.sec1</span> <span class="hljs-selector-class">.left</span> &#123;</span>
+<span class="css">          <span class="hljs-attribute">float</span>: left;</span>
+<span class="css">        &#125;</span>
+<span class="css">        <span class="hljs-selector-class">.sec1</span> <span class="hljs-selector-class">.right</span> &#123;</span>
+<span class="css">          <span class="hljs-attribute">float</span>: right;</span>
+<span class="css">        &#125;</span>
+<span class="css">      </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span>left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>浮动 ： center--center--center--<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+ 
+    <span class="hljs-comment">&lt;!-- 绝对定位 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sec2&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;screen&quot;</span>&gt;</span><span class="css"></span>
+<span class="css">      <span class="hljs-selector-class">.sec2</span> &#123;</span>
+<span class="css">        <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span>;</span>
+<span class="css">        <span class="hljs-attribute">position</span>: relative;</span>
+<span class="css">      &#125;</span>
+<span class="css">      <span class="hljs-selector-class">.sec2</span> &gt; <span class="hljs-selector-tag">div</span> &#123;</span>
+<span class="css">        <span class="hljs-attribute">position</span>: absolute;</span>
+<span class="css">      &#125;</span>
+<span class="css">      <span class="hljs-selector-class">.sec2</span> <span class="hljs-selector-class">.left</span> &#123;</span>
+<span class="css">        <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;</span>
+<span class="css">      &#125;</span>
+<span class="css">      <span class="hljs-selector-class">.sec2</span> <span class="hljs-selector-class">.right</span> &#123;</span>
+<span class="css">        <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;</span>
+<span class="css">      &#125;</span>
+<span class="css">      <span class="hljs-selector-class">.sec2</span> <span class="hljs-selector-class">.center</span> &#123;</span>
+<span class="css">        <span class="hljs-attribute">left</span>: <span class="hljs-number">300px</span>;</span>
+<span class="css">        <span class="hljs-attribute">right</span>: <span class="hljs-number">300px</span>;</span>
+<span class="css">      &#125;</span>
+<span class="css">      </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span>left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>绝对定位 ： center--center--center--<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+ 
+    <span class="hljs-comment">&lt;!-- flex布局 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sec3&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;screen&quot;</span>&gt;</span><span class="css"></span>
+<span class="css">        <span class="hljs-selector-class">.sec3</span> &#123;</span>
+<span class="css">          <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">240px</span>;</span>
+<span class="css">          <span class="hljs-attribute">display</span>: flex;</span>
+<span class="css">        &#125;</span>
+<span class="css">        <span class="hljs-selector-class">.sec3</span> <span class="hljs-selector-class">.center</span> &#123;</span>
+<span class="css">          <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;</span>
+<span class="css">        &#125;</span>
+<span class="css">      </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span>left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>flex : center--center--center--<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+ 
+    <span class="hljs-comment">&lt;!-- 表格布局 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sec4&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;screen&quot;</span>&gt;</span><span class="css"></span>
+<span class="css">        <span class="hljs-selector-class">.sec4</span> &#123;</span>
+<span class="css">          <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span>;</span>
+<span class="css">          <span class="hljs-attribute">display</span>: table;</span>
+<span class="css">          <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span></span>
+<span class="css">        &#125;</span>
+<span class="css">        <span class="hljs-selector-class">.sec4</span> &gt; <span class="hljs-selector-tag">div</span> &#123;</span>
+<span class="css">          <span class="hljs-attribute">display</span>: table-cell;</span>
+<span class="css">        &#125;</span>
+<span class="css">      </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span>left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>表格布局 : center--center--center--<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+ 
+    <span class="hljs-comment">&lt;!-- 网格布局 --&gt;</span>
+    <span class="hljs-comment">&lt;!-- CSS3下一代标准 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sec5&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;screen&quot;</span>&gt;</span><span class="css"></span>
+<span class="css">        <span class="hljs-selector-class">.sec5</span> &#123;</span>
+<span class="css">          <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span>;</span>
+<span class="css">          <span class="hljs-attribute">display</span>: grid;</span>
+<span class="css">          <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;</span>
+<span class="css">          <span class="hljs-comment">/* grid-template-rows: 100px; */</span></span>
+<span class="css">          grid-template-<span class="hljs-attribute">columns</span>: <span class="hljs-number">300px</span> auto <span class="hljs-number">300px</span>;</span>
+<span class="css">        &#125;</span>
+<span class="css">      </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span>left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>网格布局 : center--center--center--<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-comment">&lt;!--</span>
+<span class="hljs-comment">1、以上各种布局的优缺点，以及比较推荐哪一种方案</span>
+<span class="hljs-comment">  (1)浮动 :</span>
+<span class="hljs-comment">    - 缺点 :浮动是脱离文档流的，有些时候需要清除浮动，需要很好的处理浮动周边元素的关系</span>
+<span class="hljs-comment">    - 优点 :兼容性比较好</span>
+<span class="hljs-comment">  (2)绝对定位 :</span>
+<span class="hljs-comment">    - 缺点 :该布局脱离文档流，所以子元素也必须脱离文档流，因此可使用性比较差</span>
+<span class="hljs-comment">    - 优点 :快捷，比较不容易出问题</span>
+<span class="hljs-comment">  (3)flex :</span>
+<span class="hljs-comment">    - 缺点 :兼容性比较差(css3的属性)，不兼容IE8及以下</span>
+<span class="hljs-comment">    - 优点 :非常有效的解决了浮动和绝对定位的问题</span>
+<span class="hljs-comment">  (4)表格布局 :</span>
+<span class="hljs-comment">    - 缺点 :操作繁琐，当三栏中其中某一栏高度超出时，其他两栏的高度也会自动跟着调整(不符合某些场景)</span>
+<span class="hljs-comment">    - 优点 :兼容性非常好，补缺了flex布局兼容的问题</span>
+<span class="hljs-comment">  (5)网格布局 :</span>
+<span class="hljs-comment">    - 新技术，CSS3下一代局部方案</span>
+<span class="hljs-comment">2、如果去掉&quot;高度已知&quot;， 以上哪种方案同样适用？</span>
+<span class="hljs-comment">  只有 flex布局 和 表格布局 同样适用 </span>
+<span class="hljs-comment"> --&gt;</span></code></pre>
+
+<h3 id="2-水平垂直居中"><a href="#2-水平垂直居中" class="headerlink" title="2 水平垂直居中"></a>2 水平垂直居中</h3><p>（1）绝对定位+margin:auto</p>
+<pre><code class="hljs CSS"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+	<span class="hljs-attribute">background</span>: green;
+	
+	<span class="hljs-attribute">position</span>: absolute;
+	<span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">margin</span>: auto;
+&#125;</code></pre>
+
+<p>(2) 绝对定位+负margin</p>
+<pre><code class="hljs CSS"><span class="hljs-selector-tag">div</span>&#123;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+	<span class="hljs-attribute">background</span>: green;
+	
+	<span class="hljs-attribute">position</span>: absolute;
+	<span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+	<span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
+	<span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">100px</span>;
+	<span class="hljs-attribute">margin-top</span>: -<span class="hljs-number">100px</span>;
+&#125;</code></pre>
+
+<p>(3) 绝对定位+transform</p>
+<pre><code class="hljs CSS"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+	<span class="hljs-attribute">background</span>: green;
+	
+	<span class="hljs-attribute">position</span>: absolute;
+	<span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;    <span class="hljs-comment">/* 定位父级的50% */</span>
+	<span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
+	<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(-<span class="hljs-number">50%</span>,-<span class="hljs-number">50%</span>); <span class="hljs-comment">/*自己的50% */</span>
+&#125;</code></pre>
+
+<p>(4) flex布局</p>
+<pre><code class="hljs CSS"><span class="hljs-selector-class">.box</span> &#123;
+      <span class="hljs-attribute">height</span>:<span class="hljs-number">600px</span>;  
+      
+      <span class="hljs-attribute">display</span>:flex;
+      <span class="hljs-attribute">justify-content</span>:center;  <span class="hljs-comment">/* 子元素水平居中 */</span>
+      <span class="hljs-attribute">align-items</span>:center;      <span class="hljs-comment">/* 子元素垂直居中 */</span>
+      <span class="hljs-comment">/* 只要三句话就可以实现不定宽高水平垂直居中 */</span>
+ &#125;
+ <span class="hljs-selector-class">.box</span>&gt;<span class="hljs-selector-tag">div</span>&#123;
+     <span class="hljs-attribute">background</span>: green;
+     <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+     <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+ &#125;</code></pre>
+
+<p>(5) table-cell实现居中</p>
+<pre><code class="hljs CSS"><span class="hljs-selector-class">.box</span> &#123;
+    <span class="hljs-attribute">display</span>: table-cell;
+<span class="hljs-attribute">text-align</span>: center;
+<span class="hljs-attribute">vertical-align</span>: middle;
+&#125;</code></pre>
+
+<h3 id="3-BFC"><a href="#3-BFC" class="headerlink" title="3 BFC"></a>3 BFC</h3><p>三种文档流的定位方案：</p>
+<p>常规流(Normal flow)</p>
+<ul>
+<li>在常规流中，盒一个接着一个排列;</li>
+<li>在块级格式化上下文里面， 它们竖着排列；</li>
+<li>在行内格式化上下文里面， 它们横着排列;</li>
+<li>当position为static或relative，并且float为none时会触发常规流；</li>
+<li>对于静态定位(static positioning)，position: static，盒的位置是常规流布局里的位置；</li>
+<li>对于相对定位(relative positioning)，position: relative，盒偏移位置由top、bottom、left、right属性定义。即使有偏移，仍然保留原有的位置，其它常规流不能占用这个位置。</li>
+</ul>
+<p>浮动(Floats)</p>
+<ul>
+<li>左浮动元素尽量靠左、靠上，右浮动同理</li>
+<li>这导致常规流环绕在它的周边，除非设置 clear 属性</li>
+<li>浮动元素不会影响块级元素的布局</li>
+<li>但浮动元素会影响行内元素的布局，让其围绕在自己周围，撑大父级元素，从而间接影响块级元素布局</li>
+<li>最高点不会超过当前行的最高点、它前面的浮动元素的最高点</li>
+<li>不超过它的包含块，除非元素本身已经比包含块更宽</li>
+<li>行内元素出现在左浮动元素的右边和右浮动元素的左边，左浮动元素的左边和右浮动元素的右边是不会摆放浮动元素的</li>
+</ul>
+<p>绝对定位(Absolute positioning)</p>
+<ul>
+<li>绝对定位方案，盒从常规流中被移除，不影响常规流的布局；</li>
+<li>它的定位相对于它的包含块，相关CSS属性：top、bottom、left、right；</li>
+<li>如果元素的属性position为absolute或fixed，它是绝对定位元素；</li>
+<li>对于position: absolute，元素定位将相对于上级元素中最近的一个relative、fixed、absolute，如果没有则相对于body；</li>
+</ul>
+<p>BFC触发方式：</p>
+<ul>
+<li>根元素，即HTML标签</li>
+<li>浮动元素：float值为left、right</li>
+<li>overflow值不为 visible，为 auto、scroll、hidden</li>
+<li>display值为 inline-block、table-cell、table-caption、table、inline-table、flex、inline-flex、grid、inline-grid</li>
+<li>定位元素：position值为 absolute、fixed</li>
+</ul>
+<p>浏览器对BFC区域的约束规则：</p>
+<ul>
+<li>内部的Box会在垂直方向上一个接一个的放置</li>
+<li>内部的Box垂直方向上的距离由margin决定。（完整的说法是：属于同一个BFC的两个相邻Box的margin会发生折叠，不同BFC不会发生折叠。）</li>
+<li>每个元素的左外边距与包含块的左边界相接触（从左向右），即使浮动元素也是如此。（这说明BFC中子元素不会超出他的包含块，而position为absolute的元素可以超出他的包含块边界）</li>
+<li>BFC的区域不会与float的元素区域重叠</li>
+<li>计算BFC的高度时，浮动子元素也参与计算</li>
+</ul>
+<p>作用：</p>
+<ul>
+<li>BFC是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面元素</li>
+<li>阻止元素被浮动元素覆盖<br>一个正常文档流的block元素可能被一个float元素覆盖，挤占正常文档流，因此可以设置一个元素的float、display、position值等方式触发BFC，以阻止被浮动盒子覆盖。</li>
+<li>可以包含浮动元素<br>通过改变包含浮动子元素的父盒子的属性值，触发BFC，以此来包含子元素的浮动盒子。</li>
+<li>阻止因为浏览器因为四舍五入造成的多列布局换行的情况<br>有时候因为多列布局采用小数点位的width导致因为浏览器因为四舍五入造成的换行的情况，可以在最后一列触发BFC的形式来阻止换行的发生。</li>
+<li>阻止相邻元素的margin合并<br>属于同一个BFC的两个相邻块级子元素的上下margin会发生重叠，所以当两个相邻块级子元素分属于不同的BFC时可以阻止margin重叠</li>
+</ul>
+<p>BFC、IFC、GFC、FFC：</p>
+<ul>
+<li>BFC BFC(Block Formatting Contexts)直译为”块级格式化上下文”。Block Formatting Contexts就是页面上的一个隔离的渲染区域，容器里面的子元素不会在布局上影响到外面的元素，反之也是如此。如何产生BFC？ float的值不为none。  overflow的值不为visible。  position的值不为relative和static。 display的值为table-cell,table-caption, inline-block中的任何一个。  那BFC一般有什么用呢？比如常见的多栏布局，结合块级别元素浮动，里面的元素则是在一个相对隔离的环境里运行。 </li>
+<li>IFC IFC(Inline Formatting Contexts)直译为”内联格式化上下文”，IFC的line box（线框）高度由其包含行内元素中最高的实际高度计算而来（不受到竖直方向的padding/margin影响) IFC中的line box一般左右都贴紧整个IFC，但是会因为float元素而扰乱。float元素会位于IFC与与line box之间，使得line box宽度缩短。 同个ifc下的多个line box高度会不同。<br>IFC中时不可能有块级元素的，当插入块级元素时（如p中插入div）会产生两个匿名块与div分隔开，即产生两个IFC，每个IFC对外表现为块级元素，与div垂直排列。 那么IFC一般有什么用呢？ 水平居中：当一个块要在环境中水平居中时，设置其为inline-block则会在外层产生IFC，通过text-align则可以使其水平居中。 垂直居中：创建一个IFC，用其中一个元素撑开父元素的高度，然后设置其vertical-align:middle，其他行内元素则可以在此父元素下垂直居中。</li>
+<li>GFC GFC(GridLayout Formatting Contexts)直译为”网格布局格式化上下文”，当为一个元素设置display值为grid的时候，此元素将会获得一个独立的渲染区域，我们可以通过在网格容器（grid container）上定义网格定义行（grid definition rows）和网格定义列（grid definition columns）属性各在网格项目（grid item）上定义网格行（grid row）和网格列（grid<br>columns）为每一个网格项目（grid item）定义位置和空间。  那么GFC有什么用呢，和table又有什么区别呢？首先同样是一个二维的表格，但GridLayout会有更加丰富的属性来控制行列，控制对齐以及更为精细的渲染语义和控制。 </li>
+<li>FFC FFC(Flex Formatting Contexts)直译为”自适应格式化上下文”，display值为flex或者inline-flex的元素将会生成自适应容器（flex container），可惜这个牛逼的属性只有谷歌和火狐支持，不过在移动端也足够了，至少safari和chrome还是OK的，毕竟这俩在移动端才是王道。 Flex Box 由伸缩容器和伸缩项目组成。通过设置元素的 display 属性为 flex 或 inline-flex<br>可以得到一个伸缩容器。设置为 flex 的容器被渲染为一个块级元素，而设置为 inline-flex 的容器则渲染为一个行内元素。 伸缩容器中的每一个子元素都是一个伸缩项目。伸缩项目可以是任意数量的。伸缩容器外和伸缩项目内的一切元素都不受影响。简单地说，Flexbox 定义了伸缩容器内伸缩项目该如何布局。</li>
+</ul>
+<h3 id="4-选择器和权重"><a href="#4-选择器和权重" class="headerlink" title="4 选择器和权重"></a>4 选择器和权重</h3><p>选择器分类：</p>
+<ul>
+<li>id选择器 #id { }</li>
+<li>类选择器 .link { }</li>
+<li>元素选择器 a { }</li>
+<li>属性选择器  [ type = radio ] { }</li>
+<li>伪元素选择器  ::before { }</li>
+<li>伪类选择器  :hover { }</li>
+<li>否定选择器 :not ( .link ) { }</li>
+<li>通用选择器  * { }</li>
+<li>组合选择器  [ type = radio] + babel { }</li>
+</ul>
+<p>同样的方式权重计算规则：</p>
+<ul>
+<li>id选择器 #id { }    +100</li>
+<li>类/属性/伪类       +10</li>
+<li>元素/伪元素        +1</li>
+<li>其他选择器         +0</li>
+</ul>
+<p>不同方式的权重计算规则：</p>
+<ul>
+<li>!important 优先级最高</li>
+<li>元素属性的内联样式 优先级高</li>
+<li>相同权重 后写的生效</li>
+</ul>
+<h3 id="5-超过省略号"><a href="#5-超过省略号" class="headerlink" title="5 超过省略号"></a>5 超过省略号</h3><pre><code class="hljs CSS"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">overflow</span>: hidden;
+	<span class="hljs-attribute">white-space</span>: nowrap;
+	<span class="hljs-attribute">text-overflow</span>: ellipsis;
+&#125;</code></pre>
+
+<pre><code class="hljs CSS"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">overflow</span>: hidden;
+	<span class="hljs-attribute">text-overflow</span>: ellipsis;
+	<span class="hljs-attribute">display</span>: -webkit-box;
+	-webkit-line-clamp: <span class="hljs-number">2</span>;  <span class="hljs-comment">/* 控制多行的行数 */</span>
+	<span class="hljs-comment">/* ! autoprefixer: off */</span>
+	-webkit-box-orient: vertical;
+	<span class="hljs-comment">/* autoprefixer: on */</span>
+&#125;</code></pre>
+
+<h3 id="6-上中下三栏布局"><a href="#6-上中下三栏布局" class="headerlink" title="6 上中下三栏布局"></a>6 上中下三栏布局</h3><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>headerBodyFooter<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span>
+<span class="css">		<span class="hljs-selector-tag">body</span> &#123;</span>
+<span class="css">			<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;</span>
+<span class="css">			<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;</span>
+<span class="css">		&#125;</span>
+<span class="css">		<span class="hljs-selector-class">.content</span> &#123;</span>
+<span class="css">			<span class="hljs-attribute">min-height</span>: <span class="hljs-number">100vh</span>;</span>
+<span class="css">			<span class="hljs-attribute">display</span>: flex;</span>
+<span class="css">			<span class="hljs-attribute">flex-direction</span>: column;</span>
+<span class="css">			<span class="hljs-attribute">text-align</span>: center;</span>
+<span class="css">		&#125;</span>
+<span class="css">		<span class="hljs-selector-class">.head</span> &#123;</span>
+<span class="css">			<span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span>
+<span class="css">			<span class="hljs-attribute">position</span>: fixed;</span>
+<span class="css">			<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;</span>
+<span class="css">    		<span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;</span>
+<span class="css">			<span class="hljs-attribute">background-color</span>: cadetblue;</span>
+<span class="css">		&#125;</span>
+<span class="css">		<span class="hljs-selector-class">.center</span> &#123;</span>
+<span class="css">			<span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;</span>
+<span class="css">			<span class="hljs-attribute">margin-top</span>: <span class="hljs-number">100px</span>;</span>
+<span class="css">			<span class="hljs-attribute">background-color</span>: mediumspringgreen;</span>
+<span class="css">		&#125;</span>
+<span class="css">		<span class="hljs-selector-class">.footer</span> &#123;</span>
+<span class="css">			<span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span>
+<span class="css">			<span class="hljs-attribute">background-color</span>: gold;</span>
+<span class="css">		&#125;</span>
+<span class="css">		<span class="hljs-selector-class">.center-1</span> &#123;</span>
+<span class="css">			<span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span>
+<span class="css">		&#125;</span>
+<span class="css">		<span class="hljs-selector-class">.center-2</span> &#123;</span>
+<span class="css">			<span class="hljs-attribute">height</span>: <span class="hljs-number">900px</span>;</span>
+<span class="css">		&#125;</span>
+<span class="css">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;head&quot;</span>&gt;</span>head<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>center
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center-1&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center-2&quot;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;footer&quot;</span>&gt;</span>footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/HTMLCSS/">HTMLCSS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/interview/">interview</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/14/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95-%E6%AD%A3%E5%88%99/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法-正则</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/10/interview/js-consoleRes/">
+                        <span class="hidden-mobile">打印结果</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

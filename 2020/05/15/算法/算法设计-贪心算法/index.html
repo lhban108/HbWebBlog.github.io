@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>算法设计 - 贪心算法 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="算法设计 - 贪心算法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-15 22:46" pubdate>
+        May 15, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">算法设计 - 贪心算法</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><ul>
+<li>贪心算法是<strong>算法设计</strong>中的一种常见方法</li>
+<li>期盼通过每个阶段的<strong>局部最优</strong>选择，从而达到全局的最优</li>
+<li>结果并<strong>一定是最优</strong></li>
+</ul>
+<h2 id="二、练习题"><a href="#二、练习题" class="headerlink" title="二、练习题"></a>二、练习题</h2><h3 id="1、分发饼干"><a href="#1、分发饼干" class="headerlink" title="1、分发饼干"></a>1、分发饼干</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/assign-cookies/">leetcode-455 分发饼干</a></p>
+<p>假设你是一位很棒的家长，想要给你的孩子们一些小饼干。但是，每个孩子最多只能给一块饼干。</p>
+<p>对每个孩子 i，都有一个胃口值 g[i]，这是能让孩子们满足胃口的饼干的最小尺寸；并且每块饼干 j，都有一个尺寸 s[j] 。如果 s[j] &gt;= g[i]，我们可以将这个饼干 j 分配给孩子 i ，这个孩子会得到满足。你的目标是尽可能满足越多数量的孩子，并输出这个最大数值。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入: g = [1,2,3], s = [1,1]
+输出: 1
+解释: 
+你有三个孩子和两块小饼干，3个孩子的胃口值分别是：1,2,3。
+虽然你有两块小饼干，由于他们的尺寸都是1，你只能让胃口值是1的孩子满足。
+所以你应该输出1。
+</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入: g = [1,2], s = [1,2,3]
+输出: 2
+解释: 
+你有两个孩子和三块小饼干，2个孩子的胃口值分别是1,2。
+你拥有的饼干数量和尺寸都足以让所有孩子满足。
+所以你应该输出2.</code></pre>
+
+<p>提示：</p>
+<ul>
+<li>1 &lt;= g.length &lt;= 3 * 104</li>
+<li>0 &lt;= s.length &lt;= 3 * 104</li>
+<li>1 &lt;= g[i], s[j] &lt;= 231 - 1</li>
+</ul>
+<pre><code class="hljs text">解题思路：
+
+1. 局部最优：既能满足孩子，还消耗最少
+2. 先将“较小的饼干” 分给 “胃口最小” 的孩子
+  - 对饼干数量和胃口数组升序排列
+  - 遍历饼干数组，找到能满足第一个孩子的饼干
+  - 然后继续遍历饼干，找到能满足 第二、三...、n 个孩子的饼干
+</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">g</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">s</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> findContentChildren = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">g, s</span>) </span>&#123;
+    <span class="hljs-comment">// 综合来说，时间复杂度是 O(n logn)</span>
+    <span class="hljs-comment">// 空间复杂度是 O(1)</span>
+
+    <span class="hljs-comment">// 排序的时间复杂度是 O(n logn)</span>
+    g.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+    s.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+    <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// forEach的时间复杂度是 O(n)</span>
+    s.forEach(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> &#123;
+        <span class="hljs-keyword">if</span> (n &gt;= g[i]) &#123;
+            i += <span class="hljs-number">1</span>;
+        &#125;
+    &#125;)
+    <span class="hljs-keyword">return</span> i;
+&#125;;</code></pre>
+
+<h3 id="2、买卖股票的最佳时机-II"><a href="#2、买卖股票的最佳时机-II" class="headerlink" title="2、买卖股票的最佳时机 II"></a>2、买卖股票的最佳时机 II</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">leetcode-122  买卖股票的最佳时机 II</a></p>
+<p>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。<br>设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。<br>注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入: [7,1,5,3,6,4]
+输出: 7
+解释: 在第 2 天（股票价格 = 1）的时候买入，
+在第 3 天（股票价格 = 5）的时候卖出, 
+这笔交易所能获得利润 = 5-1 = 4 。
+随后，在第 4 天（股票价格 = 3）的时候买入，
+在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入: [1,2,3,4,5]
+输出: 4
+解释: 在第 1 天（股票价格 = 1）的时候买入，
+在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。
+因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。</code></pre>
+
+<p>示例 3：</p>
+<pre><code class="hljs text">输入: [7,6,4,3,1]
+输出: 0
+解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</code></pre>
+
+<p>提示:</p>
+<ul>
+<li>1 &lt;= prices.length &lt;= 3 * 10 ^ 4</li>
+<li>0 &lt;= prices[i] &lt;= 10 ^ 4</li>
+</ul>
+<pre><code class="hljs text">解题思路
+1. 前提： 上帝视角，知道未来的价格
+2. 局部最优：见好就收，见差就不动，不作任何长远打算
+    - 新建一个变量，用来统计总陆润
+    - 编辑价格数组，如果当天价格比昨天高，就在昨天买，今天卖。否则就不做交易
+    - 遍历结束后，返回所有利润之和</code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[]&#125;</span> <span class="hljs-variable">prices</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>&#123;
+    <span class="hljs-comment">// 解法一: 统计找到最大利润</span>
+    <span class="hljs-comment">// var min = prices[0];</span>
+    <span class="hljs-comment">// var resArr = [];</span>
+    <span class="hljs-comment">// var tem = 0;</span>
+    <span class="hljs-comment">// for (let i = 1 ; i &lt; prices.length ; i++) &#123;</span>
+    <span class="hljs-comment">//     if (prices[i] &gt; prices[i - 1]) &#123;</span>
+    <span class="hljs-comment">//         tem = prices[i] - min</span>
+    <span class="hljs-comment">//         if (i === prices.length - 1) &#123;</span>
+    <span class="hljs-comment">//             resArr.push(tem)</span>
+    <span class="hljs-comment">//         &#125;</span>
+    <span class="hljs-comment">//     &#125; else &#123;</span>
+    <span class="hljs-comment">//         resArr.push(tem)</span>
+    <span class="hljs-comment">//         min = prices[i];</span>
+    <span class="hljs-comment">//         tem = 0</span>
+    <span class="hljs-comment">//     &#125;</span>
+    <span class="hljs-comment">// &#125;</span>
+    <span class="hljs-comment">// return resArr.reduce((x, y) =&gt; &#123;</span>
+    <span class="hljs-comment">//     return x + y</span>
+    <span class="hljs-comment">// &#125;, 0)</span>
+
+    <span class="hljs-comment">// 解法二：贪心算法，只要有利润就赚</span>
+    <span class="hljs-comment">// 时间复杂度：O(n) 空间复杂度：O(1)</span>
+    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; prices.length; i++) &#123;
+        <span class="hljs-keyword">if</span>(prices[i] &gt; prices[i - <span class="hljs-number">1</span>]) &#123;
+            res += prices[i] - prices[i - <span class="hljs-number">1</span>];
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> res;
+&#125;;</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/16/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法设计 - 回溯算法</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/05/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="hidden-mobile">算法设计 - 动态规划</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

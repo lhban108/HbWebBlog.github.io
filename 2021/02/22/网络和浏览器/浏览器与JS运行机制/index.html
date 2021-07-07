@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>浏览器与JS运行机制 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="浏览器与JS运行机制">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-22 19:38" pubdate>
+        February 22, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      40
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">浏览器与JS运行机制</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一、JavaScript预解析"><a href="#一、JavaScript预解析" class="headerlink" title="一、JavaScript预解析"></a>一、JavaScript预解析</h2><p>JavaScript代码运行分为两个阶段：</p>
+<ul>
+<li>(1) 预解析</li>
+</ul>
+<p>所有函数定义提前，函数体提升(当然不包括如var box = function() {} )<br>形参声明并赋值<br>变量声明(不赋值)</p>
+<ul>
+<li>(2) 执行</li>
+</ul>
+<p>按照js运行机制从，从上到下执行</p>
+<h2 id="二、进程与线程"><a href="#二、进程与线程" class="headerlink" title="二、进程与线程"></a>二、进程与线程</h2><ul>
+<li><strong>进程是cpu资源分配的最小单位</strong>（是能够拥有资源和独立运行的最小单位）</li>
+<li><strong>线程是cpu调度的最小单位</strong>（线程是建立在进程的基础上的一次程序运行单位，一个进程可以有多个线程</li>
+</ul>
+<p>举例：此处有多个工厂，每个工厂有1个或多个工人。此时<strong>工厂就好比进程</strong>，有单独专属自己的工厂资源；<strong>工人就好比是线程</strong>，多个工人在工厂中写作工作。工厂的空间是工人们共享的，这象征一个进程的内存空间是共享的，每个线程都可以共享内存。并且每个工厂之间相互独立存在。<br><img src="https://i.loli.net/2020/12/02/fvhtrWzeMkpCR15.png" srcset="/img/loading.gif" alt="进程和线程.png"></p>
+<ul>
+<li>应用程序必须运行在某个进程的某个线程上</li>
+<li>一个进程至少有一个运行的线程：主线程，进程启动后自动创建</li>
+</ul>
+<h2 id="三、浏览器进程"><a href="#三、浏览器进程" class="headerlink" title="三、浏览器进程"></a>三、浏览器进程</h2><p>浏览器内核是指支持浏览器运行的最核心的部分，分为渲染引擎和JS引擎。现在JS引擎比较独立，内核更加倾向于说渲染引擎</p>
+<p><strong>(1)浏览器内核分类</strong></p>
+<ul>
+<li>Chrome、Safari： Webkit (Bink)</li>
+<li>Firefox：Gecko</li>
+<li>IE：Trident</li>
+<li>360、搜狗等国内浏览器：Trident+Webkit</li>
+<li>…</li>
+</ul>
+<p><strong>(2)浏览器进程</strong></p>
+<ul>
+<li>浏览器是多进程的</li>
+<li>浏览器之所以能运行，是因为系统给它的进程分配了资源（cpu、内存）</li>
+<li>简单来说，每打一个Tab页，就相当于创建了一个独立的浏览器进程</li>
+</ul>
+<p>浏览器进程的组成：</p>
+<ul>
+<li><strong>Browser进程</strong><br>浏览器的主进程，负责协调、主控，只有一个。<br>负责内容：浏览器页面显示；与用户交互（前进、后退等）；网络资源的管理、下载；各个页面的管理，创建和销毁其他进程等</li>
+<li><strong>第三方插件进程</strong><br> 每种类型的插件对应一个进程，仅当插件使用时才创建</li>
+<li><strong>GPU进程</strong><br>最多一个，用于3D绘制等</li>
+<li><strong>浏览器渲染进程</strong>（浏览器内核，Renderer进程，内部是多线程的）<br>默认 每个Tab页面一个进程，互不影响<br>负责内容：页面渲染；脚本执行；事件处理</li>
+</ul>
+<p>浏览器是多线程的优势：避免单个Tab页崩溃或单个插件崩溃影响其他整个浏览器，可以充分多核优势，方便使用沙盒模型隔离插件等进程，提高浏览器的稳定性。缺点是，内存和cpu消耗会更大，有点空间换时间的意思。</p>
+<p>Borwser进程与浏览器内核（Renderer进程）的通信过程：</p>
+<ul>
+<li>Browser进程收到用户请求，首先需要获取页面内容（譬如通过网络下载资源），随后将该任务通过RendererHost接口传递给Render进程<ul>
+<li>渲染线程接收请求，加载网页并渲染网页，这其中可能需要Browser进程获取资源和GPU进程来帮助渲染</li>
+<li>当然可能会有JS线程操作DOM（可能会造成回流并重绘）</li>
+<li>最后Renderer进程将结果传递给Browser进程</li>
+</ul>
+</li>
+<li>Renderer进程的Renderer接口收到消息，简单解释后，交给渲染线程，然后开始渲染</li>
+<li>Browser进程收到结果并将结果绘制出来</li>
+</ul>
+<h2 id="四、浏览器渲染进程"><a href="#四、浏览器渲染进程" class="headerlink" title="四、浏览器渲染进程"></a>四、浏览器渲染进程</h2><p>对于前端操作来说 ，最重要的是渲染进程，并且<strong>渲染进程也是多线程的</strong>。<br>渲染进程包含哪些线程？</p>
+<ul>
+<li><strong>GUI渲染线程</strong><ul>
+<li>负责渲染浏览器页面，解析HTML、CSS，构建DOM树和RenderObject树，布局和绘制等</li>
+<li>负责重绘（Repaint）和回流（Reflow）</li>
+<li>GUI渲染线程和JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起，GUI线程会保存在一个队列里等 js引擎空闲时执行。</li>
+</ul>
+</li>
+<li><strong>JS引擎线程</strong><ul>
+<li>负责处理JavaScript脚本，执行代码</li>
+</ul>
+</li>
+<li><strong>事件触发线程</strong><ul>
+<li>主要负责将准备好的事件交给JS引擎线程执行<br>比如setTimeout定时器计数结束、ajax等异步请求成功并触发回调函数、用户触发点击事件等，该线程会将整装待发的事件加入到任务队列的队尾，等待JS引擎线程的执行。</li>
+</ul>
+</li>
+<li><strong>定时器触发线程</strong><ul>
+<li>主要负责异步定时器一类的函数处理，如setTimeout、setInterval<br>主线程依次执行代码时，遇到定时器，会将定时器交给该线程处理。当计数完毕后，事件触发线程会将计数完毕的事件加入到任务队列的尾部，等待JS引擎线程执行。</li>
+</ul>
+</li>
+<li><strong>异步HTTP请求线程</strong><ul>
+<li>负责执行异步请求一类的函数，如：ajax、axios、promise等<br>主线程依次执行代码是，遇到异步请求，会将异步请求函数交给该线程处理。当监听到状态码变更，如果有回调函数，事件触发线程会将回调函数加入到任务队列的尾部，等待 JS引擎线程执行。</li>
+</ul>
+</li>
+</ul>
+<h2 id="五、事件循环"><a href="#五、事件循环" class="headerlink" title="五、事件循环"></a>五、事件循环</h2><h3 id="1-浏览器中的事件循环"><a href="#1-浏览器中的事件循环" class="headerlink" title="1 浏览器中的事件循环"></a><strong>1 浏览器中的事件循环</strong></h3><p>JavaScript语言是单线程的，意思是同一时间只能做一件事。后来为了有效利用多核CPU的计算能力，HTML5提出Web Server标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，并且子线程不能操作DOM。所以新标准并没有改变JavaScript单线程的本质。</p>
+<p>简单描述JS的执行机制：</p>
+<ol>
+<li>首先判断JS是同步任务还是异步任务，同步任务就进入主线程执行，异步任务进入event table</li>
+<li>异步任务在event table中注册函数，异步函数又分为宏任务(macro-task)和微任务(micro-task)，当满足触发条件后，宏任务被推入宏任务队列(macro-task queue)，微任务被推入微任务队列(micro-task queue)</li>
+<li>同步任务在主线程中一直执行，直到同步任务执行完毕，主线程空闲空闲时，才去微任务队列(micro-task queue)中查看是否有可执行的异步任务，如果有就推入主线程中执行</li>
+<li>直到全部微任务依次执行完毕后，主线程空闲，再去宏任务队列(macro-task queue) 查看是否有可执行的异步任务，如果有就推入主线程中执行<br>以上四步循环执行，就是event loop。  </li>
+</ol>
+<p>一个完整的Event Loop过程：</p>
+<p>① 所有的同步任务都在主线程上执行，形成一个执行栈(exection context stack)，我们可以认为执行栈是一个函数调用的栈结构，遵循先进后出的原则。除了主线程的执行栈，还存在一个任务队列(task queue)，任务队列分为宏任务队列(macro-task queue)和微任务队列(micro-task queue)。<br>一开始执行栈为空，宏任务队列(macro-task queue)里只有一个script代码(整体代码)，微任务队列(micro-task queue)队列为空。<br>② 宏任务队列(macro-task queue)中的全局上下文(script标签)会被推入执行栈，同步代码执行。在执行的过程中会判断是同步任务还是异步任务，同步任务依次执行，异步任务会通过对一些接口的调用而产生新的macro-task和micro-task(只要异步任务有了运行结果，就会在对应的任务队列中放置一个事件，等待调用)。同步代码执行完了，script脚本会行和出队的过程。<br>③ 上一步出队的是一个macro-task，这一步要处理的是micro-task。需要注意的是，当macro-task出队时，任务是一个一个执行的，而micro-task出队时，任务是一队一队执行的。因此，我们处理micro-task这一步，会逐个执行队列中的任务并把它出队，直到队列被清空。<br>④ 执行渲染操作，更新页面<br>⑤ 检查是否存在Web worker任务，如果有，则对其进行进行处理<br>⑥ 上述过程重复循环，直到两个队列都清空<br><img src="https://i.loli.net/2020/12/02/ZTb26DuxecrvmJt.jpg" srcset="/img/loading.gif" alt="event-loop.jpg"></p>
+<p>宏任务队列可以有多个，而微任务队列只有一个：  </p>
+<ul>
+<li>常见的macro-task：setTimeout、setInterval、script(整套代码)、I/O操作、UI渲染等；  </li>
+<li>常见的micro-task：new Promise().then(回调)、process.nextTick、MutationObserver(HTML5新特性)等</li>
+</ul>
+<h3 id="2-Node中的事件循环"><a href="#2-Node中的事件循环" class="headerlink" title="2 Node中的事件循环"></a><strong>2 Node中的事件循环</strong></h3><p>Node中的事件循环与浏览器的是完全不同不同的东西。Node采用V8作为js的解析引擎，而I/O处理方面使用自己设计的libuv。<br>libuv是一个基于事件驱动的跨平台抽象层，封装了不同操作系统的一些底层特性，对外提供API，事件循环也是在它里面实现：<br><img src="https://i.loli.net/2020/12/02/2dRg1pCtJw5894s.png" srcset="/img/loading.gif" alt="node-eventLoop.png"></p>
+<p>NodeJS运行机制如下：</p>
+<ul>
+<li><p>V8引擎解析JavaScript脚本</p>
+</li>
+<li><p>解析后的代码调用Node API</p>
+</li>
+<li><p>libuv库负责Node API的执行。它将不同的任务分配给不同的线程，形成Event Loop（事件循环），以异步的方式将任务的执行结果返回给V8引擎</p>
+</li>
+<li><p>V8引擎再将结果返回给用户</p>
+<p>libuv引擎的事件循环分为6个阶段：</p>
+</li>
+</ul>
+<ol>
+<li><p>timers阶段：执行timers（setTimeout和setInterval）的回调</p>
+</li>
+<li><p>I/O callbacks阶段：处理上一轮循环少数未执行的的I/O回调</p>
+</li>
+<li><p>idel、prepare阶段：仅Node内部使用</p>
+</li>
+<li><p>poll阶段：获取新的I/O事件，执行I/O回调</p>
+</li>
+<li><p>check阶段：执行setImmediate()回调</p>
+</li>
+<li><p>close callbacks阶段：执行socket的close事件回调<br>绝大部分的异步任务都在timers、poll、check这个3个阶段处理</p>
+<p>NodeJS执行环境下的特殊情况：<br>1）<strong>setTimeout和setImmediate</strong><br>二者非常相似，区别主要在于调用时机不同：</p>
+</li>
+</ol>
+<ul>
+<li>setImmediate设计在poll阶段完成时执行，即check阶段</li>
+<li>setTimeout设计在poll阶段为空闲时，且设定阶段到达后执行，但它在timers阶段执行</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">timeout</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;timeout&#x27;</span>);
+&#125;,<span class="hljs-number">0</span>);
+
+setImmediate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">immediate</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;immediate&#x27;</span>);
+&#125;);</code></pre>
+<p>对于以上代码，setTimeout可能执行在前，也可能执行在后；<br>取决于setImmediate的准备时间；因为当setTimeout指定时间小于4ms，则增加到4ms（4ms是H5de新标准，2010年以前的浏览器是10ms）</p>
+<p>但是如果二者在I/O callback内部回调时，总是先执行setImmediate，后执行setTimeout:</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>)
+fs.readFile(__filename, <span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;timeout&#x27;</span>);
+    &#125;, <span class="hljs-number">0</span>)
+    setImmediate(<span class="hljs-function">() =&gt;</span> &#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;immediate&#x27;</span>)
+    &#125;)
+&#125;)
+<span class="hljs-comment">// immediate</span>
+<span class="hljs-comment">// timeout</span>
+<span class="hljs-comment">// 因为这两个代码都写在I/O回调中，I/O回调是在poll阶段执行，当回调执行完毕后队列清空，发现SetImmediate回调，所以立即跳转到check阶段执行回调。</span>
+&#125;);</code></pre>
+
+<p>2）<strong>process.nextTick</strong></p>
+<p>process.nextTick是独立于Event Loop之外的，它有一个自己的队列，会优先于其他micro-task队列执行：</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;timer1&#x27;</span>)
+    <span class="hljs-built_in">Promise</span>.resolve().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  		<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;promise1&#x27;</span>)
+	&#125;)
+&#125;, <span class="hljs-number">0</span>)
+
+process.nextTick(<span class="hljs-function">() =&gt;</span> &#123;
+	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;nextTick&#x27;</span>)
+	process.nextTick(<span class="hljs-function">() =&gt;</span> &#123;
+		<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;nextTick&#x27;</span>)
+		process.nextTick(<span class="hljs-function">() =&gt;</span> &#123;
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;nextTick&#x27;</span>)
+			process.nextTick(<span class="hljs-function">() =&gt;</span> &#123;
+				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;nextTick&#x27;</span>)
+			&#125;)
+   		&#125;)
+ 	&#125;)
+&#125;)
+<span class="hljs-comment">// nextTick=&gt;nextTick=&gt;nextTick=&gt;nextTick=&gt;timer1=&gt;promise1</span>
+</code></pre>
+
+<h3 id="3-浏览器与Node的Event-Loop差异"><a href="#3-浏览器与Node的Event-Loop差异" class="headerlink" title="3 浏览器与Node的Event Loop差异"></a><strong>3 浏览器与Node的Event Loop差异</strong></h3><p><strong>浏览器环境下，micro-task的任务队列是每个macro-task执行之后执行；</strong><br><strong>Node环境下，在node10及其以前版本，micro-task会在事件循环的各个阶段之间执行，也就是一个阶段执行完毕，就会执行micro-task队列的任务</strong><br><strong>Node在node11版本开始，Event Loop的运行原来发生了变化，一旦一个阶段里的宏任务执行完，就会立即执行微任务队列，这一点与浏览器一直。</strong></p>
+<p><img src="https://i.loli.net/2020/12/02/KAmfl3ceQICY64i.png" srcset="/img/loading.gif" alt="diff-eventLoop.png"></p>
+<h3 id="4-Web-worker"><a href="#4-Web-worker" class="headerlink" title="4 Web worker"></a><strong>4 Web worker</strong></h3><p>由于JS是单线程，当遇到计算密集型或高延迟的任务，用户界面可能会短暂“冻结”，不能做其他操作。<br>于是HTML5提出Web Worker，它允许JavaScript创造多线程环境，允许主线程创建Worker线程，将一些任务分配给后者。主线程运行的同时，Worker线程在后台运行，两者互不干扰，等到Worker完成计算任务，在把结果返回给主线程。<br>Web Worker的优点是可以承担一些密集型或高延迟任务，使主线程流畅，不被阻塞或拖慢。<br>缺点：</p>
+<ul>
+<li>不能跨域加载JS</li>
+<li>Worker内部代码不能访问DOM</li>
+<li>不是所有浏览器都支持这个新特性</li>
+</ul>
+<p>Web Worker使用方法：</p>
+<ul>
+<li><p>主线程调用Worker线程：</p>
+<ol>
+<li>主线程通过new Worker()调用Worker构造函数，新建一个Worker线程</li>
+<li>主线程调用worker.postMessage()方法，向Worker发消息</li>
+<li>主线程通过worker.onmessage指定监听函数，接收子线程发回来的消息</li>
+</ol>
+</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 主线程：</span>
+<span class="hljs-keyword">var</span> input = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;number&#x27;</span>)
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;btn&#x27;</span>).onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+	<span class="hljs-keyword">var</span> number = input.value
+	<span class="hljs-comment">//1、创建一个Worker对象</span>
+	<span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> Worker(<span class="hljs-string">&#x27;worker.js&#x27;</span>)
+	<span class="hljs-comment">// 3、绑定接收消息的监听</span>
+	worker.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;
+		<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;主线程接收分线程返回的数据: &#x27;</span>+event.data)
+		alert(event.data)
+	&#125;
+	<span class="hljs-comment">// 2、向分线程发送消息</span>
+	worker.postMessage(number)
+	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;主线程向分线程发送数据: &#x27;</span>+number)
+&#125;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>) <span class="hljs-comment">// window</span></code></pre>
+
+<p>Worker线程响应：</p>
+<ol>
+<li>Worker内部通过onmseeage()监听事件</li>
+<li>通过postMessage(data)方法向主线程发送数据</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-comment">//worker.js文件</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">n</span>) </span>&#123;
+	<span class="hljs-keyword">return</span> n&lt;=<span class="hljs-number">2</span> ? <span class="hljs-number">1</span> : fibonacci(n-<span class="hljs-number">1</span>) + fibonacci(n-<span class="hljs-number">2</span>)  <span class="hljs-comment">//递归调用</span>
+&#125;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>)<span class="hljs-comment">//[object DedicatedWorkerGlobalScope]</span>
+<span class="hljs-built_in">this</span>.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;
+	<span class="hljs-keyword">var</span> number = event.data
+	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;分线程接收到主线程发送的数据: &#x27;</span>+number)
+	<span class="hljs-comment">//计算</span>
+	<span class="hljs-keyword">var</span> result = fibonacci(number)
+	postMessage(result)
+	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;分线程向主线程返回数据: &#x27;</span>+result)
+	<span class="hljs-comment">// alert(result)  alert是window的方法, 在分线程不能调用</span>
+	<span class="hljs-comment">// 分线程中的全局对象不再是window, 所以在分线程中不可能更新界面</span>
+&#125;</code></pre>
+
+<blockquote>
+<p>参考资料：<br><a target="_blank" rel="noopener" href="https://github.com/ljianshu/Blog/issues/54">https://github.com/ljianshu/Blog/issues/54</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5bb05494e51d450e7428da59">https://juejin.im/post/5bb05494e51d450e7428da59</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5bee1e1ff265da61590b3fff">深入浅出JavaScript运行机制</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012806637">10分钟理解JS引擎的执行机制</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5e90253b5907">浏览器组成</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/bWGjZlBhlIfdSwRDK8XDHQ">全面梳理JS引擎的运行机制</a></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/22/%E7%BD%91%E7%BB%9C%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%B8%B8%E8%A7%81web%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E8%A7%A3%E6%9E%90/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">React step 1 —— React初级使用</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/22/%E9%A2%98%E7%9B%AE/Foo.getName/">
+                        <span class="hidden-mobile">js - Foo.getName()</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

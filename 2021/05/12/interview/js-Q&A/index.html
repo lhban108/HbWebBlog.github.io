@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>js Q&amp;A - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="js Q&A">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-12 15:55" pubdate>
+        May 12, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      34
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">js Q&amp;A</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一-如何正确判断-this-的指向"><a href="#一-如何正确判断-this-的指向" class="headerlink" title="一.如何正确判断 this 的指向"></a>一.如何正确判断 this 的指向</h2><ol>
+<li><p>全局环境中的 this</p>
+<p>   &nbsp;&nbsp;&nbsp;&nbsp;– 浏览器环境：无论是否在严格模式下，在全局执行环境中（在任何函数体外部）this 都指向全局对象 <code>window</code><br> &nbsp;&nbsp;&nbsp;&nbsp;– node 环境：无论是否在严格模式下，在全局执行环境中（在任何函数体外部），this 都是空对象 <code>&#123;&#125;</code></p>
+</li>
+<li><p>是否是 new 的绑定</p>
+<p> 如果是 new 绑定，并且构造函数中没有返回 function 或者是 object，那么 this 指向这个新对象。如下：</p>
+ <pre><code class="hljs javascript"><span class="hljs-comment">// 构造函数返回值不是 function 或 object</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Super</span>(<span class="hljs-params">name</span>) </span>&#123;
+	<span class="hljs-built_in">this</span>.name = name;
+&#125;
+<span class="hljs-keyword">let</span> instance = <span class="hljs-keyword">new</span> Super(<span class="hljs-string">&#x27;zhangsan&#x27;</span>);
+<span class="hljs-built_in">console</span>.log(instance.name); <span class="hljs-comment">// zhangsan</span></code></pre>
+
+ <pre><code class="hljs javascript"><span class="hljs-comment">// 构造函数返回值是 function 或 object</span>
+<span class="hljs-comment">// 这种情况下 this 指向的是返回的对象</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Super</span>(<span class="hljs-params">name</span>) </span>&#123;
+	<span class="hljs-built_in">this</span>.name = name;
+	<span class="hljs-keyword">let</span> obj = &#123;
+		<span class="hljs-attr">a</span>: <span class="hljs-string">&#x27;123&#x27;</span>
+	&#125;
+	<span class="hljs-keyword">return</span> obj;
+&#125;
+<span class="hljs-keyword">let</span> instance = <span class="hljs-keyword">new</span> Super(<span class="hljs-string">&#x27;hello&#x27;</span>);
+<span class="hljs-built_in">console</span>.log(instance.name); <span class="hljs-comment">// undefined	</span></code></pre>
+</li>
+<li><p>函数通过 call、apply 调用，或者通过 bind 绑定<br> this 绑定的就是指向的对象<br> <strong>特殊情况</strong>：如果 call,apply 或者 bind 传入的第一个参数值是 undefined 或者 null，严格模式下 this 的值为传入的值 null /undefined。非严格模式下，实际应用的默认绑定规则，this 指向全局对象(node环境为global，浏览器环境为window)</p>
+</li>
+<li><p>箭头函数<br> 箭头函数没有自己的this，继承外层上下文绑定的this。</p>
+ <pre><code class="hljs javascript"><span class="hljs-keyword">let</span> obj = &#123;
+	<span class="hljs-attr">age</span>: <span class="hljs-number">20</span>,
+	<span class="hljs-attr">info</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;
+				<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.age); 
+				<span class="hljs-comment">//this继承的是外层上下文绑定的this</span>
+		&#125;
+	&#125;
+&#125;
+
+<span class="hljs-keyword">let</span> person = &#123;<span class="hljs-attr">age</span>: <span class="hljs-number">28</span>&#125;;
+<span class="hljs-keyword">let</span> info = obj.info();
+info(); <span class="hljs-comment">//20</span>
+
+<span class="hljs-keyword">let</span> info2 = obj.info.call(person);
+info2(); <span class="hljs-comment">//28</span></code></pre>
+</li>
+<li><p>隐式绑定——函数的调用是在某个对象上触发,即调用位置上存在上下文对象。典型的隐式调用为: <code>obj1.fn()</code></p>
+ <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">info</span>(<span class="hljs-params"></span>)</span>&#123;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.age);
+&#125;
+<span class="hljs-keyword">var</span> person = &#123;
+	<span class="hljs-attr">age</span>: <span class="hljs-number">20</span>,
+	info
+&#125;
+<span class="hljs-keyword">var</span> age = <span class="hljs-number">28</span>;
+person.info(); <span class="hljs-comment">//20;执行的是隐式绑定</span></code></pre>
+
+</li>
+</ol>
+<h2 id="二-剩余参数-和-arguments-对象的区别"><a href="#二-剩余参数-和-arguments-对象的区别" class="headerlink" title="二.剩余参数 和 arguments 对象的区别"></a>二.剩余参数 和 <code>arguments</code> 对象的区别</h2><p>剩余参数 —— 剩余参数语法允许我们将不定数量的参数表示为一个数组：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">...args</span>) </span>&#123;
+<span class="hljs-comment">// ...</span>
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum2</span>(<span class="hljs-params">agr1, arg2, ...rest</span>) </span>&#123;
+<span class="hljs-comment">// ...</span>
+&#125;</code></pre>
+
+<p>区别：</p>
+<ol>
+<li>剩余参数只包含那些没有对应形参的实参（可以是参数的 部分）<br>而 arguments 对象包含了传给函数的所有实参（是参数的全部）</li>
+<li>arguments 对象<strong>不是一个真实的数组</strong><br>剩余参数<strong>是真实的 Array 实例</strong>。也就是说，能够在它上面直接使用所有的数组方法，比如 sort、map、forEach、pop</li>
+<li>Arguments Objects 是函数上下文里的激活对象AO中的内部对象，arguments 对象还有一些附加的属性(如 callee 属性)<br>arguments.callee 是一个指针，指向拥有这个arguments对象的函数</li>
+<li>如果想在 arguments 对象上使用数组方法，首先要将它转换为真实的数组，比如使用<ul>
+<li>[].slice.call(arguments)</li>
+<li>Array.from(arguments)</li>
+<li>[… arguments]</li>
+<li>Array.protoType.slice.call(arguments)</li>
+</ul>
+</li>
+</ol>
+<h2 id="三-39-1-39-39-2-39-39-3-39-map-parseInt"><a href="#三-39-1-39-39-2-39-39-3-39-map-parseInt" class="headerlink" title="三.[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;].map(parseInt)"></a>三.<code>[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;].map(parseInt)</code></h2><pre><code class="hljs javaScript"><span class="hljs-comment">// Array.prototype.map() 语法:</span>
+<span class="hljs-keyword">var</span> new_array = arr.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callback</span>(<span class="hljs-params">currentValue[, index[, array]]</span>) </span>&#123;
+	<span class="hljs-comment">// Return element for new_array </span>
+&#125;[, thisArg])
+
+<span class="hljs-comment">/* 参数</span>
+<span class="hljs-comment">-- callback 生成新数组元素的函数，使用三个参数</span>
+<span class="hljs-comment">	-- currentValue callback 数组中正在处理的当前元素</span>
+<span class="hljs-comment">	-- index (可选) 数组中正在处理的当前元素的索引</span>
+<span class="hljs-comment">	-- array (可选) 方法调用的数组</span>
+<span class="hljs-comment">-- thisArg (可选) 执行 callback 函数时值被用作this</span>
+<span class="hljs-comment">*/</span></code></pre>
+
+<pre><code class="hljs javaScript"><span class="hljs-comment">// parseInt() 语法:</span>
+<span class="hljs-built_in">parseInt</span>(string, radix);
+
+<span class="hljs-comment">/* 参数</span>
+<span class="hljs-comment">-- string 要解析的值。</span>
+<span class="hljs-comment">	如果参数不是一个字符串，则将其转换为字符串(使用 ToString 抽象操作)。</span>
+<span class="hljs-comment">	字符串开头的空白符将会被忽略</span>
+<span class="hljs-comment">-- radix (可选) 一个介于2到36之间的整数，代表字符串的基数(数学数字系统中的基)</span>
+<span class="hljs-comment">	小心-这并不是默认为10</span>
+<span class="hljs-comment">*/</span>
+
+<span class="hljs-comment">// 返回值: 从给定的字符串中解析出的一个整数 或者 NaN</span>
+<span class="hljs-comment">// 	返回NaN 的情况:</span>
+<span class="hljs-comment">//		 (1)radix 小于 2 或大于 36 (2)第一个非空格字符不能转换为数字</span></code></pre>
+
+<p>执行过程：</p>
+<ol>
+<li>parseInt(‘1’, 0)<br> -&gt; radix 为 0 时，且 string 参数不以“0x”和“0”开头时，按照 10 为基数处理。这个时候返回 1</li>
+<li>parseInt(‘2’, 1)<br> -&gt; radix 基数为 1（1 进制),而 radix 要求是小于 2 或大于 36，否则返回 NaN</li>
+<li>parseInt(‘3’, 2)<br> -&gt; radix 基数为 2 (2 进制),而 二进制表示的数中最大值(为1)小于 3, 所以无法解析，返回 NaN</li>
+</ol>
+<p>因此执行结果是  [1, NaN, NaN]</p>
+<h2 id="四-让-a-1-amp-amp-a-2-amp-amp-a-3-的值为true"><a href="#四-让-a-1-amp-amp-a-2-amp-amp-a-3-的值为true" class="headerlink" title="四.让 (a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3) 的值为true"></a>四.让 (a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3) 的值为true</h2><p>方法一: 利用隐式类型转换</p>
+<p>将 a 转换为复杂数据类型(即 Object)。当 复杂数据类型(Object) 与 简单数据类型(Number)进行对比时, Object 转换为原始类型.<br>Object 转换为原始类型会调用什么方法呢？<br>(1) 如果部署了 [Symbol.toPrimitive] 接口，那么调用此接口，若返回的不是基本数据类型，抛出错误<br>(2) 如果没有部署 [Symbol.toPrimitive] 接口，那么根据要转换的类型，先调用 valueOf / toString<br>    - 非Date类型对象，hint 是 default 时，调用顺序为：valueOf &gt;&gt;&gt; toString，即valueOf 返回的不是基本数据类型，才会继续调用 valueOf，如果toString 返回的还不是基本数据类型，那么抛出错误。<br>    - 如果 hint 是 string(Date对象的hint默认是string) ，调用顺序为：toString &gt;&gt;&gt; valueOf，即toString 返回的不是基本数据类型，才会继续调用 valueOf，如果valueOf 返回的还不是基本数据类型，那么抛出错误。<br>    - 如果 hint 是 number，调用顺序为： valueOf &gt;&gt;&gt; toString</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 部署 [Symbol.toPrimitive] / valueOf/ toString 皆可</span>
+<span class="hljs-comment">// 一次返回1，2，3 即可。</span>
+<span class="hljs-keyword">let</span> a = &#123;
+	[<span class="hljs-built_in">Symbol</span>.toPrimitive]: (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">hint</span>) </span>&#123;
+				<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>;
+				<span class="hljs-comment">//闭包的特性之一：i 不会被回收</span>
+				<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+					<span class="hljs-keyword">return</span> i++;
+				&#125;
+	&#125;)()
+&#125;</code></pre>
+
+<p>方法二: 利用数据劫持(Proxy/Object.definedProperty)</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">let</span> a = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(&#123;&#125;, &#123;
+	<span class="hljs-attr">i</span>: <span class="hljs-number">1</span>,
+	<span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">this</span>.i++;
+	&#125;
+&#125;);</code></pre>
+
+<p>方法三: 数组的 toString 接口默认调用数组的 join 方法，重新 join 方法</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">let</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+a.join = a.shift;</code></pre>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/YvetteLau/Blog/issues/35">github-blog</a></p>
+</blockquote>
+<h2 id="五-异步加载JS脚本的方式"><a href="#五-异步加载JS脚本的方式" class="headerlink" title="五.异步加载JS脚本的方式"></a>五.异步加载JS脚本的方式</h2><h3 id="1-async-和-defer"><a href="#1-async-和-defer" class="headerlink" title="1.async 和 defer"></a>1.async 和 defer</h3><p><code>&lt;script&gt;</code> 标签中增加 <code>async(html5)</code> 或者 <code>defer(html4)</code> 属性,脚本就会异步加载。</p>
+<img src="https://i.loli.net/2021/02/23/qGLYkT7COZFlhz4.png" srcset="/img/loading.gif" >
+
+<p>(绿色代表HTML解析，蓝色代表JavaScript加载，红色代表JavaScript执行)</p>
+<p>defer 和 async 的区别在于：</p>
+<ul>
+<li>defer 要等到整个页面在内存中正常渲染结束（DOM 结构完全生成，以及其他脚本执行完成），在window.onload 之前执行；</li>
+<li>async 一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。</li>
+<li>defer是顺序加载，async是无序加载</li>
+</ul>
+<h3 id="2-动态创建-script-标签"><a href="#2-动态创建-script-标签" class="headerlink" title="2.动态创建 script 标签"></a>2.动态创建 script 标签</h3><p>动态创建的 script ，设置 src 并不会开始下载，而是要添加到文档中，JS文件才会开始下载。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">let</span> script = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;script&#x27;</span>);
+script.src = <span class="hljs-string">&#x27;XXX.js&#x27;</span>;
+<span class="hljs-comment">// 添加到html文件中才会开始下载</span>
+<span class="hljs-built_in">document</span>.body.append(script);</code></pre>
+
+<h3 id="3-XHR-异步加载JS"><a href="#3-XHR-异步加载JS" class="headerlink" title="3.XHR 异步加载JS"></a>3.XHR 异步加载JS</h3><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
+xhr.open(<span class="hljs-string">&quot;get&quot;</span>, <span class="hljs-string">&quot;js/xxx.js&quot;</span>,<span class="hljs-literal">true</span>);
+xhr.send();
+xhr.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+	<span class="hljs-keyword">if</span> (xhr.readyState == <span class="hljs-number">4</span> &amp;&amp; xhr.status == <span class="hljs-number">200</span>) &#123;
+		<span class="hljs-built_in">eval</span>(xhr.responseText);
+	&#125;
+&#125;</code></pre>
+
+<h2 id="六-隐藏页面中的某个元素"><a href="#六-隐藏页面中的某个元素" class="headerlink" title="六.隐藏页面中的某个元素"></a>六.隐藏页面中的某个元素</h2><p>影藏元素的类型有：</p>
+<ul>
+<li>完全影藏： 元素从DOM树中消失，不占空间</li>
+<li>视觉上的影藏：屏幕上不可见，占据空间</li>
+<li>语义上的影藏：读屏软件不可读，但政策占据空间</li>
+</ul>
+<h3 id="1-完全影藏"><a href="#1-完全影藏" class="headerlink" title="1. 完全影藏"></a>1. 完全影藏</h3><ul>
+<li>display: none</li>
+<li><code>&lt;div hidden&gt;&lt;/div&gt;</code> : HTML5 新增的属性，相当于 display:none</li>
+</ul>
+<h3 id="2-视觉上的影藏"><a href="#2-视觉上的影藏" class="headerlink" title="2.视觉上的影藏"></a>2.视觉上的影藏</h3><ul>
+<li><p>利用 <code>position</code> 和 盒模型 将元素移出可视区范围</p>
+<ul>
+<li><p>设置元素<code>posoition:absolute</code> 或 <code>position:fixed</code>,再通过设置 top、left 等值，将其移出可视区域</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">position</span>:absolute;
+	<span class="hljs-attribute">left</span>: -<span class="hljs-number">99999px</span>;
+&#125;</code></pre>
+</li>
+<li><p>设置元素<code>posoition:relative</code>，通过设置 <code>top、left</code> 等值，将其移出可视区域</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">position</span>: relative;
+	<span class="hljs-attribute">left</span>: -<span class="hljs-number">99999px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>
+&#125;</code></pre>
+</li>
+<li><p>设置 margin 值，将其移出可视区域范围（可视区域占位）</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">99999px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+&#125;</code></pre>
+</li>
+</ul>
+</li>
+<li><p>利用 transform</p>
+<ul>
+<li><p>缩放 scale</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0</span>);
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+&#125;</code></pre>
+</li>
+<li><p>移动 translateX, translateY</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateX</span>(-<span class="hljs-number">99999px</span>);
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+&#125;</code></pre>
+</li>
+<li><p>旋转 rotate</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">90deg</span>);
+&#125;</code></pre>
+</li>
+</ul>
+</li>
+<li><p>设置其大小为0</p>
+<ul>
+<li><p>宽高为0，字体大小为0</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">font-size</span>: <span class="hljs-number">0</span>;
+&#125;</code></pre>
+</li>
+<li><p>宽高为0，超出影藏</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">overflow</span>: hidden;
+&#125;</code></pre>
+</li>
+</ul>
+</li>
+<li><p>设置透明度为0 <code>opacity: 0;</code></p>
+</li>
+<li><p><code>visibility: hidden</code></p>
+</li>
+<li><p>层级覆盖, z-index 属性</p>
+  <pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+	<span class="hljs-attribute">position</span>: relative;
+	<span class="hljs-attribute">z-index</span>: -<span class="hljs-number">999</span>;
+&#125;</code></pre>
+</li>
+<li><p>clip-path:polygon(0 0, 0 0, 0 0, 0 0); 裁剪</p>
+</li>
+</ul>
+<h3 id="3-语义上的隐藏"><a href="#3-语义上的隐藏" class="headerlink" title="3.语义上的隐藏"></a>3.语义上的隐藏</h3><p>aria-hidden 属性<br>读屏软件不可读，占据空间，可见。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+<h2 id="七-执行上下文栈和作用域链"><a href="#七-执行上下文栈和作用域链" class="headerlink" title="七.执行上下文栈和作用域链"></a>七.执行上下文栈和作用域链</h2><h3 id="1-执行上下文"><a href="#1-执行上下文" class="headerlink" title="1. 执行上下文"></a>1. 执行上下文</h3><p>执行上下文就是当前 JavaScript 代码被解析和执行时所在环境的抽象概念， JavaScript 中运行任何的代码都是在执行上下文中运行。</p>
+<p>执行上下文创建过程中，需要做以下几件事:</p>
+<ul>
+<li>创建变量对象：首先初始化函数的参数arguments，提升函数声明和变量声明。</li>
+<li>创建作用域链（Scope Chain）：在执行期上下文的创建阶段，作用域链是在变量对象之后创建的。</li>
+<li>确定this的值，即 ResolveThisBinding。</li>
+</ul>
+<h3 id="2-执行上下文栈-（执行栈）"><a href="#2-执行上下文栈-（执行栈）" class="headerlink" title="2.执行上下文栈 （执行栈）"></a>2.执行上下文栈 （执行栈）</h3><p>执行栈，也叫做调用栈，具有 LIFO (后进先出) 结构，用于存储在代码执行期间创建的所有执行上下文。</p>
+<h3 id="3-作用域"><a href="#3-作用域" class="headerlink" title="3.作用域"></a>3.作用域</h3><p>作用域负责收集和维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符的访问权限</p>
+<h3 id="4-作用域链"><a href="#4-作用域链" class="headerlink" title="4.作用域链"></a>4.作用域链</h3><p>作用域链就是从当前作用域开始一层一层向上寻找某个变量，直到找到全局作用域还是没找到，就宣布放弃。这种一层一层的关系，就是作用域链。</p>
+<h2 id="八-可迭代对象有哪些特点"><a href="#八-可迭代对象有哪些特点" class="headerlink" title="八 可迭代对象有哪些特点"></a>八 可迭代对象有哪些特点</h2><p>（呼应 js-手写代码 的 7-给对象加上 iterator 接口,使之能被 for…of 遍历）</p>
+<p>ES6 规定，默认的 Iterator 接口部署在数据结构的 Symbol.iterator 属性，换个角度，也可以认为，一个数据结构只要具有 Symbol.iterator 属性(Symbol.iterator 方法对应的是遍历器生成函数，返回的是一个遍历器对象)，那么就可以其认为是可迭代的。</p>
+<p>可迭代对象的特点:</p>
+<ul>
+<li>具有 Symbol.iterator 属性，Symbol.iterator() 返回的是一个遍历器对象</li>
+<li>可以使用 for … of 进行循环</li>
+<li>通过被 Array.from 转换为数组</li>
+</ul>
+<p>原生具有 Iterator 接口的数据结构：Array、Map、Set、String、TypedArray、函数的arguments对象、NodeList对象.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/YvetteLau/Blog/issues/35">这儿有20道大厂面试题等你查收</a></p>
+</blockquote>
+<h2 id="九-diff-时间复杂度从-O-n-3-优化到-O-n"><a href="#九-diff-时间复杂度从-O-n-3-优化到-O-n" class="headerlink" title="九 diff 时间复杂度从 O(n^3) 优化到 O(n)"></a>九 diff 时间复杂度从 O(n^3) 优化到 O(n)</h2><p>oldNode 每一个节点都去遍历 newNode 的节点，直到找到新树对应的节点。那么这个流程就是 O(n^2).<br>再紧接着找到不同之后，再计算最短修改距离然后修改节点，这里是 O(n^3).</p>
+<p>vue的更新策略就是：深度优先、同层比较。就是只比较同层级，也就是 O(n)</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/interview/">interview</a>
+                    
+                      <a class="hover-with-bg" href="/tags/js/">js</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/10/interview/js-consoleRes/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">打印结果</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/12/interview/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="hidden-mobile">js-设计模式</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

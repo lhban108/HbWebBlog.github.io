@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>Vue step 2 —— Vue高级特性 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Vue step 2 —— Vue高级特性">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2017-11-15 19:01" pubdate>
+        November 15, 2017 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Vue step 2 —— Vue高级特性</h1>
+            
+            <div class="markdown-body">
+              <ul>
+<li><strong>组件化和 MVVM</strong></li>
+<li><strong>响应式原理</strong></li>
+<li><strong>vdom 和 diff 算法</strong></li>
+<li><strong>模板编译</strong></li>
+<li><strong>组件渲染过程</strong></li>
+<li><strong>前端路由</strong></li>
+</ul>
+<h3 id="1、组件化和-MVVM"><a href="#1、组件化和-MVVM" class="headerlink" title="1、组件化和 MVVM"></a>1、组件化和 MVVM</h3><ul>
+<li>很早就有组件化, 在Vue中通过数据驱动图的模式，对组件化进行了发展</li>
+<li>数据驱动视图 - Vue MVVM</li>
+<li>数据驱动视图 - React setState</li>
+</ul>
+<img src="https://i.loli.net/2021/01/03/zk7arT2w8KdfGi6.png" srcset="/img/loading.gif" >
+
+<p>MVVM是Model-View-ViewModel的简写,它本质上就是 MVC 的改进版。MVVM 就是将其中的View 的状态和行为抽象化，让我们将视图 UI 和业务逻辑分开.</p>
+<h3 id="2、响应式原理"><a href="#2、响应式原理" class="headerlink" title="2、响应式原理"></a>2、响应式原理</h3><ul>
+<li>核心API: Object.defineProperty</li>
+<li>Object.defineProperty 的缺点<ul>
+<li><strong>深度监听需要递归到底，一次性计算量大</strong></li>
+<li><strong>无法监听 新增属性/删除属性 （Vue.set  Vue.delete）</strong></li>
+</ul>
+</li>
+<li>Vue3.0启用Proxy，Proxy 兼容性不好, 且无法 polyfill</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-comment">// Object.defineProperty 的基本用法</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">observer</span>(<span class="hljs-params">target</span>) </span>&#123;
+	<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target !== <span class="hljs-string">&#x27;object&#x27;</span> || target === <span class="hljs-literal">null</span>) &#123;
+		<span class="hljs-keyword">return</span> target;
+	&#125;
+	<span class="hljs-comment">// 重新定义各个属性 for...in 可以监听数组 也可以监听对象</span>
+	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> target) &#123;
+		defineReactive(target, key, target[key]);
+	&#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineReactive</span>(<span class="hljs-params">target, key, val</span>) </span>&#123;
+	<span class="hljs-comment">// 深度监听 ——缺点： 深度监听需要递归到底，一次性计算量大</span>
+	observer(val);
+
+	<span class="hljs-comment">// 核心API</span>
+	<span class="hljs-built_in">Object</span>.defineProperty(target, key, &#123;
+		<span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+			<span class="hljs-keyword">return</span> val;
+		&#125;,
+		<span class="hljs-attr">set</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newVal</span>) </span>&#123;
+			<span class="hljs-keyword">if</span> (val !== newVal) &#123;
+				<span class="hljs-comment">// 深度监听 ——缺点： 深度监听需要递归到底，一次性计算量大</span>
+				observer(newVal);
+
+				<span class="hljs-comment">// 更新值 （注意: val 一直在闭包中,此处设置完之后,再 get 时 拿到的也是最新的值）</span>
+				val = newVal;
+				<span class="hljs-comment">// 通知视图更新</span>
+				updateView();
+			&#125;
+		&#125;
+	&#125;)
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateView</span>(<span class="hljs-params"></span>) </span>&#123;
+	<span class="hljs-comment">// ... 更新视图</span>
+&#125;
+
+<span class="hljs-comment">// 测试</span>
+<span class="hljs-keyword">const</span> data = &#123;
+	<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;zhangsan&#x27;</span>,
+	<span class="hljs-attr">age</span>: <span class="hljs-number">20</span>
+&#125;
+
+observer(data);
+
+data.name = <span class="hljs-string">&#x27;lisi&#x27;</span>;
+data.age = <span class="hljs-number">21</span>;
+</code></pre>
+
+<ol>
+<li>如何监听对象、如何监听数组 ?</li>
+<li>如何实现复杂对象的深度监听?<br>缺点： 深度监听需要递归到底，一次性计算量大</li>
+</ol>
+<h3 id="3、虚拟DOM（vdom）和-diff"><a href="#3、虚拟DOM（vdom）和-diff" class="headerlink" title="3、虚拟DOM（vdom）和 diff"></a>3、虚拟DOM（vdom）和 diff</h3><p>1、用 JS 模拟 DOM 结构</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;id1&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>v-dom<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size: 20px&quot;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>a<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+<pre><code class="hljs javascript">vodom = &#123;
+	<span class="hljs-attr">tag</span>: <span class="hljs-string">&#x27;div&#x27;</span>,
+	<span class="hljs-attr">props</span>: &#123;
+		<span class="hljs-attr">className</span>: <span class="hljs-string">&#x27;container&#x27;</span>,
+		<span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;id1&#x27;</span>
+	&#125;,
+	<span class="hljs-attr">children</span>: [
+		&#123;
+			<span class="hljs-attr">tag</span>: <span class="hljs-string">&#x27;p&#x27;</span>,
+			<span class="hljs-attr">children</span>: <span class="hljs-string">&#x27;v-dom&#x27;</span>
+
+		&#125;,
+		&#123;
+			<span class="hljs-attr">tag</span>: <span class="hljs-string">&#x27;ul&#x27;</span>,
+			<span class="hljs-attr">props</span>: &#123;
+				<span class="hljs-attr">style</span>: <span class="hljs-string">&#x27;font-size: 20px&#x27;</span>
+			&#125;,
+			<span class="hljs-attr">children</span>: [
+				&#123;
+					<span class="hljs-attr">tag</span>: <span class="hljs-string">&#x27;li&#x27;</span>,
+					<span class="hljs-attr">children</span>: <span class="hljs-string">&#x27;a&#x27;</span>
+				&#125;
+			]
+		&#125;
+	]
+&#125;</code></pre>
+
+<p>2、diff 算法</p>
+<ul>
+<li>diff 即对比，是一个广泛的概念，如 Linux diff命令、git diff等</li>
+<li>两个 js 对象也可以做diff，如： <a target="_blank" rel="noopener" href="https://github.com/cujojs/jiff">https://github.com/cujojs/jiff</a></li>
+<li>树 diff 的时间复杂度是 O(n^3)</li>
+<li>优化时间复杂度到 O(n)<ul>
+<li>只比较同一层级，不跨级比较</li>
+<li>tag 不相同，则直接删掉重建，不再深度比较</li>
+<li>tag 和 key 都相同，则认为是相同的节点，不再深度比较</li>
+</ul>
+</li>
+</ul>
+<p>Vue2.x 的 diff 算法:</p>
+<p>Vue3.x 的 diff 算法:</p>
+<h3 id="4、模板编译"><a href="#4、模板编译" class="headerlink" title="4、模板编译"></a>4、模板编译</h3><ul>
+<li>前置知识: with 语法</li>
+<li>vue template complier 将模板编译为 render 函数</li>
+<li>执行 render 函数生成 vnode</li>
+</ul>
+<ol>
+<li><p>js with 语法</p>
+<ul>
+<li>改变 <code>&#123;&#125;</code> 内自由变量的查找规则，当做 obj 属性来查找</li>
+<li>如果匹配不到 obj 属性，就会报错</li>
+<li>with 要慎用，它打破了作用域规则，易读性变差</li>
+</ul>
+<img src="https://i.loli.net/2021/01/23/O3iAEV57wX6ZcFh.png" srcset="/img/loading.gif" >
+</li>
+<li><p>编译模板</p>
+<ul>
+<li>模板编译为 render 函数，执行 render 函数会返回 vnode</li>
+<li>基于 vnode 再执行 patch 和 diff</li>
+<li>使用 webpack vue-loader，会在开发环境下编译模板</li>
+</ul>
+</li>
+<li><p>render 函数<br>vue 组件可以用 render 代替 template</p>
+</li>
+</ol>
+<h3 id="5、组件渲染过程"><a href="#5、组件渲染过程" class="headerlink" title="5、组件渲染过程"></a>5、组件渲染过程</h3><p>初次渲染的过程：</p>
+<ol>
+<li>解析模板为 render 函数（或在开发环境已完成，vue-loader）</li>
+<li>触发响应式，监听 data 属性 getter setter</li>
+<li>执行 render 函数，生成 vnode，执行patch(elem, vnode)</li>
+</ol>
+<p>更新过程：</p>
+<ol>
+<li>修改 data，触发 setter （此前在 getter 中已被监听）</li>
+<li>重新执行 render 函数，生成 newVnode</li>
+<li>patch(oldVnode, newVnode)</li>
+</ol>
+<h3 id="6、前端路由"><a href="#6、前端路由" class="headerlink" title="6、前端路由"></a>6、前端路由</h3><ol>
+<li><p>hash 模式</p>
+<ul>
+<li>hash 变化会触发页面跳转，即浏览器前进、后退</li>
+<li>hash 变化不会刷新页面，SPA 必需的特点</li>
+<li>hash 永远不会提交到 server 端</li>
+</ul>
+</li>
+<li><p>history 模式</p>
+<ul>
+<li>用 url 规范的路由，但是跳转时不刷新页面</li>
+<li>history.pushState : 将路由信息保存到 history 记录中</li>
+<li>window.onpopstate : 用来监听浏览器前进后退, 找到路由对应的组件, 实现页面的跳转<br>history 模式需要后端配合，即 无论访问域名下的什么页面，都返回 index.html，将页面跳转的控制权交给前端</li>
+</ul>
+</li>
+</ol>
+<p>选择：</p>
+<ol>
+<li>一般 to B 用 hash 模式，对路由不敏感，成本低，不需要后端支持</li>
+<li>一般 to C 用 history 模式</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/11/21/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/Vue-step3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue step 3 —— Vue面试题</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/06/01/markDown/rulesInfo/">
+                        <span class="hidden-mobile">MarkDown Rules Detail</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

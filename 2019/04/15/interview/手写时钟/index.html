@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>js-时钟 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="js-时钟">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-04-15 22:48" pubdate>
+        April 15, 2019 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      651 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">js-时钟</h1>
+            
+            <div class="markdown-body">
+              <pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span>
+<span class="css">			*&#123;</span>
+<span class="css">				<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;</span>
+<span class="css">				<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;</span>
+<span class="css">			&#125;</span>
+<span class="css">			<span class="hljs-selector-tag">html</span>, <span class="hljs-selector-tag">body</span> &#123;</span>
+<span class="css">				<span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;</span>
+<span class="css">			&#125;</span>
+<span class="css">			<span class="hljs-selector-class">.warp</span>&#123;</span>
+<span class="css">				<span class="hljs-attribute">width</span>: <span class="hljs-number">230px</span>;</span>
+<span class="css">				<span class="hljs-attribute">height</span>: <span class="hljs-number">230px</span>;</span>
+<span class="css">				<span class="hljs-attribute">margin</span>: <span class="hljs-number">50px</span> auto;</span>
+<span class="css">			&#125;</span>
+<span class="css">			<span class="hljs-selector-class">.clock</span>&#123;</span>
+<span class="css">				<span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;</span>
+<span class="css">				<span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span>
+<span class="css">				<span class="hljs-attribute">border-radius</span>: <span class="hljs-number">115px</span>;</span>
+<span class="css">				<span class="hljs-attribute">border</span>: <span class="hljs-number">15px</span> solid <span class="hljs-number">#ccc</span>;</span>
+<span class="css">				<span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span>;</span>
+<span class="css">				<span class="hljs-attribute">position</span>: relative;</span>
+<span class="css">			&#125;</span>
+<span class="css">			<span class="hljs-selector-class">.number</span> <span class="hljs-selector-tag">div</span>&#123;</span>
+<span class="css">				<span class="hljs-attribute">position</span>: absolute;</span>
+<span class="css">				<span class="hljs-attribute">width</span>: <span class="hljs-number">20px</span>;</span>
+<span class="css">				<span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span>
+<span class="css">				<span class="hljs-attribute">left</span>: <span class="hljs-number">90px</span>;</span>
+<span class="css">			&#125;</span>
+<span class="css">			<span class="hljs-selector-class">.number</span> <span class="hljs-selector-tag">span</span>&#123;</span>
+<span class="css">				<span class="hljs-attribute">display</span>: block;</span>
+<span class="css">				<span class="hljs-attribute">width</span>: <span class="hljs-number">20px</span>;</span>
+<span class="css">				<span class="hljs-attribute">height</span>: <span class="hljs-number">20px</span>;</span>
+<span class="css">				<span class="hljs-attribute">text-align</span>: center;</span>
+<span class="css">			&#125;</span>
+<span class="css">			<span class="hljs-selector-class">.pointer</span>&#123;</span>
+<span class="css">				<span class="hljs-attribute">position</span>: absolute;</span>
+<span class="css">				<span class="hljs-attribute">bottom</span>: <span class="hljs-number">90px</span>;</span>
+<span class="css">				<span class="hljs-attribute">transform-origin</span>: <span class="hljs-number">50%</span> <span class="hljs-number">90%</span>;</span>
+<span class="css">				-webkit-<span class="hljs-attribute">transform-origin</span>: <span class="hljs-number">50%</span> <span class="hljs-number">90%</span>;</span>
+<span class="css">			&#125;</span>
+<span class="css">			<span class="hljs-selector-class">.houre</span>&#123;</span>
+<span class="css">				<span class="hljs-attribute">width</span>: <span class="hljs-number">4px</span>;</span>
+<span class="css">				<span class="hljs-attribute">height</span>: <span class="hljs-number">60px</span>;</span>
+<span class="css">				<span class="hljs-attribute">left</span>: <span class="hljs-number">100px</span>;</span>
+<span class="css">				<span class="hljs-attribute">background</span>: <span class="hljs-number">#000</span>;</span>
+<span class="css">			&#125;</span>
+<span class="css">			<span class="hljs-selector-class">.minute</span>&#123;</span>
+<span class="css">				<span class="hljs-attribute">width</span>: <span class="hljs-number">2px</span>;</span>
+<span class="css">				<span class="hljs-attribute">height</span>: <span class="hljs-number">80px</span>;</span>
+<span class="css">				<span class="hljs-attribute">left</span>: <span class="hljs-number">100px</span>;</span>
+<span class="css">				<span class="hljs-attribute">background</span>: <span class="hljs-number">#777</span>;</span>
+<span class="css">			&#125;</span>
+<span class="css">			<span class="hljs-selector-class">.second</span>&#123;</span>
+<span class="css">				<span class="hljs-attribute">width</span>: <span class="hljs-number">1px</span>;</span>
+<span class="css">				<span class="hljs-attribute">height</span>: <span class="hljs-number">90px</span>;</span>
+<span class="css">				<span class="hljs-attribute">left</span>: <span class="hljs-number">100px</span>;</span>
+<span class="css">				<span class="hljs-attribute">background</span>: <span class="hljs-number">#ff0000</span>;</span>
+<span class="css">			&#125;</span>
+<span class="css">		</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span>
+<span class="javascript">			<span class="hljs-built_in">window</span>.onload = <span class="hljs-function">() =&gt;</span> &#123;</span>
+<span class="javascript">				<span class="hljs-keyword">var</span> domNumber = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;number&quot;</span>);</span>
+<span class="javascript">				<span class="hljs-keyword">var</span> domDiv = domNumber.getElementsByTagName(<span class="hljs-string">&quot;div&quot;</span>);</span>
+<span class="javascript">				<span class="hljs-keyword">var</span> domSpan = domNumber.getElementsByTagName(<span class="hljs-string">&quot;span&quot;</span>);</span>
+<span class="javascript">		</span>
+<span class="javascript">				<span class="hljs-comment">// 布局 =&gt; 让数字旋转到相应的位置并调整方向</span></span>
+<span class="javascript">				<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; domDiv.length; i++)&#123;</span>
+<span class="javascript">					domDiv[i].style.WebkitTransform=<span class="hljs-string">&quot;rotate(&quot;</span> + (i + <span class="hljs-number">1</span>) * <span class="hljs-number">30</span> + <span class="hljs-string">&quot;deg)&quot;</span>;</span>
+<span class="javascript">				&#125;</span>
+<span class="javascript"></span>
+<span class="javascript">				<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; domSpan.length; j++)&#123;</span>
+<span class="javascript">					domSpan[j].style.WebkitTransform=<span class="hljs-string">&quot;rotate(&quot;</span>+ (j + <span class="hljs-number">1</span>) * -<span class="hljs-number">30</span> + <span class="hljs-string">&quot;deg)&quot;</span>;</span>
+<span class="javascript">				&#125;</span>
+<span class="javascript">	</span>
+<span class="javascript">				<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clockRun</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+<span class="javascript">					<span class="hljs-keyword">var</span> domHour = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;houre&quot;</span>);</span>
+<span class="javascript">					<span class="hljs-keyword">var</span> domMinute = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;minute&quot;</span>);</span>
+<span class="javascript">					<span class="hljs-keyword">var</span> domSecond = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;second&quot;</span>);</span>
+<span class="javascript"></span>
+<span class="javascript">					<span class="hljs-keyword">var</span> nowTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();</span>
+<span class="javascript">					<span class="hljs-keyword">var</span> nowHour = nowTime.getHours();</span>
+<span class="javascript">					<span class="hljs-keyword">var</span> nowMinute = nowTime.getMinutes();</span>
+<span class="javascript">					<span class="hljs-keyword">var</span> nowSecond = nowTime.getSeconds();</span>
+<span class="javascript"></span>
+<span class="javascript">					<span class="hljs-comment">// 计算指针的角度，其中最重要的是在不满一小时或不满一分钟时，时针或分针应该转多少度</span></span>
+<span class="javascript">					<span class="hljs-keyword">var</span> houreDeg = (nowMinute/<span class="hljs-number">60</span>) * <span class="hljs-number">30</span>; <span class="hljs-comment">// 每小时是30度(1h = 60min, 1h =&gt;  360°/12h = 30 °/h)</span></span>
+<span class="javascript">					<span class="hljs-keyword">var</span> minuteDeg = (nowSecond/<span class="hljs-number">60</span>) * <span class="hljs-number">6</span>; <span class="hljs-comment">// 每分钟是6度(1min = 60sec, 1min =&gt; 360°/60min = 6 °/h)</span></span>
+<span class="javascript"></span>
+<span class="javascript">					domHour.style.WebkitTransform = <span class="hljs-string">&quot;rotate(&quot;</span> + (nowHour * <span class="hljs-number">30</span> + houreDeg) + <span class="hljs-string">&quot;deg)&quot;</span>;</span>
+<span class="javascript">					domMinute.style.WebkitTransform = <span class="hljs-string">&quot;rotate(&quot;</span> + (nowMinute * <span class="hljs-number">6</span> + minuteDeg) + <span class="hljs-string">&quot;deg)&quot;</span>;</span>
+<span class="javascript">					domSecond.style.WebkitTransform = <span class="hljs-string">&quot;rotate(&quot;</span> + (nowSecond * <span class="hljs-number">6</span>) + <span class="hljs-string">&quot;deg)&quot;</span>;</span>
+<span class="javascript">				&#125;</span>
+<span class="javascript">				clockRun();</span>
+<span class="javascript">				<span class="hljs-built_in">setInterval</span>(clockRun, <span class="hljs-number">1000</span>);</span>
+<span class="javascript">			&#125;</span>
+<span class="javascript">		</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;warp&quot;</span> &gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;clock&quot;</span> &gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;number&quot;</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>7<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>9<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>10<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;houre&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pointer houre&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;minute&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pointer minute&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;second&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pointer second&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/interview/">interview</a>
+                    
+                      <a class="hover-with-bg" href="/tags/js/">js</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%89%8B%E5%86%99/">手写</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/05/16/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/Webpack/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">webpack 详解</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/04/15/interview/project/">
+                        <span class="hidden-mobile">project 项目</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

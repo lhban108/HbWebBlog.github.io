@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>算法 - 图 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="算法 - 图">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-11-01 18:56" pubdate>
+        November 1, 2019 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      31
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">算法 - 图</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一、-图是什么"><a href="#一、-图是什么" class="headerlink" title="一、 图是什么"></a>一、 图是什么</h2><ul>
+<li>图是<strong>网络结构</strong>的抽象模型，是一组由<strong>边</strong>连接的<strong>节点</strong></li>
+<li>图可以表示任何二元关系，比如道路、航班…</li>
+</ul>
+<p>图的表示法：邻接矩阵、邻接表、关联矩阵…</p>
+<p>邻接矩阵表示法：<br><img src="https://i.loli.net/2021/01/02/8VuqBSxOD5NnfL9.png" srcset="/img/loading.gif" ></p>
+<p>邻接表表示法 ：<br><img src="https://i.loli.net/2021/01/02/FOmAQuPw78dtnp5.png" srcset="/img/loading.gif" ></p>
+<h2 id="二、图的常用操作"><a href="#二、图的常用操作" class="headerlink" title="二、图的常用操作"></a>二、图的常用操作</h2><ul>
+<li>深度优先遍历</li>
+<li>广度优先遍历</li>
+</ul>
+<p><strong>深度优先遍历：</strong></p>
+<ol>
+<li>先访问根节点</li>
+<li>对根节点的<strong>没有访问过的相邻节点</strong>依次进行深度优先遍历</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-keyword">const</span> graph = &#123;
+	<span class="hljs-attr">A</span>: [<span class="hljs-string">&#x27;B&#x27;</span>],
+	<span class="hljs-attr">B</span>: [<span class="hljs-string">&#x27;C&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>],
+	<span class="hljs-attr">C</span>: [<span class="hljs-string">&#x27;E&#x27;</span>],
+	<span class="hljs-attr">D</span>: [<span class="hljs-string">&#x27;A&#x27;</span>],
+	<span class="hljs-attr">E</span>: [<span class="hljs-string">&#x27;D&#x27;</span>]
+&#125;
+
+<span class="hljs-keyword">const</span> visited = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
+
+<span class="hljs-keyword">const</span> dfs = <span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> &#123;
+	<span class="hljs-built_in">console</span>.log(n); <span class="hljs-comment">// 访问节点</span>
+	visited.add(n);
+	graph[n].forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123;
+		<span class="hljs-keyword">if</span> (!visited.has(item)) &#123;
+			dfs(item);
+		&#125;
+	&#125;)
+&#125;
+
+dfs(<span class="hljs-string">&#x27;B&#x27;</span>);</code></pre>
+
+<p><strong>广度优先遍历：</strong></p>
+<ol>
+<li>新建一个队列，把根节点入队</li>
+<li>把队头出队并访问</li>
+<li>把队头的<strong>没有访问过的相邻接点</strong>入队</li>
+<li>重复第二、第三步操作，直到队列为空</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-keyword">const</span> graph = &#123;
+	<span class="hljs-attr">A</span>: [<span class="hljs-string">&#x27;B&#x27;</span>],
+	<span class="hljs-attr">B</span>: [<span class="hljs-string">&#x27;C&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>],
+	<span class="hljs-attr">C</span>: [<span class="hljs-string">&#x27;E&#x27;</span>],
+	<span class="hljs-attr">D</span>: [<span class="hljs-string">&#x27;A&#x27;</span>],
+	<span class="hljs-attr">E</span>: [<span class="hljs-string">&#x27;D&#x27;</span>]
+&#125;
+
+<span class="hljs-keyword">const</span> visited = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
+
+<span class="hljs-keyword">const</span> stack = [<span class="hljs-string">&#x27;B&#x27;</span>];
+<span class="hljs-keyword">while</span>(stack.length) &#123;
+	<span class="hljs-keyword">const</span> m = stack.shift();
+	visited.add(m);
+	<span class="hljs-built_in">console</span>.log(m); <span class="hljs-comment">// 访问节点</span>
+	graph[m].forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123;
+		<span class="hljs-keyword">if</span> (!visited.has(item)) &#123;
+			stack.push(item);
+		&#125;
+	&#125;)
+&#125;
+
+</code></pre>
+
+<h2 id="三、练习题"><a href="#三、练习题" class="headerlink" title="三、练习题"></a>三、练习题</h2><h3 id="1、有效数字"><a href="#1、有效数字" class="headerlink" title="1、有效数字"></a>1、有效数字</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-number/">LeetCode-65有效数字</a></p>
+<p>题目描述：<br>验证给定的字符串是否可以解释为十进制数字。</p>
+<pre><code class="hljs text">例如:
+
+&quot;0&quot; =&gt; true
+&quot; 0.1 &quot; =&gt; true
+&quot;abc&quot; =&gt; false
+&quot;1 a&quot; =&gt; false
+&quot;2e10&quot; =&gt; true
+&quot; -90e3   &quot; =&gt; true
+&quot; 1e&quot; =&gt; false
+&quot;e3&quot; =&gt; false
+&quot; 6e-1&quot; =&gt; true
+&quot; 99e2.5 &quot; =&gt; false
+&quot;53.5e93&quot; =&gt; true
+&quot; --6 &quot; =&gt; false
+&quot;-+3&quot; =&gt; false
+&quot;95a54e53&quot; =&gt; false</code></pre>
+
+<p>说明: 我们有意将问题陈述地比较模糊。在实现代码之前，你应当事先思考所有可能的情况。这里给出一份可能存在于有效十进制数字中的字符列表：</p>
+<ul>
+<li>数字 0-9</li>
+<li>指数 - “e”</li>
+<li>正/负号 - “+”/“-“</li>
+<li>小数点 - “.”</li>
+</ul>
+<p>当然，在输入中，这些字符的上下文也很重要。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">s</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;boolean&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> isNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>&#123;
+
+&#125;;</code></pre>
+
+<p>题解：</p>
+<p>解题思路<br>   这道题的描述可以用这个图数据结构来表示：<br>    <img src="https://i.loli.net/2021/01/02/FJMwKiICBEyep6h.png" srcset="/img/loading.gif" ></p>
+<p>上图中的 0-7 的8个节点 代表字符串的8种状态，只有3、5、6是合法的数字。</p>
+<p>遍历字符串，并沿着图走，如果走到某个节点无路可走，就返回false<br>遍历结束，如果最后走到3、5、6，则返回true，否则就返回false</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">s</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;boolean&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> isNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>&#123;
+    <span class="hljs-comment">// 数字 0-9 用字符串 &#x27;shuzi&#x27; 表示</span>
+    <span class="hljs-comment">// 指数 e 用字符串 &#x27;e&#x27;表示</span>
+    <span class="hljs-comment">// 正/负号 用字符串 &#x27;zhengfu&#x27; 表示</span>
+    <span class="hljs-comment">// 小数点 . 用字符串 &#x27;.&#x27; 表示</span>
+    <span class="hljs-comment">// 空格用字符串 &#x27;blank&#x27;</span>
+    <span class="hljs-keyword">const</span> graph = &#123;
+        <span class="hljs-number">0</span>: &#123; <span class="hljs-string">&#x27;blank&#x27;</span>: <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;zhengfu&#x27;</span>: <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>: <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;shuzi&#x27;</span>: <span class="hljs-string">&#x27;6&#x27;</span> &#125;,
+        <span class="hljs-number">1</span>: &#123; <span class="hljs-string">&#x27;.&#x27;</span>: <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;shuzi&#x27;</span>: <span class="hljs-string">&#x27;6&#x27;</span> &#125;,
+        <span class="hljs-number">2</span>: &#123; <span class="hljs-string">&#x27;shuzi&#x27;</span>: <span class="hljs-string">&#x27;3&#x27;</span> &#125;,
+        <span class="hljs-number">3</span>: &#123; <span class="hljs-string">&#x27;shuzi&#x27;</span>: <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>: <span class="hljs-string">&#x27;4&#x27;</span> &#125;,
+        <span class="hljs-number">4</span>: &#123; <span class="hljs-string">&#x27;shuzi&#x27;</span>: <span class="hljs-string">&#x27;5&#x27;</span>, <span class="hljs-string">&#x27;zhengfu&#x27;</span>: <span class="hljs-string">&#x27;7&#x27;</span> &#125;,
+        <span class="hljs-number">5</span>: &#123; <span class="hljs-string">&#x27;shuzi&#x27;</span>: <span class="hljs-string">&#x27;5&#x27;</span> &#125;,
+        <span class="hljs-number">6</span>: &#123; <span class="hljs-string">&#x27;.&#x27;</span>: <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;shuzi&#x27;</span>: <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>: <span class="hljs-string">&#x27;4&#x27;</span> &#125;,
+        <span class="hljs-number">7</span>: &#123; <span class="hljs-string">&#x27;shuzi&#x27;</span>: <span class="hljs-string">&#x27;5&#x27;</span> &#125;
+    &#125;
+    <span class="hljs-keyword">let</span> state = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>( <span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> s.trim()) &#123;
+        <span class="hljs-keyword">if</span> (item &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; item &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) &#123;
+            item = <span class="hljs-string">&#x27;shuzi&#x27;</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (item === <span class="hljs-string">&#x27; &#x27;</span>) &#123;
+            item = <span class="hljs-string">&#x27;blank&#x27;</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (item === <span class="hljs-string">&#x27;+&#x27;</span> || item === <span class="hljs-string">&#x27;-&#x27;</span>) &#123;
+            item = <span class="hljs-string">&#x27;zhengfu&#x27;</span>;
+        &#125;
+        state = graph[state][item];
+        <span class="hljs-keyword">if</span> (state === <span class="hljs-literal">undefined</span>) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> state == <span class="hljs-number">3</span> || state == <span class="hljs-number">5</span> || state == <span class="hljs-number">6</span>;
+&#125;;
+</code></pre>
+
+<h3 id="2、太平洋大西洋水流问题"><a href="#2、太平洋大西洋水流问题" class="headerlink" title="2、太平洋大西洋水流问题"></a>2、太平洋大西洋水流问题</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/pacific-atlantic-water-flow/">LeetCode-417太平洋大西洋水流问题</a></p>
+<p>题目描述：<br>给定一个 m x n 的非负整数矩阵来表示一片大陆上各个单元格的高度。“太平洋”处于大陆的左边界和上边界，而“大西洋”处于大陆的右边界和下边界。</p>
+<p>规定水流只能按照上、下、左、右四个方向流动，且只能从高到低或者在同等高度上流动。</p>
+<p>请找出那些水流既可以流动到“太平洋”，又能流动到“大西洋”的陆地单元的坐标。</p>
+<p>提示：</p>
+<ol>
+<li>输出坐标的顺序不重要</li>
+<li>m 和 n 都小于150</li>
+</ol>
+<p>示例：</p>
+<pre><code class="hljs text">给定下面的 5x5 矩阵:
+
+  太平洋 ~   ~   ~   ~   ~ 
+       ~  1   2   2   3  (5) *
+       ~  3   2   3  (4) (4) *
+       ~  2   4  (5)  3   1  *
+       ~ (6) (7)  1   4   5  *
+       ~ (5)  1   1   2   4  *
+          *   *   *   *   * 大西洋
+
+返回:
+
+[[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]] (上图中带括号的单元).</code></pre>
+
+<p>解题思路：</p>
+<ol>
+<li>新建两个矩阵，分别记录能流到两个大洋的坐标</li>
+<li>从海岸线，多管齐下，同时深度优先遍历图，过程中填充上述矩阵</li>
+<li>遍历两个矩阵，找到能同时流到两个大洋的坐标</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;number[][]&#125;</span> <span class="hljs-variable">matrix</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number[][]&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> pacificAtlantic = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">matrix</span>) </span>&#123;
+    <span class="hljs-keyword">if</span> (!matrix || !matrix[<span class="hljs-number">0</span>]) &#123;
+        <span class="hljs-keyword">return</span> [];
+    &#125;
+
+    <span class="hljs-keyword">const</span> m = matrix.length; <span class="hljs-comment">// 矩阵的 行数</span>
+    <span class="hljs-keyword">const</span> n = matrix[<span class="hljs-number">0</span>].length; <span class="hljs-comment">// 矩阵的 列数</span>
+
+    <span class="hljs-comment">// 新建两个矩阵，分别代表太平洋和大西洋</span>
+    <span class="hljs-keyword">const</span> flow1 = <span class="hljs-built_in">Array</span>.from( &#123; <span class="hljs-attr">length</span>: m &#125;, <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(n).fill(<span class="hljs-literal">false</span>));
+    <span class="hljs-keyword">const</span> flow2 = <span class="hljs-built_in">Array</span>.from( &#123; <span class="hljs-attr">length</span>: m &#125;, <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(n).fill(<span class="hljs-literal">false</span>));
+
+    <span class="hljs-keyword">const</span> dfs = <span class="hljs-function">(<span class="hljs-params">r, c, flow</span>) =&gt;</span> &#123;
+        flow[r][c] = <span class="hljs-literal">true</span>;
+        [[r - <span class="hljs-number">1</span>, c], [r + <span class="hljs-number">1</span>, c], [r, c - <span class="hljs-number">1</span>], [r, c + <span class="hljs-number">1</span>]].forEach(<span class="hljs-function">(<span class="hljs-params">[nr, nc]</span>) =&gt;</span> &#123;
+            <span class="hljs-keyword">if</span> (
+                <span class="hljs-comment">// 保证下一个节点在矩阵中</span>
+                nr &gt;= <span class="hljs-number">0</span> &amp;&amp; nr &lt; m &amp;&amp; 
+                nc &gt;= <span class="hljs-number">0</span> &amp;&amp; nc &lt; n &amp;&amp;
+                <span class="hljs-comment">// 防止死循环</span>
+                !flow[nr][nc] &amp;&amp; 
+                <span class="hljs-comment">// 保证逆流而上</span>
+                matrix[nr][nc] &gt;= matrix[r][c]
+            ) &#123;
+                dfs(nr, nc, flow);
+            &#125;
+        &#125;);
+    &#125;;
+    
+    <span class="hljs-comment">// 沿着海岸线逆流而上</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> r = <span class="hljs-number">0</span>; r &lt; m; r += <span class="hljs-number">1</span>) &#123;
+        dfs(r, <span class="hljs-number">0</span>, flow1);
+        dfs(r, n - <span class="hljs-number">1</span>, flow2);
+    &#125;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> c = <span class="hljs-number">0</span>; c &lt; n; c += <span class="hljs-number">1</span>) &#123;
+        dfs(<span class="hljs-number">0</span>, c, flow1);
+        dfs(m - <span class="hljs-number">1</span>, c, flow2);
+    &#125;
+
+    <span class="hljs-comment">// 收集能流到两个大洋里的坐标</span>
+    <span class="hljs-keyword">const</span> res = [];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> r = <span class="hljs-number">0</span>; r &lt; m; r += <span class="hljs-number">1</span>) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> c = <span class="hljs-number">0</span>; c &lt; n; c += <span class="hljs-number">1</span>) &#123;
+            <span class="hljs-keyword">if</span> (flow1[r][c] &amp;&amp; flow2[r][c]) &#123;
+                res.push([r, c]);
+            &#125;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> res;
+&#125;;
+</code></pre>
+
+<h3 id="3、-克隆图"><a href="#3、-克隆图" class="headerlink" title="3、 克隆图"></a>3、 克隆图</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/clone-graph/">LeetCode-133克隆图</a></p>
+<p>题目描述：<br>给你无向 连通 图中一个节点的引用，请你返回该图的 深拷贝（克隆）。</p>
+<p>图中的每个节点都包含它的值 val（int） 和其邻居的列表（list[Node]）。</p>
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> val;
+    <span class="hljs-keyword">public</span> List&lt;Node&gt; neighbors;
+&#125;</code></pre>
+
+<p>测试用例格式：</p>
+<p>简单起见，每个节点的值都和它的索引相同。例如，第一个节点值为 1（val = 1），第二个节点值为 2（val = 2），以此类推。该图在测试用例中使用邻接列表表示。</p>
+<p>邻接列表 是用于表示有限图的无序列表的集合。每个列表都描述了图中节点的邻居集。</p>
+<p>给定节点将始终是图中的第一个节点（值为 1）。你必须将 给定节点的拷贝 作为对克隆图的引用返回。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入：adjList = [[2,4],[1,3],[2,4],[1,3]]
+输出：[[2,4],[1,3],[2,4],[1,3]]
+解释：
+图中有 4 个节点。
+节点 1 的值是 1，它有两个邻居：节点 2 和 4 。
+节点 2 的值是 2，它有两个邻居：节点 1 和 3 。
+节点 3 的值是 3，它有两个邻居：节点 2 和 4 。
+节点 4 的值是 4，它有两个邻居：节点 1 和 3 。</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入：adjList = [[]]
+输出：[[]]
+解释：输入包含一个空列表。该图仅仅只有一个值为 1 的节点，它没有任何邻居。</code></pre>
+
+<p>示例 3：</p>
+<pre><code class="hljs text">输入：adjList = []
+输出：[]
+解释：这个图是空的，它不含任何节点。</code></pre>
+
+<p>示例 4：</p>
+<pre><code class="hljs text">输入：adjList = [[2],[1]]
+输出：[[2],[1]]</code></pre>
+
+<p>提示：</p>
+<ol>
+<li>节点数不超过 100 。</li>
+<li>每个节点值 Node.val 都是唯一的，1 &lt;= Node.val &lt;= 100。</li>
+<li>无向图是一个简单图，这意味着图中没有重复的边，也没有自环。</li>
+<li>由于图是无向的，如果节点 p 是节点 q 的邻居，那么节点 q 也必须是节点 p 的邻居。</li>
+<li>图是连通图，你可以从给定节点访问到所有节点。</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * // Definition for a Node.</span>
+<span class="hljs-comment"> * function Node(val, neighbors) &#123;</span>
+<span class="hljs-comment"> *    this.val = val === undefined ? 0 : val;</span>
+<span class="hljs-comment"> *    this.neighbors = neighbors === undefined ? [] : neighbors;</span>
+<span class="hljs-comment"> * &#125;;</span>
+<span class="hljs-comment"> */</span>
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;Node&#125;</span> <span class="hljs-variable">node</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;Node&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> cloneGraph = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>&#123;
+    <span class="hljs-comment">// 解法一： 深度优先遍历</span>
+    <span class="hljs-comment">// if (!node) return;</span>
+    <span class="hljs-comment">// const visited = new Map();</span>
+    <span class="hljs-comment">// const dfs = n =&gt; &#123;</span>
+    <span class="hljs-comment">//     const nCopy = new Node(n.val);</span>
+    <span class="hljs-comment">//     visited.set(n, nCopy);</span>
+    <span class="hljs-comment">//     (n.neighbors || []).forEach(ne =&gt; &#123;</span>
+    <span class="hljs-comment">//         if (!visited.has(ne)) &#123;</span>
+    <span class="hljs-comment">//             dfs(ne);</span>
+    <span class="hljs-comment">//         &#125;</span>
+    <span class="hljs-comment">//         nCopy.neighbors.push(visited.get(ne));</span>
+    <span class="hljs-comment">//     &#125;)</span>
+    <span class="hljs-comment">// &#125;</span>
+    <span class="hljs-comment">// dfs(node);</span>
+    <span class="hljs-comment">// return visited.get(node);</span>
+
+    <span class="hljs-comment">// 解法二： 广度优先遍历</span>
+    <span class="hljs-keyword">if</span> (!node) <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">const</span> visited = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+    visited.set(node, <span class="hljs-keyword">new</span> Node(node.val));
+    <span class="hljs-keyword">const</span> q = [node];
+    <span class="hljs-keyword">while</span>(q.length) &#123;
+        <span class="hljs-keyword">const</span> n = q.shift();
+        (n.neighbors || []).forEach(<span class="hljs-function"><span class="hljs-params">ne</span> =&gt;</span> &#123;
+            <span class="hljs-keyword">if</span> (!visited.has(ne)) &#123;
+                q.push(ne);
+                visited.set(ne, <span class="hljs-keyword">new</span> Node(ne.val));
+            &#125;
+            visited.get(n).neighbors.push(visited.get(ne));
+        &#125;)
+    &#125;
+    <span class="hljs-keyword">return</span> visited.get(node);
+&#125;;</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/11/30/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95-Set&amp;Map/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Set Map</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/08/09/interview/window.location.href%E4%B8%8Ewindow.open%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                        <span class="hidden-mobile">window.location.href与window.open的区别</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

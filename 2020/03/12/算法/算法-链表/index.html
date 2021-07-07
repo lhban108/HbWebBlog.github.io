@@ -1,0 +1,934 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>数据结构-链表 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="数据结构-链表">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-12 14:46" pubdate>
+        March 12, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      41
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数据结构-链表</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一、什么是链表"><a href="#一、什么是链表" class="headerlink" title="一、什么是链表"></a>一、什么是链表</h2><p>[维基百科] 链表（<code>Linked list</code>）是一种常见的基础数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(<code>Pointer</code>)。</p>
+<h2 id="二、链表分类"><a href="#二、链表分类" class="headerlink" title="二、链表分类"></a>二、链表分类</h2><p><img src="http://ql0a05ojc.hn-bkt.clouddn.com/LinkedList.jpg" srcset="/img/loading.gif" alt="LinkedList"></p>
+<p>链表常用的有 3 类： 单链表、双向链表、循环链表。</p>
+<p><img src="https://i.loli.net/2020/12/01/sDPwyYFuN5UxnqQ.png" srcset="/img/loading.gif" alt="单向链表"></p>
+<p><img src="https://i.loli.net/2020/12/01/ndJAIes6K4ClMb8.png" srcset="/img/loading.gif" alt="双向链表"><br>一般来说，说到链表，就要提下数组，一般链表都是和数组进行对比。</p>
+<p><img src="https://i.loli.net/2020/12/01/gAR4wEzpj5evO3P.png" srcset="/img/loading.gif" alt="循环链表"></p>
+<h2 id="三、链表设计"><a href="#三、链表设计" class="headerlink" title="三、链表设计"></a>三、链表设计</h2><p>说到链表，就要提下数组，一般链表都是和数组进行对比。</p>
+<p>在很多编程语言中，数组的长度时固定的，所以数组中的增加和删除比较麻烦，需要频繁的移动数组中的其他元素。<br>然而，<code>JavaScript</code>中的数组并不存在上述问题，JS中的数组相对其他语言使用上更方便，因为JS中的数组本质是一个类似数组的对象，这就使得JS的数组虽然使用更方便，但比其他语言<code>(C++、Java、C#)</code>的数组效率要低。</p>
+<p>所以，在实际应用中如果发现数组很慢，就可以考虑使用链表来替代它。除了对数据的随机访问，链表几乎可以用在任何可以使用一维数组的情况中。如果需要随机访问，数组仍然是更好的选择。</p>
+<ul>
+<li>定义</li>
+</ul>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">// 定义</span>
+<span class="hljs-keyword">var</span> a = &#123; <span class="hljs-attr">val</span>: <span class="hljs-string">&#x27;a&#x27;</span> &#125;;
+<span class="hljs-keyword">var</span> b = &#123; <span class="hljs-attr">val</span>: <span class="hljs-string">&#x27;b&#x27;</span> &#125;;
+<span class="hljs-keyword">var</span> c = &#123; <span class="hljs-attr">val</span>: <span class="hljs-string">&#x27;c&#x27;</span> &#125;;
+<span class="hljs-keyword">var</span> d = &#123; <span class="hljs-attr">val</span>: <span class="hljs-string">&#x27;d&#x27;</span> &#125;;
+
+a.next = b;
+b.next = c;
+c.next = d;
+
+<span class="hljs-comment">// 遍历</span>
+<span class="hljs-keyword">var</span> point = a;
+<span class="hljs-keyword">while</span> (point) &#123;
+    <span class="hljs-built_in">console</span>.log(point.val);
+    point = point.next;
+&#125;
+</code></pre>
+
+<p><img src="https://i.loli.net/2020/12/01/EcLYkBzx19uyDVw.png" srcset="/img/loading.gif" alt=" "></p>
+<ul>
+<li>插入</li>
+</ul>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">// 插入</span>
+<span class="hljs-keyword">var</span> e = &#123; <span class="hljs-attr">val</span>: e &#125;;
+c.next = e;
+e.next = d;</code></pre>
+
+<p><img src="https://i.loli.net/2020/12/01/aBZK4SrMgF97XNH.png" srcset="/img/loading.gif" alt=" "></p>
+<pre><code class="hljs J">// 删除
+c.next = d;</code></pre>
+
+<p><img src="https://i.loli.net/2020/12/01/9jLAQfl45pCBJOR.png" srcset="/img/loading.gif" alt=" "></p>
+<ul>
+<li><p><strong>数据结构</strong></p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">// Definition for singly-linked list. 定义单链表</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ListNode</span>(<span class="hljs-params">val</span>) </span>&#123;
+    <span class="hljs-built_in">this</span>.val = val;
+    <span class="hljs-built_in">this</span>.next = <span class="hljs-literal">null</span>;
+&#125;</code></pre>
+
+</li>
+</ul>
+<h2 id="四、链表练习"><a href="#四、链表练习" class="headerlink" title="四、链表练习"></a>四、链表练习</h2><h3 id="1、删除链表中的指定节点"><a href="#1、删除链表中的指定节点" class="headerlink" title="1、删除链表中的指定节点"></a>1、删除链表中的指定节点</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/delete-node-in-a-linked-list/">力扣 237</a>)</p>
+</blockquote>
+<p>题目描述：请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点。传入函数的唯一参数为 <strong>要被删除的节点</strong> 。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入： 4-&gt;5-&gt;1-&gt;9, val = 5
+输出： 4-&gt;1-&gt;9</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入： 4-&gt;5-&gt;1-&gt;9, val = 1
+输出： 4-&gt;5-&gt;9</code></pre>
+
+<p>提示：</p>
+<ul>
+<li>链表至少包含两个节点</li>
+<li>链表中所有节点的值都是唯一的</li>
+<li>给定的节点为非末尾节点，并且一定是链表中的一个有效节点</li>
+<li>不要从你的函数中返回任何结果</li>
+</ul>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for singly-linked list.</span>
+<span class="hljs-comment"> * function ListNode(val) &#123;</span>
+<span class="hljs-comment"> *     this.val = val;</span>
+<span class="hljs-comment"> *     this.next = null;</span>
+<span class="hljs-comment"> * &#125;</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">node</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;void&#125;</span> </span>Do not return anything, modify node in-place instead.</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> deleteNode = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>&#123;
+
+&#125;;</code></pre>
+
+<p><img src="https://i.loli.net/2020/12/04/WKFPZbhrQdOTXJN.png" srcset="/img/loading.gif" alt="题1.jpg"></p>
+<ul>
+<li>题解:</li>
+</ul>
+<pre><code class="hljs text">解题思路：
+1、无法直接获取被删除节点的上个节点；
+2、将被删除节点转移到下个节点。</code></pre>
+
+<p>code view:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> deleteNode = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>&#123;
+    node.val = node.next.val;
+    node.next = node.next.next;
+&#125;;</code></pre>
+
+<h3 id="2、删除链表中的重复元素"><a href="#2、删除链表中的重复元素" class="headerlink" title="2、删除链表中的重复元素"></a>2、删除链表中的重复元素</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/">力扣 83</a>)</p>
+</blockquote>
+<p>题目描述：给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入： 1-&gt;1-&gt;2
+输出： 1-&gt;2</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入： 1-&gt;1-&gt;2-&gt;3-&gt;3
+输出： 1-&gt;2-&gt;3</code></pre>
+
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for singly-linked list.</span>
+<span class="hljs-comment"> * function ListNode(val) &#123;</span>
+<span class="hljs-comment"> *     this.val = val;</span>
+<span class="hljs-comment"> *     this.next = null;</span>
+<span class="hljs-comment"> * &#125;</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">head</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> reverseList = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">head</span>) </span>&#123;
+
+&#125;;</code></pre>
+
+<ul>
+<li>题解:</li>
+</ul>
+<pre><code class="hljs text">解题思路：
+1、因为链表是有序的，所以重复元素一定相邻；
+2、遍历链表，如果发现当前元素和下个元素的值相等，就删除下个元素。</code></pre>
+
+<p>code view:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">head</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> deleteDuplicates = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">head</span>) </span>&#123;
+    <span class="hljs-keyword">let</span> p = head;
+    <span class="hljs-keyword">while</span> (p &amp;&amp; p.next) &#123;
+        <span class="hljs-keyword">if</span> (p.val === p.next.val) &#123;
+            p.next = p.next.next
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            p = p.next; <span class="hljs-comment">// 只有不相等时指针才指向下一个元素，防止出现多个</span>
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> head;
+&#125;;</code></pre>
+
+<h3 id="3、反转链表"><a href="#3、反转链表" class="headerlink" title="3、反转链表"></a>3、反转链表</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-linked-list/">力扣 206</a>)</p>
+</blockquote>
+<p>题目描述：反转一个单链表。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入： 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+输出： 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre>
+
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for singly-linked list.</span>
+<span class="hljs-comment"> * function ListNode(val) &#123;</span>
+<span class="hljs-comment"> *     this.val = val;</span>
+<span class="hljs-comment"> *     this.next = null;</span>
+<span class="hljs-comment"> * &#125;</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">head</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> reverseList = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">head</span>) </span>&#123;
+
+&#125;;</code></pre>
+
+<p><img src="https://i.loli.net/2020/12/04/vJtIb2U6PxTkFZR.png" srcset="/img/loading.gif" alt="题3.jpg"></p>
+<ul>
+<li>题解:</li>
+</ul>
+<pre><code class="hljs text">解题思路：
+1、反转两个节点：将n+1的next指向n；
+   输入: n -&gt; n+1
+   输出: n+1 -&gt; n
+2、反转多个节点：双指针遍历链表，重复上述操作。
+   输入： 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+   输出： 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre>
+
+<p>code view:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">head</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> reverseList = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">head</span>) </span>&#123;
+    <span class="hljs-keyword">let</span> p1 = head;
+    <span class="hljs-keyword">let</span> p2 = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">while</span>(p1) &#123;
+        <span class="hljs-keyword">const</span> tmp = p1.next;
+        p1.next = p2;
+        p2 = p1;
+        p1 = tmp;
+    &#125;
+    <span class="hljs-keyword">return</span> p2;
+&#125;;
+reverseList(node);
+<span class="hljs-built_in">console</span>.log(reverseList);
+</code></pre>
+
+<p><img src="https://i.loli.net/2020/12/04/JorOq5nG4VEQKmy.png" srcset="/img/loading.gif" alt="题3.jpg"></p>
+<h3 id="4、判断环形链表"><a href="#4、判断环形链表" class="headerlink" title="4、判断环形链表"></a>4、判断环形链表</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">力扣 141</a>)</p>
+</blockquote>
+<p>题目描述：给定一个链表，判断链表中是否有环。<br>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。<strong>注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况</strong>。</p>
+<p>如果链表中存在环，则返回 true 。 否则，返回 false 。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入： head = [3, 2, 0, -4], pos = 1
+输出： true
+解释：链表中有一个环，其尾部连接到第二个节点。</code></pre>
+
+<p><img src="https://i.loli.net/2020/12/01/rZmGveAKEuXY7qx.png" srcset="/img/loading.gif" alt=" "></p>
+<p>示例 2：</p>
+<pre><code class="hljs text">输入： head = [1, 2], pos = 0
+输出： true
+解释：链表中有一个环，其尾部连接到第一个节点。</code></pre>
+
+<p><img src="https://i.loli.net/2020/12/01/2aTXMxQotje7yhB.png" srcset="/img/loading.gif" alt=" "></p>
+<p>示例 3：</p>
+<pre><code class="hljs text">输入： head = [1], pos = -1
+输出： false
+解释：链表中没有环。</code></pre>
+
+<p><img src="https://i.loli.net/2020/12/01/rLfT2v41CVpaUud.png" srcset="/img/loading.gif" alt=" "></p>
+<ul>
+<li><strong>提示：</strong><ul>
+<li>链表中节点的数目范围是 [0, 10^4]</li>
+<li>-10^5 &lt;= Node.val &lt;= 10^5</li>
+<li>pos 为 -1 或者链表中的一个 有效索引</li>
+</ul>
+</li>
+</ul>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for singly-linked list.</span>
+<span class="hljs-comment"> * function ListNode(val) &#123;</span>
+<span class="hljs-comment"> *     this.val = val;</span>
+<span class="hljs-comment"> *     this.next = null;</span>
+<span class="hljs-comment"> * &#125;</span>
+<span class="hljs-comment"> */</span>
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">head</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;boolean&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> hasCycle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">head</span>) </span>&#123;
+  
+&#125;;</code></pre>
+
+<ul>
+<li>题解:</li>
+</ul>
+<pre><code class="hljs text">解题思路：
+1、两个人在圆形操场上的同一个起点起跑，速度快的人和速度慢的人一定会再次相遇（最少超过一圈）；
+2、用一快一慢两个指针遍历链表，如果指针能够相逢，那么链表就有圈。
+    即: 用一快一慢两个指针遍历链表，如果指针能够相逢，就返回true；
+        遍历结束后，还没有相逢就返回false。</code></pre>
+
+<p>code view:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">head</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;boolean&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> hasCycle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">head</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> p1 = head;
+    <span class="hljs-keyword">var</span> p2 = head;
+    <span class="hljs-keyword">while</span>(p1 &amp;&amp; p2 &amp;&amp; p2.next) &#123;
+        p1 = p1.next;
+        p2 = p2.next.next;
+        <span class="hljs-keyword">if</span> (p1 === p2) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+&#125;;
+</code></pre>
+
+<h3 id="5、链表的中间结点"><a href="#5、链表的中间结点" class="headerlink" title="5、链表的中间结点"></a>5、链表的中间结点</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/middle-of-the-linked-list/">力扣 876</a>)</p>
+</blockquote>
+<p>题目描述：给定一个头结点为 head 的非空单链表，返回链表的中间结点。</p>
+<p>如果有两个中间结点，则返回第二个中间结点。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入：[1,2,3,4,5]
+输出：此列表中的结点 3 (序列化形式：[3,4,5])
+返回的结点值为 3 。 (测评系统对该结点序列化表述是 [3,4,5])。
+注意，我们返回了一个 ListNode 类型的对象 ans，这样：
+ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next = NULL.</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入：[1,2,3,4,5,6]
+输出：此列表中的结点 4 (序列化形式：[4,5,6])
+由于该列表有两个中间结点，值分别为 3 和 4，我们返回第二个结点。</code></pre>
+
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for singly-linked list.</span>
+<span class="hljs-comment"> * function ListNode(val) &#123;</span>
+<span class="hljs-comment"> *     this.val = val;</span>
+<span class="hljs-comment"> *     this.next = null;</span>
+<span class="hljs-comment"> * &#125;</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">head</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> middleNode = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">head</span>) </span>&#123;
+
+&#125;;</code></pre>
+
+<ul>
+<li>题解:</li>
+</ul>
+<pre><code class="hljs text">解题思路：
+1、快指针p每次移2节点，慢指针head移1节点
+2、快指针先到尾，此时慢指针的位置刚好在中间</code></pre>
+
+<p>code view:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">l1</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">l2</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> middleNode = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">head</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> p = head;
+    <span class="hljs-keyword">while</span>(p &amp;&amp; p.next) &#123;
+        head = head.next;
+        p = p.next.next;
+    &#125;
+    <span class="hljs-keyword">return</span> head;
+&#125;;</code></pre>
+
+<h3 id="6、链表相加"><a href="#6、链表相加" class="headerlink" title="6、链表相加"></a>6、链表相加</h3><blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/add-two-numbers/">力扣 2</a>)</p>
+</blockquote>
+<p>题目描述：给出两个 <strong>非空</strong> 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 <strong>逆序</strong> 的方式存储的，并且它们的每个节点只能存储 <strong>一位</strong> 数字。</p>
+<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
+<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入：(1 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
+输出：6 -&gt; 0 -&gt; 8
+原因：341 + 465 = 806</code></pre>
+
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for singly-linked list 2.</span>
+<span class="hljs-comment"> * function ListNode(val, next) &#123;</span>
+<span class="hljs-comment"> *     this.val = (val===undefined ? 0 : val)</span>
+<span class="hljs-comment"> *     this.next = (next===undefined ? null : next)</span>
+<span class="hljs-comment"> * &#125;</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">l1</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">l2</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> addTwoNumbers = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">l1, l2</span>) </span>&#123;
+
+&#125;;</code></pre>
+
+<ul>
+<li>题解:</li>
+</ul>
+<pre><code class="hljs text">解题思路：
+1、新建一个空链表
+2、遍历被相加的两个链表，模拟相加的操作，将相加后结果的个位数追加到新链表上，将十位数留到下一位去相加</code></pre>
+
+<p>code view:</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">l1</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;ListNode&#125;</span> <span class="hljs-variable">l2</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;ListNode&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> addTwoNumbers = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">l1, l2</span>) </span>&#123;
+    <span class="hljs-keyword">const</span> l3 = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);
+    <span class="hljs-keyword">let</span> p1 = l1;
+    <span class="hljs-keyword">let</span> p2 = l2;
+    <span class="hljs-keyword">let</span> p3 = l3;
+    <span class="hljs-keyword">let</span> carry = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span>(p1 || p2) &#123;
+        <span class="hljs-keyword">const</span> v1 = p1 ? p1.val : <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">const</span> v2 = p2 ? p2.val : <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">const</span> val = v1 + v2 + carry;
+        carry = <span class="hljs-built_in">Math</span>.floor(val / <span class="hljs-number">10</span>);
+        p3.next = <span class="hljs-keyword">new</span> ListNode(val % <span class="hljs-number">10</span>);
+        <span class="hljs-keyword">if</span> (p1) p1 = p1.next;
+        <span class="hljs-keyword">if</span> (p2) p2 = p2.next;
+        p3 = p3.next;
+    &#125;
+    <span class="hljs-keyword">if</span> (carry) &#123;
+        p3.next = <span class="hljs-keyword">new</span> ListNode(carry);
+    &#125;
+    <span class="hljs-keyword">return</span> l3.next;
+&#125;;</code></pre>
+
+<h2 id="五、JS中的原型链"><a href="#五、JS中的原型链" class="headerlink" title="五、JS中的原型链"></a>五、JS中的原型链</h2><ul>
+<li><p>原型链的本质是链表</p>
+</li>
+<li><p>原型链上的节点是各种原型对象，比如<code>Function.prototype 、Object.prototype、Array.prototype</code> …</p>
+</li>
+<li><p>原型链通过 <code>__proto__</code> 属性连接各种原型对象</p>
+<p><img src="https://i.loli.net/2020/12/01/h1prO86qAekmYsf.png" srcset="/img/loading.gif" alt=" "></p>
+</li>
+</ul>
+<h2 id="六、React-Hooks-的链表结构"><a href="#六、React-Hooks-的链表结构" class="headerlink" title="六、React Hooks 的链表结构"></a>六、React Hooks 的链表结构</h2><blockquote>
+<p>在这里只探讨一下React中userState的数据结构，以及简单的render流程<br>对于useContext、useMemo、useRef、useEffect、useLayoutEffect…的原理 都<strong>不探讨</strong>，因为我也不太懂</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebook/react/blob/c05b4b81f91c0b43a02e101d6a37b3de768f017b/packages/react-dom/src/server/ReactPartialRendererHooks.js">react/packages/react-dom/src/server/ReactPartialRendererHooks.js源码</a></p>
+<p>1、如果我们在一个组件内使用多个<code>useState Hooks</code>, <code>React</code> 如何知道哪个 <code>Hooks</code> 对应哪个 <code>state</code>？<br>2、为什么不要在 <code>if</code> 内使用 <code>Hooks</code>？</p>
+<ul>
+<li><p><code>React Hooks</code>的结构是一个链表型的数据结构, 每一个 Hooks 对象结构为：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createHook</span>(<span class="hljs-params"></span>): <span class="hljs-title">Hook</span> </span>&#123;
+  <span class="hljs-keyword">if</span> (numberOfReRenders &gt; <span class="hljs-number">0</span>) &#123;
+    invariant(<span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;Rendered more hooks than during the previous render&#x27;</span>);
+  &#125;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">memoizedState</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">queue</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">next</span>: <span class="hljs-literal">null</span>,
+  &#125;;
+&#125;</code></pre>
+</li>
+<li><p>有一个链表的头部链表的头部, 在 <code>React</code> 内部称为 <code>firstWorkInProgressHook</code>，保存着组件内所有的 <code>Hooks</code></p>
+</li>
+<li><p>还有一个链表，<code>workInProgressHook</code>，对应的是上述链表的一个节点，在组件内部就是调用<code>useState()</code> 的时候的当前的 <code>Hooks</code>。每一次我们调用<code>useState()</code>，<code>React</code> 内部会调用一个方法来生成一个 <code>workInProgressHook</code></p>
+</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createWorkInProgressHook</span>(<span class="hljs-params"></span>): <span class="hljs-title">Hook</span> </span>&#123;
+  <span class="hljs-keyword">if</span> (workInProgressHook === <span class="hljs-literal">null</span>) &#123;
+    <span class="hljs-comment">// This is the first hook in the list</span>
+    <span class="hljs-keyword">if</span> (firstWorkInProgressHook === <span class="hljs-literal">null</span>) &#123;
+      isReRender = <span class="hljs-literal">false</span>;
+      firstWorkInProgressHook = workInProgressHook = createHook();
+    &#125; <span class="hljs-keyword">else</span> &#123;
+      <span class="hljs-comment">// There&#x27;s already a work-in-progress. Reuse it.</span>
+      isReRender = <span class="hljs-literal">true</span>;
+      workInProgressHook = firstWorkInProgressHook;
+    &#125;
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-keyword">if</span> (workInProgressHook.next === <span class="hljs-literal">null</span>) &#123;
+      isReRender = <span class="hljs-literal">false</span>;
+      <span class="hljs-comment">// Append to the end of the list</span>
+      workInProgressHook = workInProgressHook.next = createHook();
+    &#125; <span class="hljs-keyword">else</span> &#123;
+      <span class="hljs-comment">// There&#x27;s already a work-in-progress. Reuse it.</span>
+      isReRender = <span class="hljs-literal">true</span>;
+      workInProgressHook = workInProgressHook.next;
+    &#125;
+  &#125;
+  <span class="hljs-keyword">return</span> workInProgressHook;
+&#125;</code></pre>
+<p>我们以组件的两次 render 来介绍该链表是如何初始化以及如何应对更新的：</p>
+<ul>
+<li>初始条件下（组件还未渲染），<code>firstWorkInProgressHook</code> 和 <code>workInProgressHook</code> 都是 <code>null</code> 0️⃣</li>
+<li>初次渲染：<ul>
+<li>第一个 <code>Hooks</code>: <code>firstWorkInProgressHook = workInProgressHook = createHook()</code> 1️⃣</li>
+<li>第二个 <code>Hooks</code>: <code>workInProgressHook = workInProgressHook.next = createHook()</code> 2️⃣</li>
+<li>…</li>
+<li>第 n 个 <code>Hooks</code>: <code>workInProgressHook = workInProgressHook.next = createHook()</code> 3️⃣</li>
+<li>渲染结束，<code>React</code> 调用 <code>finishHooks</code>，重置 <code>workInProgressHook</code>为 <code>null</code> 4️⃣</li>
+</ul>
+</li>
+</ul>
+<pre><code class="hljs awk">
+<span class="hljs-regexp">//</span> <span class="hljs-number">0</span>️：
+<span class="hljs-regexp">//</span> firstWorkInProgressHook = workInProgressHook = null
+firstWorkInProgressHook
+                        ↘
+                          null
+                        ↗
+     workInProgressHook
+
+<span class="hljs-regexp">//</span> <span class="hljs-number">1</span>:
+<span class="hljs-regexp">//</span> workInProgressHook = workInProgressHook.<span class="hljs-keyword">next</span> = createHook()
+          firstWorkInProgressHook
+                                 ↘
+                          null    Hook1
+                                 ↗
+              workInProgressHook
+
+<span class="hljs-regexp">//</span> <span class="hljs-number">2</span>:
+<span class="hljs-regexp">//</span> workInProgressHook = workInProgressHook.<span class="hljs-keyword">next</span> = createHook()
+          firstWorkInProgressHook
+                                 ↘
+                           null   Hook1 ⟶️ Hook2
+                                           ↗
+                         workInProgressHook
+<span class="hljs-regexp">//</span> <span class="hljs-number">3</span>:
+<span class="hljs-regexp">//</span> workInProgressHook = workInProgressHook.<span class="hljs-keyword">next</span> = createHook()
+          firstWorkInProgressHook
+                                 ↘
+                           null   Hook1 ⟶️ Hook2 ...⟶️... HookN
+                                                          ↗
+                                        workInProgressHook
+<span class="hljs-regexp">//</span> <span class="hljs-number">4</span>:
+<span class="hljs-regexp">//</span> workInProgressHook = null
+          firstWorkInProgressHook
+                                 ↘
+                           null   Hook1 ⟶️ Hook2 ...⟶️... HookN
+                          ↗
+        workInProgressHook</code></pre>
+
+<p>所以：</p>
+<ul>
+<li><p>初次渲染的时候，Hooks 链表为空，每次 useState() 的时候都会新建一个 Hooks 作为当前的 Hooks（workInProgressHook）</p>
+</li>
+<li><p>再次渲染的时候，按照调用顺序，依次取上次生成的 Hooks 链表各个节点（每个节点就是一个 Hooks）</p>
+<p>这也是为什么我们需要保证在每次渲染的时候各个 Hooks 以相同的顺序被调用，也是为什么不要在 if 内使用 Hooks 的原因：这会导致 Hooks 调用顺序不同。</p>
+<blockquote>
+<p>参考资料：<br><a target="_blank" rel="noopener" href="https://bk.tw.lvfukeji.com/wiki/%E9%93%BE%E8%A1%A8">维基百科—链表</a><br><a target="_blank" rel="noopener" href="https://www.lagou.com/lgeduarticle/5561.html">JS数据结构第二篇—链表</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/73d56c3d228c">数据结构：链表</a><br><a target="_blank" rel="noopener" href="https://imliyan.com/blogs/article/React%20Hooks%20%E7%9A%84%E9%93%BE%E8%A1%A8%E7%BB%93%E6%9E%84/">React Hooks</a>  </p>
+</blockquote>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/02/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1-%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法设计 - 分而治之</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/02/04/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95-%E5%A0%86/">
+                        <span class="hidden-mobile">算法 - 堆</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

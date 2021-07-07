@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>React step 2 —— React高级特性 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="React step 2 —— React高级特性">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2017-01-29 22:48" pubdate>
+        January 29, 2017 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">React step 2 —— React高级特性</h1>
+            
+            <div class="markdown-body">
+              <h2 id="1、vDom和diff"><a href="#1、vDom和diff" class="headerlink" title="1、vDom和diff"></a>1、vDom和diff</h2><p>diff:</p>
+<ul>
+<li><p>只比较同一层级，不跨级比较</p>
+</li>
+<li><p>tag 不相同，则直接删掉重建，不再深度比较</p>
+</li>
+<li><p>tag 和 key 相同则认为是相同的节点，不再深度比较</p>
+<p>vdom:</p>
+</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-keyword">const</span> elem = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;this.clickHandle&#125;</span> &gt;</span></span>
+<span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+<span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#123;imgUrl&#125;/</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+
+<span class="hljs-comment">// 通过(https://www.babeljs.cn/)babel转义后的结果是:</span>
+<span class="hljs-meta">&quot;use strict&quot;</span>;
+<span class="hljs-keyword">const</span> elem = React.createElement(<span class="hljs-string">&quot;div&quot;</span>, &#123;
+		<span class="hljs-attr">className</span>: <span class="hljs-string">&quot;abc&quot;</span>,
+		<span class="hljs-attr">onClick</span>: (<span class="hljs-keyword">void</span> <span class="hljs-number">0</span>).clickHandle
+	&#125;,
+	React.createElement(<span class="hljs-string">&quot;p&quot;</span>, <span class="hljs-literal">null</span>, <span class="hljs-string">&quot;text&quot;</span>),
+	React.createElement(<span class="hljs-string">&quot;img&quot;</span>, &#123; <span class="hljs-attr">src</span>: imgUrl &#125;)
+);
+
+<span class="hljs-comment">// 即vNode的格式为</span>
+React.createElement(<span class="hljs-string">&#x27;div&#x27;</span>, <span class="hljs-literal">null</span>, [child1, child2, child3])
+React.createElement(<span class="hljs-string">&#x27;div&#x27;</span>, &#123;...&#125;, child1, child2, child3)
+React.createElement(List, <span class="hljs-literal">null</span>, child1, child2, <span class="hljs-string">&#x27;text字符串&#x27;</span>)</code></pre>
+
+<h2 id="2、JSX的本质"><a href="#2、JSX的本质" class="headerlink" title="2、JSX的本质"></a>2、JSX的本质</h2><ul>
+<li>JSX 即 createElement 函数（即h函数），执行生成vnode</li>
+<li>第一个参数 可能是组件，也可能是 html 的tag</li>
+<li>对于组件名，首字母必须大写（React的规定）</li>
+<li>最后通过执行 patch(elem, vnode) 和 patch(vnode, newVnode)</li>
+</ul>
+<h2 id="3、合成事件-SyntheticEvent"><a href="#3、合成事件-SyntheticEvent" class="headerlink" title="3、合成事件 SyntheticEvent"></a>3、合成事件 SyntheticEvent</h2><h3 id="（1）DOM事件的机制现象"><a href="#（1）DOM事件的机制现象" class="headerlink" title="（1）DOM事件的机制现象"></a>（1）DOM事件的机制现象</h3><ol>
+<li>React的 event 是 SyntheticEvent(合成事件)，是模拟出来 DOM 事件所有能力</li>
+<li>event.nativeEvent 是原生事件对象</li>
+<li>绑定对象: React所有的事件都被挂在到 document 上 —— event.currentTarget =&gt; 指向绑定元素，React绑定的对象是document（DOM原生事件和Vue的绑定对象是 element）</li>
+<li>触发对象: React 与原生对象的触发对象是一样的 —— event.target =&gt; 指向触发的对象，React触发的对象是 element （与原生事件一样）</li>
+</ol>
+<h3 id="（2）绑定和触发的顺序"><a href="#（2）绑定和触发的顺序" class="headerlink" title="（2）绑定和触发的顺序"></a>（2）绑定和触发的顺序</h3><p><img src="https://i.loli.net/2020/12/31/pYmSe3xXwfCA2yB.png" srcset="/img/loading.gif" alt="SyntheticEvent.png"></p>
+<p>1、DOM事件触发后，由于冒泡机制，最终会冒泡的顶层的 document 上<br>2、由于 React 所有的事件都是绑定在 document 上，于是 React 会统一生成一个 SyntheticEvent 对象（实例化成统一的react Event）<br>3、然后 SyntheticEvent 对象会对事件进行 dispatchEvent (派发事件)<br>4、所谓的 dispatchEvent (派发事件)，就是根据 event.target 找到触发的组件对象，在通过组件对象的绑定关系，触发执行绑定函数(再把合成事件的event对象传递进来，通过参数接收)</p>
+<h3 id="（3）React-为何要使用合成事件机制？"><a href="#（3）React-为何要使用合成事件机制？" class="headerlink" title="（3）React 为何要使用合成事件机制？"></a>（3）React 为何要使用合成事件机制？</h3><ol>
+<li>更好的兼容性和跨平台</li>
+</ol>
+<ul>
+<li>自己实现的一套事件机制，尽可能的摆脱了 Document 的事件逻辑，可以更好的实现兼容性和跨平台</li>
+<li>如果需要迁移到其他平台，只需要修改与 DOM 之间的关系就可以了，降低了对平台的依赖性</li>
+</ul>
+<ol start="2">
+<li>挂在到 Document 上，减少内存消耗，避免频繁解绑，减少了事件对 DOM 的依赖</li>
+<li>方便事件的统一管理（如事务机制）</li>
+</ol>
+<ul>
+<li>将事件统一挂在到一个对象上，有一个统一入口，方便管理</li>
+</ul>
+<h2 id="4、-setState-和-batchUpdate"><a href="#4、-setState-和-batchUpdate" class="headerlink" title="4、 setState 和 batchUpdate"></a>4、 setState 和 batchUpdate</h2><ul>
+<li>setState 主流程</li>
+<li>batchUpdate 机制</li>
+<li>transaction （事务）机制</li>
+</ul>
+<p>主流程图：</p>
+<img src="https://i.loli.net/2021/01/01/unmj1FWvMrRVTw3.png" srcset="/img/loading.gif" height="80%" width="80%">
+
+<p>当 isBatchingUpdates = false 时，会把组件保存到 dirtyComponents 中，因此当我们需要更新时，需要更新dirtyComonents 组件，执行组件的更新和渲染</p>
+<p>主流程分析图：<br><img src="https://i.loli.net/2021/01/01/6g3hDPmwix5kyAl.png" srcset="/img/loading.gif" > </p>
+<p>React在钩子函数和执行的事件中，首先会初始化一个变量 isBatchingUpdates = true， 到结束时 isBatchingUpdates = false。<br>而 setTimeout 由于宏任务 后执行，因此在执行时 isBatchingUpdates = false，因此执行setState后可以同步拿到最新的state的值。</p>
+<p>原生DOM事件中的 setState：<br>原生的DOM事件在注册时，React并未用 isBatchingUpdates 变量进行管理</p>
+<img src="https://i.loli.net/2021/01/01/tuiyK9vIDY6UNhe.png" srcset="/img/loading.gif" >
+
+<ol>
+<li>setState 是<strong>异步还是同步</strong>？</li>
+</ol>
+<ul>
+<li>setState无所谓异步还是同步</li>
+<li>看是否能命中 batchUpdate 机制</li>
+<li>通过判断 isBatchingUpdates 看是否命中</li>
+</ul>
+<ol start="2">
+<li> 哪些能命中 batchUpdate 机制</li>
+</ol>
+<ul>
+<li>React的生命周期函数（和它调用的函数）</li>
+<li>React中注册的事件（和它调用的函数）</li>
+<li>React可以”管理“的入口</li>
+</ul>
+<ol start="3">
+<li>哪些不能命中 batchUpdate 机制</li>
+</ol>
+<ul>
+<li>setTimeout setInterval 等（和它调用的函数）</li>
+<li>自定义的DOM事件（和它调用的函数）</li>
+<li>React ”管不到“的入口</li>
+</ul>
+<h2 id="5、fiber"><a href="#5、fiber" class="headerlink" title="5、fiber"></a>5、fiber</h2><p>组件渲染流程：</p>
+<ol>
+<li>解析 props ，自定义state</li>
+<li>执行 render() 函数，通过解析JSX结构生成 vnode</li>
+<li>通过 patch(elem, vnode) vnode</li>
+</ol>
+<p>组件更新流程：</p>
+<ol>
+<li>通过 setState(newState) 生成 dirtyComponents （可能有子组件）</li>
+<li>遍历dirtyComponents所有的组件， render() 生成newVnode</li>
+<li>调用patch(vnode, newVnode)渲染</li>
+</ol>
+<p>对以上的patch 拆分为两个阶段：</p>
+<ol>
+<li>reconciliation 阶段： 执行diff算法， 纯JS机选</li>
+<li>commit 阶段： 将diff结果渲染DOM</li>
+</ol>
+<p>可能会有新能问题：</p>
+<ul>
+<li>JS 是单线程， 且和DOM渲染共用一个线程</li>
+<li>当组件足够复杂，组件更新时计算和渲染都压力大</li>
+<li>同时再有DOM操作需求（动画、鼠标拖拽等）， 将卡顿</li>
+</ul>
+<p>解决方案—— fiber：</p>
+<ul>
+<li>将 reconciliation 阶段进行任务拆分（commit阶段无法拆分），拆分为多个任务片段</li>
+<li>DOM需要渲染时暂停 reconciliation 拆分的任务，空闲时间恢复计算</li>
+<li>判断浏览器DOM需要更新渲染的API： window.requestIdleCallback (有些浏览器不支持，因此fiber不是支持所有浏览器)</li>
+</ul>
+<h2 id="6、React事务机制"><a href="#6、React事务机制" class="headerlink" title="6、React事务机制"></a>6、React事务机制</h2><p>。。。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/React/">React</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/04/08/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/Vue-step1/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue step 1 —— Vue初级使用</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2016/08/25/text/test/">
+                        <span class="hidden-mobile">参考链接</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

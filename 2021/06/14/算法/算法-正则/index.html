@@ -1,0 +1,647 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="海霸">
+  <meta name="keywords" content="">
+  <title>算法-正则 - 628</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="628" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>628 blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="算法-正则">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-14 17:17" pubdate>
+        June 14, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">算法-正则</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一、-matchAll-And-replace"><a href="#一、-matchAll-And-replace" class="headerlink" title="一、 matchAll And replace"></a>一、 matchAll And replace</h2><h3 id="1、String-prototype-matchAll"><a href="#1、String-prototype-matchAll" class="headerlink" title="1、String.prototype.matchAll()"></a>1、String.prototype.matchAll()</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll">MDN-String.prototype.matchAll()</a></p>
+<p>作用: matchAll() 方法返回一个包含所有匹配正则表达式的结果及分组捕获组的迭代器。</p>
+<p>语法: <code>str.matchAll(regexp)</code></p>
+<p>参数:</p>
+<ul>
+<li>regexp: 正则表达式对象。如果所传参数不是一个正则表达式对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp 。(RegExp必须是设置了全局模式g的形式，否则会抛出异常TypeError。)</li>
+</ul>
+<p>返回值: 一个迭代器（不可重用，结果耗尽需要再次调用方法，获取一个新的迭代器）。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 实例一:</span>
+<span class="hljs-keyword">const</span> regexp = <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&#x27;foo[a-z]*&#x27;</span>,<span class="hljs-string">&#x27;g&#x27;</span>); <span class="hljs-comment">// const regexp = /foo[a-z]*/g;</span>
+<span class="hljs-keyword">const</span> str = <span class="hljs-string">&#x27;table football, foosball&#x27;</span>;
+
+<span class="hljs-comment">// 1、直接获取迭代器,进行 next() 遍历</span>
+<span class="hljs-keyword">const</span> matches = str.matchAll(regexp);
+<span class="hljs-keyword">const</span> resArr = [];
+<span class="hljs-keyword">let</span> nextVal;
+<span class="hljs-keyword">while</span>(nextVal = matches.next().value) &#123;
+	resArr.push(nextVal[<span class="hljs-number">0</span>]);
+&#125;
+
+<span class="hljs-comment">// 2、转换为数组</span>
+<span class="hljs-keyword">var</span> ite = str.matchAll(regexp)
+<span class="hljs-keyword">var</span> array = [...ite];
+<span class="hljs-built_in">console</span>.log(array.length); <span class="hljs-comment">// 2</span></code></pre>
+
+<img src="https://i.loli.net/2021/01/07/IWgdFcxN3XpOJoe.png" srcset="/img/loading.gif" >
+
+<pre><code class="hljs javascript"><span class="hljs-comment">// 实例二:</span>
+
+<span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/([a-z])\1&#123;2,&#125;/g</span>
+<span class="hljs-keyword">var</span> r = [];
+<span class="hljs-keyword">var</span> s = <span class="hljs-string">&quot;abcdddeeeeaabbbcd&quot;</span>;
+s.replace(reg, <span class="hljs-function">(<span class="hljs-params">a, _, i</span>) =&gt;</span> r.push([i, i + a.length - <span class="hljs-number">1</span>]));
+<span class="hljs-built_in">console</span>.log(r);</code></pre>
+
+<h3 id="2、String-prototype-replace"><a href="#2、String-prototype-replace" class="headerlink" title="2、String.prototype.replace()"></a>2、String.prototype.replace()</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace">MDN-String.prototype.replace()</a></p>
+<p>作用: replace() 方法返回一个由替换值（replacement）替换部分或所有的模式（pattern）匹配项后的新字符串。模式可以是一个字符串或者一个正则表达式，替换值可以是一个字符串或者一个每次匹配都要调用的回调函数。<strong>如果pattern是字符串，则仅替换第一个匹配项。</strong><br><strong>原字符串不会改变。</strong></p>
+<p>语法: <code>str.replace(regexp|substr, newSubStr|function)</code></p>
+<p>参数:</p>
+<ul>
+<li><code>regexp (pattern)</code> —— 一个RegExp 对象或者其字面量。该正则所匹配的内容会被第二个参数的返回值替换掉。</li>
+<li><code>substr (pattern)</code> —— 一个将被 newSubStr 替换的 字符串。其被视为一整个字符串，而不是一个正则表达式。仅第一个匹配项会被替换。</li>
+<li><code>newSubStr (replacement)</code> —— 用于替换掉第一个参数在原字符串中的匹配部分的字符串。该字符串中可以内插一些特殊的变量名。</li>
+<li><code>function (replacement)</code> —— 一个用来创建新子字符串的函数，该函数的返回值将替换掉第一个参数匹配到的结果。</li>
+</ul>
+<pre><code class="hljs text">function (replacement)
+当指定一个函数作为第二个参数时，函数的参数如下：
+
+- match —— 匹配的子串
+- p1,p2, ... —— 如果第一个参数是一个正则，可能会匹配n个对象，代表匹配的对象
+	如果是用 /(\a+)(\b+)/ 这个来匹配，p1 就是匹配的 \a+，p2 就是匹配的 \b+，以此类推
+- offset —— 匹配到的子字符串在原字符串中的偏移量
+- string —— 被匹配的原字符串
+- NamedCaptureGroup
+</code></pre>
+
+<p>返回值: 一个部分或全部匹配由替代模式所取代的新的字符串。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 实例一:</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">replacer</span>(<span class="hljs-params">match, p1, p2, p3, offset, string</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> [p1, p2, p3].join(<span class="hljs-string">&#x27; - &#x27;</span>);
+&#125;
+<span class="hljs-keyword">var</span> newString = <span class="hljs-string">&#x27;abc12345#$*%&#x27;</span>.replace(<span class="hljs-regexp">/([^\d]*)(\d*)([^\w]*)/</span>, replacer);
+<span class="hljs-built_in">console</span>.log(newString);  <span class="hljs-comment">// abc - 12345 - #$*%</span>
+
+<span class="hljs-comment">// 实例二:</span>
+<span class="hljs-keyword">var</span> s = <span class="hljs-string">&quot;abcdddeeeeaabbbcd&quot;</span>;
+<span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/([a-z])\1&#123;2,&#125;/g</span>
+<span class="hljs-keyword">let</span> g = s.matchAll(reg);
+
+<span class="hljs-keyword">var</span> r = [];
+<span class="hljs-keyword">var</span> t;
+<span class="hljs-keyword">while</span> (t = g.next().value) r.push([t.index, t.index + t[<span class="hljs-number">0</span>].length - <span class="hljs-number">1</span>]);
+<span class="hljs-built_in">console</span>.log(r);</code></pre>
+
+<h3 id="3、例题"><a href="#3、例题" class="headerlink" title="3、例题"></a>3、例题</h3><h4 id="1-较大分组的位置"><a href="#1-较大分组的位置" class="headerlink" title="1.较大分组的位置"></a>1.较大分组的位置</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/positions-of-large-groups/">leetcode-830较大分组的位置[简单]</a></p>
+<p>在一个由小写字母构成的字符串 s 中，包含由一些连续的相同字符所构成的分组。</p>
+<p>例如，在字符串 s = “abbxxxxzyy” 中，就含有 “a”, “bb”, “xxxx”, “z” 和 “yy” 这样的一些分组。</p>
+<p>分组可以用区间 [start, end] 表示，其中 start 和 end 分别表示该分组的起始和终止位置的下标。上例中的 “xxxx” 分组用区间表示为 [3,6] 。</p>
+<p>我们称所有包含大于或等于三个连续字符的分组为 <strong>较大分组</strong> 。</p>
+<p>找到每一个 <strong>较大分组</strong> 的区间，<strong>按起始位置下标递增顺序排序后</strong>，返回结果。</p>
+<p>示例 1：</p>
+<pre><code class="hljs text">输入：s = &quot;abbxxxxzzy&quot;
+输出：[[3,6]]
+解释：&quot;xxxx&quot; 是一个起始于 3 且终止于 6 的较大分组。</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs text">输入：s = &quot;abc&quot;
+输出：[]
+解释：&quot;a&quot;,&quot;b&quot; 和 &quot;c&quot; 均不是符合要求的较大分组。</code></pre>
+
+<p>示例 3：</p>
+<pre><code class="hljs text">输入：s = &quot;abcdddeeeeaabbbcd&quot;
+输出：[[3,5],[6,9],[12,14]]
+解释：较大分组为 &quot;ddd&quot;, &quot;eeee&quot; 和 &quot;bbb&quot;</code></pre>
+
+<p>示例 4：</p>
+<pre><code class="hljs text">输入：s = &quot;aba&quot;
+输出：[]</code></pre>
+
+<p>提示：</p>
+<ol>
+<li>1 &lt;= s.length &lt;= 1000</li>
+<li>s 仅含小写英文字母</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;string&#125;</span> <span class="hljs-variable">s</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number[][]&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> largeGroupPositions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>&#123;
+    <span class="hljs-comment">// 解法一: 双指针</span>
+    <span class="hljs-comment">// let res = [];</span>
+    <span class="hljs-comment">// if (!s) return res;</span>
+    <span class="hljs-comment">// let p1 = 0;</span>
+    <span class="hljs-comment">// let p2;</span>
+    <span class="hljs-comment">// while(p1 &lt; s.length - 1) &#123;</span>
+    <span class="hljs-comment">//     p2 = p1 + 1;</span>
+    <span class="hljs-comment">//     while(s[p1] === s[p2]) &#123;</span>
+    <span class="hljs-comment">//         p2++;</span>
+    <span class="hljs-comment">//     &#125;</span>
+    <span class="hljs-comment">//     if(p2 - p1 &gt;= 3 ) &#123;</span>
+    <span class="hljs-comment">//         res.push([p1, p2 - 1]);</span>
+    <span class="hljs-comment">//         p1 = p2;</span>
+    <span class="hljs-comment">//     &#125; else &#123;</span>
+    <span class="hljs-comment">//         p1++;</span>
+    <span class="hljs-comment">//     &#125;</span>
+    <span class="hljs-comment">// &#125;</span>
+    <span class="hljs-comment">// return res;</span>
+
+    <span class="hljs-comment">// 解法二: 正则matchAll —— ([a-z])捕获小写字母，\1反向引用刚才捕获的字母，&#123;2,&#125;该字母又出现&gt;=2次</span>
+    <span class="hljs-comment">// let g = s.matchAll(/([a-z])\1&#123;2,&#125;/g);</span>
+    <span class="hljs-comment">// let r = [];</span>
+    <span class="hljs-comment">// let t;</span>
+    <span class="hljs-comment">// while (t = g.next().value) r.push([t.index, t.index + t[0].length - 1])</span>
+    <span class="hljs-comment">// return r</span>
+
+    <span class="hljs-comment">// 解法三</span>
+    <span class="hljs-keyword">const</span> r = [];
+    s.replace(<span class="hljs-regexp">/([a-z])\1&#123;2,&#125;/g</span>, <span class="hljs-function">(<span class="hljs-params">a, _, i</span>)=&gt;</span> r.push([i, i + a.length - <span class="hljs-number">1</span>]));
+    <span class="hljs-keyword">return</span> r;
+&#125;;</code></pre>
+
+<h4 id="2-下划线转驼峰"><a href="#2-下划线转驼峰" class="headerlink" title="2.下划线转驼峰"></a>2.下划线转驼峰</h4><p>方法一：正则表达式 （推荐）</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">// 驼峰式转下横线：</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toLowerLine</span>(<span class="hljs-params">str</span>) </span>&#123;
+	<span class="hljs-keyword">var</span> temp = str.replace(<span class="hljs-regexp">/[A-Z]/g</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">match</span>) </span>&#123;	
+		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;_&quot;</span> + match.toLowerCase();
+  	&#125;);
+	<span class="hljs-comment">//如果首字母是大写，执行replace时会多一个_，这里需要去掉</span>
+  	<span class="hljs-keyword">if</span>(temp.slice(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>) === <span class="hljs-string">&#x27;_&#x27;</span>)&#123;
+  		temp = temp.slice(<span class="hljs-number">1</span>);
+  	&#125;
+	<span class="hljs-keyword">return</span> temp;
+&#125;;
+<span class="hljs-built_in">console</span>.log(toLowerLine(<span class="hljs-string">&quot;TestToLowerLine&quot;</span>));  <span class="hljs-comment">//test_to_lower_line</span>
+<span class="hljs-built_in">console</span>.log(toLowerLine(<span class="hljs-string">&quot;testToLowerLine&quot;</span>));  <span class="hljs-comment">//test_to_lower_line</span>
+
+<span class="hljs-comment">// 下横线转驼峰式：</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toCamel</span>(<span class="hljs-params">str</span>) </span>&#123;
+  	<span class="hljs-keyword">return</span> str.replace(<span class="hljs-regexp">/([^_])(?:_+([^_]))/g</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">match, $<span class="hljs-number">1</span>, $<span class="hljs-number">2</span></span>) </span>&#123;
+		<span class="hljs-comment">// match=t_b, $1=t, $2=b</span>
+		<span class="hljs-comment">// match=e_c, $1=e, $2=c</span>
+		<span class="hljs-keyword">return</span> $<span class="hljs-number">1</span> + $<span class="hljs-number">2.</span>toUpperCase();
+  	&#125;);
+&#125;
+<span class="hljs-built_in">console</span>.log(toCamel(<span class="hljs-string">&#x27;test_be_camel&#x27;</span>)); <span class="hljs-comment">//testToCamel</span></code></pre>
+
+<p>方法二：利用数组的 reduce 方法实现</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">// 驼峰式转下横线：</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toLowerLine</span>(<span class="hljs-params">arr</span>)</span>&#123;
+	<span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> arr === <span class="hljs-string">&#x27;string&#x27;</span>)&#123;
+		arr = arr.split(<span class="hljs-string">&#x27;&#x27;</span>);
+	&#125;
+	<span class="hljs-keyword">return</span> arr.reduce(doLowerLine,<span class="hljs-string">&#x27;&#x27;</span>);
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doLowerLine</span>(<span class="hljs-params">previousValue, currentValue, currentIndex, array</span>)</span>&#123;
+	<span class="hljs-keyword">if</span>(<span class="hljs-regexp">/[A-Z]/</span>.test(currentValue))&#123;
+		currentValue = currentValue.toLowerCase();
+		<span class="hljs-keyword">if</span>(currentIndex === <span class="hljs-number">0</span>)&#123;
+			<span class="hljs-keyword">return</span> previousValue + currentValue;
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			<span class="hljs-keyword">return</span> previousValue + <span class="hljs-string">&#x27;_&#x27;</span> + currentValue;
+		&#125;
+	&#125; <span class="hljs-keyword">else</span> &#123;
+		<span class="hljs-keyword">return</span> previousValue + currentValue;
+	&#125;
+&#125;
+<span class="hljs-keyword">var</span> a = <span class="hljs-string">&#x27;TestToLowerLine&#x27;</span>;
+<span class="hljs-keyword">var</span> res1 = toLowerLine(a);	<span class="hljs-comment">//test_to_lower_line</span>
+<span class="hljs-keyword">var</span> res2 = [].reduce.call(a,doLowerLine,<span class="hljs-string">&#x27;&#x27;</span>);	<span class="hljs-comment">//test_to_lower_line</span>
+
+<span class="hljs-comment">// 下横线转驼峰式：</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toCamel</span>(<span class="hljs-params">str</span>) </span>&#123;
+	<span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> str === <span class="hljs-string">&#x27;string&#x27;</span>)&#123;
+		str = str.split(<span class="hljs-string">&#x27;&#x27;</span>); <span class="hljs-comment">//转为字符数组</span>
+	&#125;
+	<span class="hljs-keyword">return</span> str.reduce(doCamel);
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doCamel</span>(<span class="hljs-params">previousValue, currentValue, currentIndex, array</span>)</span>&#123;
+	<span class="hljs-keyword">if</span> (previousValue.endsWith(<span class="hljs-string">&#x27;_&#x27;</span>)) &#123;
+		<span class="hljs-keyword">return</span> previousValue.substring(<span class="hljs-number">0</span>, previousValue.length - <span class="hljs-number">1</span>) + currentValue.toUpperCase();
+	&#125; <span class="hljs-keyword">else</span> &#123;
+		<span class="hljs-keyword">return</span> previousValue + currentValue;
+	&#125;
+&#125;
+<span class="hljs-built_in">console</span>.log(toCamel(<span class="hljs-string">&#x27;test_to_camel&#x27;</span>));    <span class="hljs-comment">//TestToCamel</span></code></pre>
+
+<p>方法三：利用数组的 map 方法实现</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">// 驼峰式转下横线：</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doLowerLine</span>(<span class="hljs-params">val, index, arr</span>)</span>&#123;
+	<span class="hljs-keyword">if</span>(<span class="hljs-regexp">/[A-Z]/</span>.test(val))&#123;
+		<span class="hljs-keyword">if</span>(index === <span class="hljs-number">0</span>)&#123;
+			<span class="hljs-keyword">return</span> val.toLowerCase();
+		&#125;<span class="hljs-keyword">else</span>&#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;_&#x27;</span> + val.toLowerCase();
+		&#125;
+	&#125;<span class="hljs-keyword">else</span>&#123;
+		<span class="hljs-keyword">return</span> val;
+	&#125;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toLowerLine</span>(<span class="hljs-params">arr</span>)</span>&#123;
+	<span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> arr === <span class="hljs-string">&#x27;string&#x27;</span>)&#123;
+		<span class="hljs-keyword">return</span> [].map.call(arr,doLowerLine).join(<span class="hljs-string">&#x27;&#x27;</span>);
+		<span class="hljs-comment">// Array.prototype.map.call(arr, doLowerLine).join(&#x27;&#x27;);</span>
+	&#125;<span class="hljs-keyword">else</span>&#123;
+		<span class="hljs-keyword">return</span> arr.map(doLowerLine).join(<span class="hljs-string">&#x27;&#x27;</span>);
+	&#125;
+&#125;
+<span class="hljs-keyword">var</span> a = <span class="hljs-string">&#x27;TestToLowerLine&#x27;</span>;
+<span class="hljs-keyword">var</span> res1 = [].map.call(a,doLowerLine).join(<span class="hljs-string">&#x27;&#x27;</span>);    <span class="hljs-comment">//test_to_lower_line</span>
+<span class="hljs-keyword">var</span> res2 = toLowerLine(a);    <span class="hljs-comment">//test_to_lower_line</span></code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/17/interview/js-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">js-性能优化</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/11/interview/HTML&amp;CSS/">
+                        <span class="hidden-mobile">HTMLCSS</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
