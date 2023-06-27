@@ -509,7 +509,7 @@
 <p>2、使用 <code>Redux</code> 或者 <code>Mobx</code> 等状态管理库</p>
 <p>3、使用订阅发布模式</p>
 <p>相关链接：<a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/hooks-reference.html#usecontext">React Docs</a></p>
-<h3 id="12、React-父组件如何调用子组件中的方法？"><a href="#12、React-父组件如何调用子组件中的方法？" class="headerlink" title="12、React 父组件如何调用子组件中的方法？"></a>12、React 父组件如何调用子组件中的方法？</h3><p>1、如果是在方法组件中调用子组件（&gt;= <a href="mailto:&#114;&#x65;&#x61;&#99;&#x74;&#x40;&#x31;&#54;&#x2e;&#x38;">&#114;&#x65;&#x61;&#99;&#x74;&#x40;&#x31;&#54;&#x2e;&#x38;</a>），可以使用 useRef 和 useImperativeHandle:</p>
+<h3 id="12、React-父组件如何调用子组件中的方法？"><a href="#12、React-父组件如何调用子组件中的方法？" class="headerlink" title="12、React 父组件如何调用子组件中的方法？"></a>12、React 父组件如何调用子组件中的方法？</h3><p>1、如果是在方法组件中调用子组件（&gt;= <a href="mailto:&#114;&#101;&#97;&#99;&#116;&#x40;&#49;&#x36;&#x2e;&#56;">&#114;&#101;&#97;&#99;&#116;&#x40;&#49;&#x36;&#x2e;&#56;</a>），可以使用 useRef 和 useImperativeHandle:</p>
 <pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; forwardRef, useRef, useImperativeHandle &#125; = React;
 
 <span class="hljs-keyword">const</span> Child = forwardRef(<span class="hljs-function">(<span class="hljs-params">props, ref</span>) =&gt;</span> &#123;
@@ -531,7 +531,7 @@
   );
 &#125;;</code></pre>
 
-<p>2、如果是在类组件中调用子组件（&gt;= <a href="mailto:&#x72;&#x65;&#97;&#99;&#116;&#64;&#49;&#54;&#x2e;&#52;">&#x72;&#x65;&#97;&#99;&#116;&#64;&#49;&#54;&#x2e;&#52;</a>），可以使用 createRef:</p>
+<p>2、如果是在类组件中调用子组件（&gt;= <a href="mailto:&#114;&#101;&#x61;&#99;&#x74;&#64;&#x31;&#54;&#46;&#52;">&#114;&#101;&#x61;&#99;&#x74;&#64;&#x31;&#54;&#46;&#52;</a>），可以使用 createRef:</p>
 <pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; Component &#125; = React;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>&#123;
